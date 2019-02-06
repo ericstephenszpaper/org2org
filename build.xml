@@ -66,8 +66,7 @@
 
     <target name="justDeployCode">
       <!-- Upload the contents of the "codepkg" directory, //ERS181112 #50378  sessionId="${sf.sessionId}" -->
-      <!-- sf:deploy sessionId="${sessionId}" username="${sf.username}" password="${sf.password}"  serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="codepkg" rollbackOnError="true" -->
-      <sf:deploy sessionId="${sessionId}" serverurl="${targetServerUrl}" maxPoll="${sf.maxPoll}" deployRoot="codepkg" rollbackOnError="true">
+      <sf:deploy sessionId="${targetSessionId}" serverurl="${targetServerUrl}" maxPoll="${sf.maxPoll}" deployRoot="codepkg" rollbackOnError="true">
       </sf:deploy>
     </target>
 
