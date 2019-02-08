@@ -88,7 +88,7 @@
     <!-- Shows retrieving code; only succeeds if done after deployCode -->
     <target name="retrieveCode">
       <!-- Retrieve the contents listed in the file codepkg/package.xml into the codepkg directory -sessionId0="${sf.sessionId}" -->
-      <sf:retrieve username="${sourceUsername}" password="${sourcePassword}" serverurl="${sourceServerUrl}" maxPoll="${sf.maxPoll}" retrieveTarget="codepkg" unpackaged="codepkg/package.xml"/>
+      <sf:retrieve sessionId="${sourceSessionId}" serverurl="${sourceServerUrl}" maxPoll="${sf.maxPoll}" retrieveTarget="codepkg" unpackaged="codepkg/package.xml"/>
     </target>
 
     <target name="pushRepo">
