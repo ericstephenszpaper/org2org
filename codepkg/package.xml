@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>o2o</fullName>    <description>zPaper Sales Demo Rule Move 20190327</description>    <types>        <members>zzAction_Ignore_Page_js</members>        <members>zzAction_Reject_Page_js</members>        <name>StaticResource</name>     </types>  <version>27.0</version></Package>
+<!-- Last updated Wed Mar 27 21:07:14 EDT 2019 -->
