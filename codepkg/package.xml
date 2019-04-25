@@ -1,19 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>ZPAPER__zpaper__c.BREXinboundFaxLine__c</members>
-        <members>ZPAPER__zpaper__c.inboundEmailRecordType__c</members>
-        <members>ZPAPER__zpaper__c.inboundFaxRecordType__c</members>
-        <members>ZPAPER__zpaper__c.outboundEmailRecordType__c</members>
-        <members>ZPAPER__zpaper__c.outboundFaxRecordType__c</members>
-        <name>CustomField</name>
-    </types>
-    <types>
-        <members>zDocSetup_json</members>
-        <members>zzAction_DTPC_Library_js</members>
-        <members>zzAction_zStack_Library_js</members>
-        <members>zzOrg_Settings_js</members>
-        <name>StaticResource</name>
-    </types>
-    <version>27.0</version>
-</Package>
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>o2o</fullName>    <description>ERS190415 o2o</description>    <types>        <members>zzAction_DTPC_Library_js</members>        <members>zzAction_zStack_Library_js</members> <members>zzAction_DELIVERY_COMPLETE_js </members>        <members>zDocSetup_json</members>        <members>zzOrg_Settings_js</members>        <name>StaticResource</name>     </types><types>        <members>ZPAPER__zpaper__c.inboundFaxRecordType__c</members>         <members>ZPAPER__zpaper__c.outboundFaxRecordType__c</members>        <members>ZPAPER__zpaper__c.inboundEmailRecordType__c</members>         <members>ZPAPER__zpaper__c.outboundEmailRecordType__c</members>         <members>ZPAPER__zpaper__c.BREXinboundFaxLine__c</members>        <name>CustomField</name>    </types><types>        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members></types> <!--   <types>        <members>Case-Fulfillment</members>        <name>Layout</name>    </types> --><!-- //ERS190322 only using the static resources for this project    <types>        <members>Stack__c.Document_Type__c</members>        <members>ZPAPER__zStack__c.Case_Record_Type__c</members>         <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members        <members>ZPAPER__zStack__c.ZPAPER__FirstName__c</members        <members>ZPAPER__zStack__c.ZPAPER_ProviderFirstName__c</members        <members>Outbound_Fax__c.Fax_Notes__c</members>        <name>CustomField</name>    </types>    <types>        <members>Case.Cosentyx_Reimbursement</members>        <name>RecordType</name>    </types><types>    <members>MSH_TobiIntakeComplete</members>    <members>MSH_TobiIntakeIncomplete</members>    <members>MSH_TobiIntakeComplete</members>    <name>ApexPage</name></types><types><members>MSH_EntrestoFaxHeader</members><name>ApexComponents</name></types><types><members>OutboundFax__c</members><name>CustomRecord</name></types>-->  <version>27.0</version></Package>
+<!-- Last updated Thu Apr 25 18:11:31 EDT 2019 -->
