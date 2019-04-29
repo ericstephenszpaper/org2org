@@ -2,71 +2,8 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
         <fullName>ZPAPER__faxType__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Document Type</label>
         <picklist>
-            <controllingField>ZPAPER__Classification__c</controllingField>
-            <picklistValues>
-                <fullName>ENRL</fullName>
-                <default>true</default>
-                <controllingFieldValues>Intake</controllingFieldValues>
-                <controllingFieldValues>zCharta</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MIF</fullName>
-                <default>false</default>
-                <controllingFieldValues>Intake</controllingFieldValues>
-                <controllingFieldValues>zCharta</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PAF</fullName>
-                <default>false</default>
-                <controllingFieldValues>Intake</controllingFieldValues>
-                <controllingFieldValues>zCharta</controllingFieldValues>
-                <controllingFieldValues>zPapyrus</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>POI</fullName>
-                <default>false</default>
-                <controllingFieldValues>Intake</controllingFieldValues>
-                <controllingFieldValues>zPapyrus</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FIN</fullName>
-                <default>false</default>
-                <controllingFieldValues>Intake</controllingFieldValues>
-                <controllingFieldValues>zPapyrus</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3500</fullName>
-                <default>false</default>
-                <controllingFieldValues>zCharta</controllingFieldValues>
-                <controllingFieldValues>zPapyrus</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>I9</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IC</fullName>
-                <default>false</default>
-                <controllingFieldValues>zCharta</controllingFieldValues>
-                <controllingFieldValues>zPapyrus</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PREL</fullName>
-                <default>false</default>
-                <controllingFieldValues>zPapyrus</controllingFieldValues>
-            </picklistValues>
-            <picklistValues>
-                <fullName>W4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FAX</fullName>
-                <default>false</default>
-            </picklistValues>
             <picklistValues>
                 <fullName>CONS:Consent</fullName>
                 <default>false</default>
@@ -74,10 +11,7 @@
                 <controllingFieldValues>zCharta</controllingFieldValues>
                 <controllingFieldValues>zPapyrus</controllingFieldValues>
             </picklistValues>
-            <sorted>false</sorted>
         </picklist>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
 </CustomObject>
