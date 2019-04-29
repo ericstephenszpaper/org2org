@@ -3,11 +3,5 @@
     <fields>
         <fullName>ZPAPER__faxType__c</fullName>
         <label>Document Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>CONS:Consent</fullName>
-            </picklistValues>
-        </picklist>
-        <type>Picklist</type>
     </fields>
 </CustomObject>
