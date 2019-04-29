@@ -6,10 +6,6 @@
         <picklist>
             <picklistValues>
                 <fullName>CONS:Consent</fullName>
-                <default>false</default>
-                <controllingFieldValues>Intake</controllingFieldValues>
-                <controllingFieldValues>zCharta</controllingFieldValues>
-                <controllingFieldValues>zPapyrus</controllingFieldValues>
             </picklistValues>
         </picklist>
         <type>Picklist</type>
