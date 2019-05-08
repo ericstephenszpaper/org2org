@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Diagnosis__c</fullName>
+        <externalId>false</externalId>
+        <label>Diagnosis</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Acute Renal Failure</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ankylosing spondylitis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Crohn&apos;s disease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ESRD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Multiple Sclerosis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plaque psoriasis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rheumatoid Arthritis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Type 2 Diabetes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ulcerative colitis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Facility__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is a provider office, hospital, pharmacy or distribution center</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a provider office, hospital, pharmacy or distribution center</inlineHelpText>
+        <label>Facility</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>zStacks (Facility)</relationshipLabel>
+        <relationshipName>zStacks1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <description>Notes from zStack</description>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Program_Name_Community_Upload__c</fullName>
+        <description>This is a hidden field for the picklist on the community page so people who are uploading documents can select a program and that will set the attributes on the new created zStack.</description>
+        <externalId>false</externalId>
+        <label>Program Name</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Palveo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vindico</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>zCARTa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>zCharta</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>zPapyrus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spinraza</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tecfidera</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>zReferral</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Received_Date_Time__c</fullName>
+        <description>This is replacing the Received At from the Managed Package</description>
+        <externalId>false</externalId>
+        <formula>CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Received Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Time_Accepted_Date__c</fullName>
+        <description>This is the time and date a zStack was accepted from the Main Intake List</description>
+        <externalId>false</externalId>
+        <label>Time Accepted Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Time_Complete_Date__c</fullName>
+        <description>Our test for 2</description>
+        <externalId>false</externalId>
+        <label>Time Complete Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>zStack_Accepted_Age_in_Minutes__c</fullName>
+        <description>Time when a zStack was received and then accepted in minutes</description>
+        <externalId>false</externalId>
+        <formula>(Time_Accepted_Date__c -   Received_Date_Time__c  ) *1440</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Accepted Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zStack_Completed_Age_in_Minutes__c</fullName>
+        <description>This is the formula that calculates the time from when a zStack is accepted to when it is completed</description>
+        <externalId>false</externalId>
+        <formula>( Time_Complete_Date__c - Time_Accepted_Date__c) * 1440</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Completed Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>
