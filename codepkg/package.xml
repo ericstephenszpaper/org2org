@@ -1,27 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>zDocSetup_json</members>
-        <members>zPaperFlowsData</members>
-        <members>zzAction_Create_Stack_from_Fax_js</members>
-        <members>zzAction_Create_Substack_js</members>
-        <members>zzAction_Create_zStack_from_Fax_js</members>
-        <members>zzAction_DELIVERY_COMPLETE_js</members>
-        <members>zzAction_Form_Save_Completed_js</members>
-        <members>zzAction_Ignore_Page_js</members>
-        <members>zzAction_Import_HL7_CCD_js</members>
-        <members>zzAction_Index_Page_js</members>
-        <members>zzAction_MARKUP_COMPLETE_js</members>
-        <members>zzAction_Referral_Page_js</members>
-        <members>zzAction_Reject_Page_js</members>
-        <members>zzAction_Remove_Page_from_Doc_Set_js</members>
-        <members>zzAction_Run_OCR_on_Fax_Page_js</members>
-        <members>zzAction_Stack_Complete_js</members>
-        <members>zzAction_Standard_Barcode_Received_js</members>
-        <members>zzAction_zPaper_OCR_Library_js</members>
-        <members>zzAction_zStack_Complete_js</members>
-        <members>zzAction_zStack_Library_js</members>
-        <name>StaticResource</name>
-    </types>
-    <version>27.0</version>
-</Package>
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>o2o</fullName>    <description>ERS190513 AutoDrive and HL7</description>    <types>        <members>zzAction_zPaper_OCRAD_Library_js</members><members>zzAction_Run_OCR_on_Fax_Page_js</members><members>zPaperFlowsData</members><members>zzAction_Import_HL7_CCD_js</members><members>zzAction_FHIR_Bundle_and_Referral_js</members>        <name>StaticResource</name>     </types><!-- //ERS190322 only using the static resources for this project    <types>       <members>Makana_Classic</members>        <name>CustomApplication</name>    </types>     <types>        <members>ConnectedApp_Resources</members>        <members>ConnectedApp_Resources/TemporaryLogoName1.jpeg</members>        <name>Document</name>    </types>    <types>        <members>ZPAPER__zStack__c.Received_Date_Time__c</members>        <members>ZPAPER__zStack__c.Time_Accepted_Date__c</members>        <members>Contact.Office_Staff__c</members>        <members>Contact.Specialty__c</members>        <members>Contact.Tax_Identification_Number__c</members>        <members>Contact.Insurance_Carrier__c</members>        <members>Account.Type</members>        <!--<members>PersonAccount.Type</members>-->        <name>CustomField</name>    </types>    <types>        <members>Account.Hospital_Clinic</members>        <members>Account.Insurance_Company</members>        <members>Contact.Provider</members>        <members>PersonAccount.Provider_Person_Account</members>        <name>RecordType</name>    </types>    <types>        <members>zPaper_Dashboards</members>        <members>zPaper_Dashboards/O2OTestDash</members>        <name>Dashboard</name>    </types>    <types>        <members>ZPAPER__zPaperReports04t80000000jN5s/Agents_average_zStack_completed_time_uUn</members>        <members>ZPAPER__zPaperReports04t80000000jN5s/Average_time_when_zStack_gets_accepted_Jtb</members>        <members>ZPAPER__zPaperReports04t80000000jN5s/Average_zStack_Accepted_vs_Completed_u9C</members>        <name>Report</name>    </types>     <types>        <members>Account-Hospital%2FClinic</members>        <members>Account-Patient Layout</members>        <members>Contact-Provider Layout</members>        <name>Layout</name>    </types>    <types>        <members>ZPAPER__zStack__c.Indexed_Documents</members>        <members>ZPAPER__zStack__c.Master_Intake_List</members>        <members>ZPAPER__zStack__c.My_List</members>        <name>ListView</name>    </types>    <types>        <members>Account.GoogleMaps</members>        <members>Contact.SendGmail</members>        <members>Contact.YahooWeather</members>        <name>WebLink</name>    </types>    <types>        <members>Case.Cosentyx_Reimbursement</members>        <name>RecordType</name>    </types><types>    <members>MSH_TobiIntakeComplete</members>    <members>MSH_TobiIntakeIncomplete</members>    <members>MSH_TobiIntakeComplete</members>    <name>ApexPage</name></types><types><members>MSH_EntrestoFaxHeader</members><name>ApexComponents</name></types><types><members>OutboundFax__c</members><name>CustomRecord</name></types>-->  <version>27.0</version></Package>
+<!-- Last updated Mon May 13 19:41:51 EDT 2019 -->
