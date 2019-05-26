@@ -29,7 +29,7 @@
         <type>Flexipage</type>
         <profile>PSM User</profile>
     </profileActionOverrides>
--->
+--><!-- ERS190526 HACK to see where the ID error might be coming from 
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>Case_Record_Page</content>
@@ -57,6 +57,7 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
+-->
     <tabs>standard-home</tabs>
     <tabs>ZPAPER__zStack__c</tabs>
     <tabs>standard-Case</tabs>
