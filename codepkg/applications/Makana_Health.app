@@ -12,6 +12,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Makana Health</label>
     <navType>Console</navType>
+    <!-- ERS190526 O2O can not stand the custom profiles
     <profileActionOverrides>
         <actionName>Tab</actionName>
         <content>Makana_Health_PSA_Dashboard</content>
@@ -28,6 +29,7 @@
         <type>Flexipage</type>
         <profile>PSM User</profile>
     </profileActionOverrides>
+-->
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>Case_Record_Page</content>
