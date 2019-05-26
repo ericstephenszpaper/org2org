@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Agree_to_services__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check box on Enrollment Application and Agreement Capture Form</description>
+        <externalId>false</externalId>
+        <label>Agree to services</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Facility_Name__c</fullName>
+        <description>needed for Stack functionality</description>
+        <externalId>false</externalId>
+        <label>Facility Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Received_Information__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check box on Enrollment Application and Agreement Capture Form</description>
+        <externalId>false</externalId>
+        <label>Received Information</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Type</label>
+        <picklist>
+            <controllingField>Type</controllingField>
+            <picklistValues>
+                <fullName>Billing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Insurance Verification</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+                <controllingFieldValues>Adverse Event</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Follow up</fullName>
+                <default>false</default>
+                <controllingFieldValues>Benefits Investigation</controllingFieldValues>
+                <controllingFieldValues>Enrollment</controllingFieldValues>
+                <controllingFieldValues>Home Care</controllingFieldValues>
+                <controllingFieldValues>Insurance Verification</controllingFieldValues>
+                <controllingFieldValues>Missing Information</controllingFieldValues>
+                <controllingFieldValues>Prior Authorization</controllingFieldValues>
+                <controllingFieldValues>Re-enrollment</controllingFieldValues>
+                <controllingFieldValues>Service Authorization</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Initial</fullName>
+                <default>false</default>
+                <controllingFieldValues>Benefits Investigation</controllingFieldValues>
+                <controllingFieldValues>Enrollment</controllingFieldValues>
+                <controllingFieldValues>Home Care</controllingFieldValues>
+                <controllingFieldValues>Insurance Verification</controllingFieldValues>
+                <controllingFieldValues>Missing Information</controllingFieldValues>
+                <controllingFieldValues>Prior Authorization</controllingFieldValues>
+                <controllingFieldValues>Service Authorization</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Suggestion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Notification</fullName>
+                <default>false</default>
+                <controllingFieldValues>Insurance Verification</controllingFieldValues>
+                <controllingFieldValues>Missing Information</controllingFieldValues>
+                <controllingFieldValues>Prior Authorization</controllingFieldValues>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>zStack_Case_Age_in_Minutes__c</fullName>
+        <description>Time from when first page of zStack is indexed until case is closed</description>
+        <externalId>false</externalId>
+        <formula>(ClosedDate -  zStack_Lookup__r.Time_Accepted_Date__c )*1440</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Time from when first page of zStack is indexed until case is closed</inlineHelpText>
+        <label>Time Indexed to Completed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zStack_Lookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is a lookup to the parent zStack Record</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Usually first zStack is the one you want to select</inlineHelpText>
+        <label>zStack Lookup</label>
+        <referenceTo>ZPAPER__zStack__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+</CustomObject>
