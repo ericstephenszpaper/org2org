@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Agree_to_services__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check box on Enrollment Application and Agreement Capture Form</description>
+        <externalId>false</externalId>
+        <label>Agree to services</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Facility_Name__c</fullName>
+        <description>needed for Stack functionality</description>
+        <externalId>false</externalId>
+        <label>Facility Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Received_Information__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check box on Enrollment Application and Agreement Capture Form</description>
+        <externalId>false</externalId>
+        <label>Received Information</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>zStack_Case_Age_in_Minutes__c</fullName>
+        <description>Time from when first page of zStack is indexed until case is closed</description>
+        <externalId>false</externalId>
+        <formula>(ClosedDate -  zStack_Lookup__r.Time_Accepted_Date__c )*1440</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Time from when first page of zStack is indexed until case is closed</inlineHelpText>
+        <label>Time Indexed to Completed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zStack_Lookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is a lookup to the parent zStack Record</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Usually first zStack is the one you want to select</inlineHelpText>
+        <label>zStack Lookup</label>
+        <referenceTo>ZPAPER__zStack__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+</CustomObject>
