@@ -12,6 +12,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Makana Health</label>
     <navType>Console</navType>
+    <!-- ERS190529 remove for o2o testing not sure why is it Case.Enrollment
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>Case_Record_Page</content>
@@ -39,6 +40,7 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
+-->
     <tabs>standard-home</tabs>
     <tabs>ZPAPER__zStack__c</tabs>
     <tabs>standard-Case</tabs>
