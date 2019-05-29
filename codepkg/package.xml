@@ -83,10 +83,12 @@
         <members>ZPAPER__zStack__c.zStack_Completed_Age_in_Minutes__c</members>
         <name>CustomField</name>
     </types>
+<!--ERS190528 how to do a button?
     <types>
         <members>zAccept</members>
         <name>CustomPageWebLink</name>
     </types>
+-->
     <types>
         <members>zPaper_Dashboards</members>
         <members>zPaper_Dashboards/DwnwiDyViKpZyLDFxxoRLZHEQmMGzR</members>
