@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Prospect</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Prospect - Inactive</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Former/Inactive Customer</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner - Prospect</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner - Referral</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner - Implementation</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner - OEM</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner - Technology</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Internal</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Reseller</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Competitor</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Investor</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Analyst</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Press</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Test</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Vendor_Gen</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Vendor - Ops/Platform</fullName>
+        <default>false</default>
+    </standardValue>
+    <standardValue>
+        <fullName>Duplicate</fullName>
+        <default>false</default>
+    </standardValue>
+</StandardValueSet>
