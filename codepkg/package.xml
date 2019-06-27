@@ -1,12 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>Account.Type</members>
-        <name>CustomField</name>
-    </types>
-    <types>
-        <members>AccountType</members>
-        <name>StandardValueSet</name>
-    </types>
-    <version>38.0</version>
-</Package>
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata"> <types> <members>Account.Type</members> <members>ZPAPER__zStack__c.ZPAPER__Stage__c</members><name>CustomField</name> </types> <types> <members>AccountType</members> <name>StandardValueSet</name> </types> <version>38.0</version> </Package>
+<!-- Last updated Thu Jun 27 17:30:24 EDT 2019 -->
