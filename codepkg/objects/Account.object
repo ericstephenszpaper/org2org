@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Type</fullName>
+        <inlineHelpText>This field populates the Account Type field toward the top of this page layout. That allows Lead field mapping from Lead.Account Type__c to Account.Account Type__c. Whatever you select here will automatically appear in Account Type via workflow update.</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+</CustomObject>
