@@ -137,7 +137,7 @@ zData.countPages = function(doc, pageRange2) {  //ERS170512 moved to library
 };
 //MSH170828
 if (1==1) { //ERS170805 get the data from the DeploymentInfo
-//CRN190724 Reworking code to work with new rules engine. The way it was being was a security hole anyway.
+//CRN190724 Reworking code to work with new rules engine.
 /*
     //alert("ERS170725 DI="+doc.kbData.deploymentInfo);
     var cs=(doc.kbData.deploymentInfo+""); //not ["Business_Process__c"];
