@@ -1,22 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>zAction_Client_Library_js</members>
-        <members>zAction_Create_Stack_from_Fax_js</members>
-        <members>zAction_Custom_Barcode_Received_js</members>
-        <members>zAction_DELIVERY_COMPLETE_js</members>
-        <members>zAction_Ignore_Page_js</members>
-        <members>zAction_Index_Page_js</members>
-        <members>zAction_Markup_Handler_js</members>
-        <members>zAction_OCR_Library_js</members>
-        <members>zAction_Reject_Page_js</members>
-        <members>zAction_Stack_Complete_js</members>
-        <members>zAction_Standard_Barcode_Received_js</members>
-        <members>zAction_ent_from_Salesforce_Record_js</members>
-        <members>zAction_zStack_Library_js</members>
-        <members>zDocSetup_json</members>
-        <members>zPaperFlowsData</members>
-        <name>StaticResource</name>
-    </types>
-    <version>46.0</version>
-</Package>
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>zConfig Actions</fullName>    <description>zConfig Actions</description>    <types>        <members>zPaperFlowsData</members>        <members>zAction_zStack_Library_js</members>        <members>zAction_zPaper_OCR_Library_js</members>        <members>zAction_Client_Library_js</members>        <members>zAction_DELIVERY_COMPLETE_js</members>         <members>zAction_Index_Page_js</members>        <members>zAction_Reject_Page_js</members>        <members>zAction_Ignore_Page_js</members>        <members>zAction_Stack_Complete_js</members>        <members>zAction_Markup_Handler_js</members>        <members>zAction_ent_from_Salesforce_Record_js</members>        <members>zAction_Standard_Barcode_Received_js</members>        <members>zAction_Custom_Barcode_Received_js</members>        <members>zAction_Create_Stack_from_Fax_js</members><!-- ERS190727 <members>zzAction_LOCK_ZSTACK_js</members> --><!-- ERS190727 <members>zzAction_Stack_Complete_js</members> --><!-- ERS190727 <members>zzAction_Standard_Barcode_Received_js</members> --><!-- ERS190727 <members>zzAction_UNLOCK_ZSTACK_js</members> --><!-- ERS190727 <members>zzAction_Attach_Pages_js</members> -->        <members>zDocSetup_json</members><!--        <members>zzOrg_Settings_js</members> -->        <name>StaticResource</name>     </types><version>46.0</version></Package>
+<!-- Last updated Sat Jul 27 16:34:21 EDT 2019 -->
