@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>zCARTa</name>
+    <queueMembers>
+        <users>
+            <user>hlee@zpaper.com</user>
+            <user>jbosworth@zpaper.com</user>
+            <user>kpittman@zpaper.com</user>
+            <user>makana_health@zpapersalesdemo.force.com</user>
+            <user>masmith@zpaper.com</user>
+            <user>msmith@zpaper.com</user>
+            <user>sales.demo@zpaper.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>ZPAPER__zStack__c</sobjectType>
+    </queueSobject>
+</Queue>
