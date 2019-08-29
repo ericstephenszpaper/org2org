@@ -185,7 +185,6 @@
     <dashboardType>LoggedInUser</dashboardType>
     <description>This is a dashboard that displays reports specifically for the agent</description>
     <isGridLayout>true</isGridLayout>
-    <runningUser></runningUser>
     <textColor>#000000</textColor>
     <title>Patient Services Agent Dashboard</title>
     <titleColor>#000000</titleColor>
