@@ -19,15 +19,6 @@
         <pageOrSobjectType>Case</pageOrSobjectType>
         <recordType>Case.Enrollment</recordType>
         <type>Flexipage</type>
-        <profile>Standard Manager User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <recordType>Case.Enrollment</recordType>
-        <type>Flexipage</type>
         <profile>Standard</profile>
     </profileActionOverrides>
     <profileActionOverrides>
