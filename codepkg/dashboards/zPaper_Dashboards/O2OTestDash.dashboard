@@ -82,7 +82,6 @@
             <showValues>false</showValues>
         </components>
     </rightSection>
-    <runningUser>sales.demo@zpaper.com</runningUser>
     <textColor>#000000</textColor>
     <title>O2OTestDash</title>
     <titleColor>#000000</titleColor>
