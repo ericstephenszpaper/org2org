@@ -250,7 +250,6 @@
     <dashboardType>LoggedInUser</dashboardType>
     <description>Dashboard is composed of SLA and KPI metric reports for management analysis</description>
     <isGridLayout>true</isGridLayout>
-    <runningUser>sales.demo@zpaper.com</runningUser>
     <textColor>#000000</textColor>
     <title>Main Patient Services Dashboard</title>
     <titleColor>#000000</titleColor>
