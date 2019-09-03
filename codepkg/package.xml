@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>o2o</fullName>    <description>ERS190513 AutoDrive and HL7</description>    <types>        <members>zzAction_zPaper_OCRAD_Library_js</members><members>zzAction_Run_OCR_on_Fax_Page_js</members><members>zPaperFlowsData</members>        <name>StaticResource</name>     </types>  <version>27.0</version></Package>
+<!-- Last updated Tue Sep 03 15:43:45 EDT 2019 -->
