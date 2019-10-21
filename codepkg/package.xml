@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>UAT to Dev2 Solution Container</fullName>    <description>UAT to Dev2 Solution Container</description>    <types>        <members>zPaperFlowsData</members>        <name>StaticResource</name>     </types><version>46.0</version></Package>
+<!-- Last updated Mon Oct 21 11:19:49 EDT 2019 -->
