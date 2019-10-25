@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Adverse Event</fullName>
+        <default>false</default>
+        <label>Adverse Event</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Benefits Investigation</fullName>
+        <default>false</default>
+        <label>Benefits Investigation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Enrollment</fullName>
+        <default>true</default>
+        <label>Enrollment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Home Care</fullName>
+        <default>false</default>
+        <label>Home Care</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Insurance Verification</fullName>
+        <default>false</default>
+        <label>Insurance Verification</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Missing Information</fullName>
+        <default>false</default>
+        <label>Missing Information</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Prior Authorization</fullName>
+        <default>false</default>
+        <label>Prior Authorization</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Re-enrollment</fullName>
+        <default>false</default>
+        <label>Re-enrollment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Service Authorization</fullName>
+        <default>false</default>
+        <label>Service Authorization</label>
+    </standardValue>
+</StandardValueSet>
