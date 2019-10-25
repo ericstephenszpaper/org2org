@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <businessProcesses>
+        <fullName>Enrollment</fullName>
+        <description>Case Support Process for Patient Enrollments</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Authorized</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Missing Information</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Processing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Working</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <fields>
+        <fullName>Agree_to_services__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check box on Enrollment Application and Agreement Capture Form</description>
+        <externalId>false</externalId>
+        <label>Agree to services</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Facility_Name__c</fullName>
+        <description>needed for Stack functionality</description>
+        <externalId>false</externalId>
+        <label>Facility Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Received_Information__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check box on Enrollment Application and Agreement Capture Form</description>
+        <externalId>false</externalId>
+        <label>Received Information</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Type</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Billing</fullName>
+                    <default>false</default>
+                    <label>Billing</label>
+                </value>
+                <value>
+                    <fullName>Complaint</fullName>
+                    <default>false</default>
+                    <label>Complaint</label>
+                </value>
+                <value>
+                    <fullName>Follow up</fullName>
+                    <default>false</default>
+                    <label>Follow up</label>
+                </value>
+                <value>
+                    <fullName>Initial</fullName>
+                    <default>false</default>
+                    <label>Initial</label>
+                </value>
+                <value>
+                    <fullName>Suggestion</fullName>
+                    <default>false</default>
+                    <label>Suggestion</label>
+                </value>
+                <value>
+                    <fullName>Notification</fullName>
+                    <default>false</default>
+                    <label>Notification</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Service Authorization</controllingFieldValue>
+                <controllingFieldValue>Home Care</controllingFieldValue>
+                <controllingFieldValue>Prior Authorization</controllingFieldValue>
+                <controllingFieldValue>Benefits Investigation</controllingFieldValue>
+                <controllingFieldValue>Enrollment</controllingFieldValue>
+                <controllingFieldValue>Insurance Verification</controllingFieldValue>
+                <controllingFieldValue>Missing Information</controllingFieldValue>
+                <controllingFieldValue>Re-enrollment</controllingFieldValue>
+                <valueName>Follow up</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Service Authorization</controllingFieldValue>
+                <controllingFieldValue>Home Care</controllingFieldValue>
+                <controllingFieldValue>Prior Authorization</controllingFieldValue>
+                <controllingFieldValue>Benefits Investigation</controllingFieldValue>
+                <controllingFieldValue>Enrollment</controllingFieldValue>
+                <controllingFieldValue>Insurance Verification</controllingFieldValue>
+                <controllingFieldValue>Missing Information</controllingFieldValue>
+                <valueName>Initial</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Prior Authorization</controllingFieldValue>
+                <controllingFieldValue>Insurance Verification</controllingFieldValue>
+                <controllingFieldValue>Missing Information</controllingFieldValue>
+                <valueName>Notification</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Adverse Event</controllingFieldValue>
+                <valueName>Complaint</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Insurance Verification</controllingFieldValue>
+                <valueName>Billing</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Understand_rights__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check box on Enrollment Application and Agreement Capture Form</description>
+        <externalId>false</externalId>
+        <label>Understand rights</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>zEmailPIN__c</fullName>
+        <description>for emailing PHI</description>
+        <externalId>false</externalId>
+        <formula>TEXT(YEAR( Contact.Birthdate )) &amp;  Contact.FirstName</formula>
+        <inlineHelpText>for emailing PHI</inlineHelpText>
+        <label>zEmailPIN</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zStack_Case_Age_in_Minutes__c</fullName>
+        <description>Time from when first page of zStack is indexed until case is closed</description>
+        <externalId>false</externalId>
+        <formula>(ClosedDate -  zStack_Lookup__r.Time_Accepted_Date__c )*1440</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Time from when first page of zStack is indexed until case is closed</inlineHelpText>
+        <label>Time Indexed to Completed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zStack_Lookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is a lookup to the parent zStack Record</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Usually first zStack is the one you want to select</inlineHelpText>
+        <label>zStack Lookup</label>
+        <referenceTo>ZPAPER__zStack__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <recordTypes>
+        <fullName>Enrollment</fullName>
+        <active>true</active>
+        <businessProcess>Enrollment</businessProcess>
+        <description>This is a Case Record Type for new and re-enrollments</description>
+        <label>Enrollment</label>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Community</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FHIR%2FHL7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Immediate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>New Enrollment</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Type__c</picklist>
+            <values>
+                <fullName>Follow up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Enrollment</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Re-enrollment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>
