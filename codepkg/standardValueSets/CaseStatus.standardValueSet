@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Pending Start</fullName>
+        <default>true</default>
+        <label>Pending Start</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>On Therapy</fullName>
+        <default>false</default>
+        <label>On Therapy</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Temporarily Discontinued</fullName>
+        <default>false</default>
+        <label>Temporarily Discontinued</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Restart</fullName>
+        <default>false</default>
+        <label>Restart</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Discontinued Program</fullName>
+        <default>false</default>
+        <label>Discontinued Program</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Discontinued Treatment</fullName>
+        <default>false</default>
+        <label>Discontinued Treatment</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed</fullName>
+        <default>false</default>
+        <label>Closed</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>New</fullName>
+        <default>false</default>
+        <label>New</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Delayed Start</fullName>
+        <default>false</default>
+        <label>Delayed Start</label>
+        <closed>false</closed>
+    </standardValue>
+</StandardValueSet>
