@@ -1,4 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <version>46.0</version>
-</Package>
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>Dev to Prod Solution Container</fullName>    <description>Dev to DevProd Container</description>    <types><members>zzAction_Standard_Barcode_Received_js</members><name>StaticResource</name></types><version>46.0</version></Package>
+<!-- Last updated Fri Nov 08 12:09:42 EST 2019 -->
