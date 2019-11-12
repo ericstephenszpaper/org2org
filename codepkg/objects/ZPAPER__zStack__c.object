@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <listViews>
+        <fullName>Amgen_Aimovig_Working</fullName>
+        <columns>ZPAPER__Case__c</columns>
+        <columns>NAME</columns>
+        <columns>Data_Entry_Status__c</columns>
+        <columns>ZPAPER__Status__c</columns>
+        <columns>ZPAPER__Channel__c</columns>
+        <columns>ZPAPER__Pages__c</columns>
+        <columns>ZPAPER__faxType__c</columns>
+        <columns>ZPAPER__Patient__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>ZPAPER__latestFax__c</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>ZPAPER__Case__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>Data_Entry_Status__c</field>
+            <operation>notEqual</operation>
+            <value>DE In Process,Conflict(s) Found,Conflict(s) Resolved,DE Complete</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>ZPAPER__zStack__c.ZPAPER__Incoming</value>
+        </filters>
+        <filters>
+            <field>ZPAPER__Status__c</field>
+            <operation>equals</operation>
+            <value>complete,completed</value>
+        </filters>
+        <label>*** Amgen Data Entry</label>
+        <queue>AMGEN</queue>
+    </listViews>
+    <listViews>
+        <fullName>Amgen_New</fullName>
+        <columns>ZPAPER__triageURL__c</columns>
+        <columns>ZPAPER__Status__c</columns>
+        <columns>ZPAPER__Channel__c</columns>
+        <columns>ZPAPER__Pages__c</columns>
+        <columns>ZPAPER__faxType__c</columns>
+        <columns>NAME</columns>
+        <columns>ZPAPER__From__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>ZPAPER__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Completed,Locked,complete,forward,&quot; &quot;</value>
+        </filters>
+        <filters>
+            <field>ZPAPER__Classification__c</field>
+            <operation>equals</operation>
+            <value>Amgen</value>
+        </filters>
+        <label>* Amgen Triage New</label>
+        <queue>AMGEN</queue>
+    </listViews>
+    <listViews>
+        <fullName>Amgen_Processing</fullName>
+        <columns>ZPAPER__triageURL__c</columns>
+        <columns>NAME</columns>
+        <columns>ZPAPER__Status__c</columns>
+        <columns>ZPAPER__Priority__c</columns>
+        <columns>ZPAPER__Channel__c</columns>
+        <columns>ZPAPER__Pages__c</columns>
+        <columns>ZPAPER__faxType__c</columns>
+        <columns>ZPAPER__From__c</columns>
+        <columns>ZPAPER__Patient__c</columns>
+        <columns>ZPAPER__Case__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>ZPAPER__latestFax__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ZPAPER__Status__c</field>
+            <operation>equals</operation>
+            <value>locked</value>
+        </filters>
+        <label>** Amgen Triage Processing</label>
+    </listViews>
+</CustomObject>
