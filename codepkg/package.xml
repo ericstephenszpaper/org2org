@@ -1,11 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>ZPAPER__zStack__c.Amgen_Aimovig_Working</members>
-        <members>ZPAPER__zStack__c.Amgen_In_Flight</members>
-        <members>ZPAPER__zStack__c.Amgen_New</members>
-        <members>ZPAPER__zStack__c.Amgen_Processing</members>
-        <name>ListView</name>
-    </types>
-    <version>46.0</version>
-</Package>
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>Org to Org h2h listviews</fullName>    <description>Org to Org h2h listviews</description>    <types>        <members>ZPAPER__zStack__c.Amgen_New</members>        <members>ZPAPER__zStack__c.Amgen_Processing</members>        <members>ZPAPER__zStack__c.Amgen_Aimovig_Working</members>        <members>ZPAPER__zStack__c.In_Flight</members>        <name>ListView</name>     </types> <version>46.0</version></Package>
+<!-- Last updated Tue Nov 12 09:16:06 EST 2019 -->
