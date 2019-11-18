@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Case-CarePlan Layout</members>
         <members>ZPAPER__zStack__c-Admin zStack Layout</members>
         <members>ZPAPER__zStack__c-Triage Layout</members>
         <members>ZPAPER__zStack__c-zStack Layout</members>
