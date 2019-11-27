@@ -1,26 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>ZPAPER__zStack__c.outbound_2_FaxTemplate__c</members>
-        <name>CustomField</name>
-    </types>
-    <types>
-        <members>ZPAPER__zStack__c.Complete_Intake</members>
-        <name>RecordType</name>
-    </types>
-    <types>
-        <members>ZPAPER__zStack__c.zSendAmbAck2</members>
-        <members>ZPAPER__zStack__c.zStackForwardCreon</members>
-        <name>WorkflowFieldUpdate</name>
-    </types>
-    <types>
-        <members>ZPAPER__zStack__c.zSendAmbAck2</members>
-        <members>ZPAPER__zStack__c.zSendStack</members>
-        <name>WorkflowOutboundMessage</name>
-    </types>
-    <types>
-        <members>ZPAPER__zStack__c.zStackForwardCreon</members>
-        <name>WorkflowRule</name>
-    </types>
-    <version>46.0</version>
-</Package>
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>zPaperManifest</fullName>    <description>manifest of zPaper elements for the December 2019 sprint</description>    <types>        <members>ZPAPER__zStack__c.outbound_2_FaxTemplate__c</members>        <name>CustomField</name>    </types>    <types>        <members>ZPAPER__zStack__c.Complete_Intake</members>        <name>RecordType</name>    </types>    <types>        <members>ZPAPER__zStack__c.zSendAmbAck2</members>        <members>ZPAPER__zStack__c.zStackForwardCreon</members>        <name>WorkflowFieldUpdate</name>    </types>    <types>        <members>ZPAPER__zStack__c.zSendAmbAck2</members>        <members>ZPAPER__zStack__c.zSendStack</members>        <name>WorkflowOutboundMessage</name>    </types>   <types>        <members>ZPAPER__zStack__c.zStackForwardCreon</members>        <name>WorkflowRule</name>    </types>     <version>46.0</version></Package>
+<!-- Last updated Tue Nov 26 23:30:42 EST 2019 -->
