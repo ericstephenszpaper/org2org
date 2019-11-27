@@ -1,0 +1,2 @@
+<Package xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>zPaperManifestTest</fullName><types><members>ZPAPER__zStack__c.zClear_New_Incoming</members><members>ZPAPER__zStack__c.zStage_Update</members><name>WorkflowFieldUpdate</name></types><types><members>ZPAPER__zStack__c.SendStack</members><name>WorkflowOutboundMessage</name></types><types><members>ZPAPER__zStack__c.zForward to Pharmacy</members><name>WorkflowRule</name></types><version>46.0</version></Package> 
+<!-- Last updated Tue Nov 26 23:14:49 EST 2019 -->
