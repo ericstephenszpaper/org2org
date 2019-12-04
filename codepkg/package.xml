@@ -1,2 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>zPaperManifest</fullName>    <description>manifest of zPaper elements for the December 2019 sprint</description>    <types>        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>        <members>ZPAPER__zStack__c.Drug_Type__c</members>        <members>ZPAPER__zStack__c.PS_EnrollmentFormVersion__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Channel__c</members>        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Priority__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Stage__c</members>        <members>ZPAPER__zStack__c.Triage_Status__c</members><!--<members>ZPAPER__zStack__c.outbound_2_FaxTemplate__c</members> -->        <name>CustomField</name>    </types>    <types>        <members>ZPAPER__zStack__c.Outbound</members>        <members>ZPAPER__zStack__c.Complete_Intake</members>        <name>RecordType</name>    </types>    <types>        <members>zzAction_Bulk_Delivery_COMPLETE_js</members>        <members>zzAction_Create_Stack_from_Fax_js</members>        <members>zzAction_DELIVERY_COMPLETE_js</members>        <members>zzAction_eate_Creon_Stack_from_Fax_js</members>        <members>zzAction_Index_Page_Encrypted_js</members>        <members>zzAction_Standard_Barcode_Received_js</members>        <members>zzAction_ent_from_Salesforce_Record_js</members>        <members>zzAction_zAbbVie_Library_js</members>        <members>zzAction_zPaper_OCR_Library_js</members>        <members>zzAction_zStack_Library_js</members>        <name>StaticResource</name>    </types>    <!-- <types> -->        <!-- <members>ZPAPER__zStack__c.zSendAmbAck2</members> -->        <!-- <members>ZPAPER__zStack__c.zStackForwardCreon</members> -->        <!-- <name>WorkflowFieldUpdate</name> -->    <!-- </types> -->    <!-- <types> -->        <!-- <members>ZPAPER__zStack__c.zSendAmbAck2</members> -->          <!-- <members>ZPAPER__zStack__c.zSendStack</members>  -->        <!-- <name>WorkflowOutboundMessage</name> -->    <!-- </types> -->   <!-- <types> -->        <!-- <members>ZPAPER__zStack__c.zStackForwardCreon</members>  -->        <!-- <name>WorkflowRule</name> -->    <!-- </types> -->   <version>46.0</version></Package>
-<!-- Last updated Tue Dec 03 22:18:20 EST 2019 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ZPAPER__zStack__c.Drug_Type__c</members>
+        <members>ZPAPER__zStack__c.PS_EnrollmentFormVersion__c</members>
+        <members>ZPAPER__zStack__c.Triage_Status__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Channel__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Priority__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Stage__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.Complete_Intake</members>
+        <members>ZPAPER__zStack__c.Outbound</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>zzAction_Bulk_Delivery_COMPLETE_js</members>
+        <members>zzAction_Create_Stack_from_Fax_js</members>
+        <members>zzAction_DELIVERY_COMPLETE_js</members>
+        <members>zzAction_Index_Page_Encrypted_js</members>
+        <members>zzAction_Standard_Barcode_Received_js</members>
+        <members>zzAction_eate_Creon_Stack_from_Fax_js</members>
+        <members>zzAction_ent_from_Salesforce_Record_js</members>
+        <members>zzAction_zAbbVie_Library_js</members>
+        <members>zzAction_zPaper_OCR_Library_js</members>
+        <members>zzAction_zStack_Library_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>46.0</version>
+</Package>
