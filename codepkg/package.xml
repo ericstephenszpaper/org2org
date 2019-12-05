@@ -1,2 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>zPaperManifest</fullName>    <description>manifest of zPaper elements for the December 2019 sprint (Creon)</description>    <types>        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>         <members>ZPAPER__zStack__c.Drug_Type__c</members>         <members>ZPAPER__zStack__c.PS_EnrollmentFormVersion__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Channel__c</members>        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Priority__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Stage__c</members>        <members>ZPAPER__zStack__c.Triage_Status__c</members>        <name>CustomField</name>    </types>    <types>        <members>ZPAPER__zStack__c.Outbound</members>        <name>RecordType</name>    </types>    <types>        <members>zzAction_eate_Creon_Stack_from_Fax_js</members>        <name>StaticResource</name>    </types>    <version>46.0</version></Package>
-<!-- Last updated Thu Dec 05 09:54:58 EST 2019 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ZPAPER__zStack__c.Drug_Type__c</members>
+        <members>ZPAPER__zStack__c.PS_EnrollmentFormVersion__c</members>
+        <members>ZPAPER__zStack__c.Triage_Status__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Channel__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Priority__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Stage__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.Outbound</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>zzAction_eate_Creon_Stack_from_Fax_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>46.0</version>
+</Package>
