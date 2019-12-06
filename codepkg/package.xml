@@ -1,2 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>zPaperManifest</fullName>    <description>AbbVie Promotion fix for Case 66413</description>    <types>        <members>zzAction_eate_Creon_Stack_from_Fax_js</members>        <name>StaticResource</name>    </types>    <version>46.0</version></Package>
-<!-- Last updated Fri Dec 06 13:02:20 EST 2019 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>zzAction_eate_Creon_Stack_from_Fax_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>46.0</version>
+</Package>
