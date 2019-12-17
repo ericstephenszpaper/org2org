@@ -1,2 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>QAto DemoTrV2 Solution Container</fullName>    <description>QA to DemoTrV2 Solution Container</description>                        <types>                <members>ZPAPER__zStack__c.Reported_Outcome__c</members>                <members>ZPAPER__zStack__c.Notes__c</members>                <members>ZPAPER__zStack__c.Special_Authorization__c</members>                <members>ZPAPER__zStack__c.Clinical_Services__c</members>                <members>ZPAPER__zStack__c.Service_Requested_Date__c</members>                <members>ZPAPER__zStack__c.My_zStack__c</members>                <members>ZPAPER__zStack__c.Facility__c</members>                <members>ZPAPER__zStack__c.zStack_Accepted_Age_in_Minutes__c</members>                <members>ZPAPER__zStack__c.Member_Plan__c</members>                <members>ZPAPER__zStack__c.Clinical_Services_Record_Type__c</members>                <members>ZPAPER__zStack__c.Prescription__c</members>                <members>ZPAPER__zStack__c.Assessment_Type__c</members>                <members>ZPAPER__zStack__c.Fax__c</members>                <members>ZPAPER__zStack__c.Sub_Category__c</members>                <members>ZPAPER__zStack__c.Received_Date_Time__c</members>                <members>ZPAPER__zStack__c.Diagnosis__c</members>                <members>ZPAPER__zStack__c.Physician__c</members>                <members>ZPAPER__zStack__c.Outcome_Type__c</members>                <members>ZPAPER__zStack__c.Coverage_Benefit__c</members>                <members>ZPAPER__zStack__c.Time_Accepted_Date__c</members>                <members>ZPAPER__zStack__c.ZPAPER__Channel__c</members>                <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>                <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>                <members>ZPAPER__zStack__c.ZPAPER__Priority__c</members>                <members>ZPAPER__zStack__c.Special_Authorization__c</members>                <members>ZPAPER__zStack__c.Service_Requested_Date__c</members>                <members>ZPAPER__zStack__c.ZPAPER__Case__c</members>                <members>ZPAPER__zStack__c.Attach_To__c</members>                <members>ZPAPER__zStack__c.Triage_Lightning__c</members>                <name>CustomField</name>            </types><version>46.0</version></Package>
-<!-- Last updated Mon Dec 16 22:00:54 EST 2019 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ZPAPER__zStack__c.Assessment_Type__c</members>
+        <members>ZPAPER__zStack__c.Attach_To__c</members>
+        <members>ZPAPER__zStack__c.Clinical_Services_Record_Type__c</members>
+        <members>ZPAPER__zStack__c.Clinical_Services__c</members>
+        <members>ZPAPER__zStack__c.Coverage_Benefit__c</members>
+        <members>ZPAPER__zStack__c.Diagnosis__c</members>
+        <members>ZPAPER__zStack__c.Facility__c</members>
+        <members>ZPAPER__zStack__c.Fax__c</members>
+        <members>ZPAPER__zStack__c.Member_Plan__c</members>
+        <members>ZPAPER__zStack__c.My_zStack__c</members>
+        <members>ZPAPER__zStack__c.Notes__c</members>
+        <members>ZPAPER__zStack__c.Outcome_Type__c</members>
+        <members>ZPAPER__zStack__c.Physician__c</members>
+        <members>ZPAPER__zStack__c.Prescription__c</members>
+        <members>ZPAPER__zStack__c.Received_Date_Time__c</members>
+        <members>ZPAPER__zStack__c.Reported_Outcome__c</members>
+        <members>ZPAPER__zStack__c.Service_Requested_Date__c</members>
+        <members>ZPAPER__zStack__c.Service_Requested_Date__c</members>
+        <members>ZPAPER__zStack__c.Special_Authorization__c</members>
+        <members>ZPAPER__zStack__c.Special_Authorization__c</members>
+        <members>ZPAPER__zStack__c.Sub_Category__c</members>
+        <members>ZPAPER__zStack__c.Time_Accepted_Date__c</members>
+        <members>ZPAPER__zStack__c.Triage_Lightning__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Case__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Channel__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Priority__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>
+        <members>ZPAPER__zStack__c.zStack_Accepted_Age_in_Minutes__c</members>
+        <name>CustomField</name>
+    </types>
+    <version>46.0</version>
+</Package>
