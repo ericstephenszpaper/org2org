@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>ZPAPER__faxType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Document Type</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>ZPAPER__Classification__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ENRL</fullName>
+                    <default>true</default>
+                    <label>ENRL:Enrollment</label>
+                </value>
+                <value>
+                    <fullName>PAF</fullName>
+                    <default>false</default>
+                    <label>PAF:Patient Authorization</label>
+                </value>
+                <value>
+                    <fullName>IC</fullName>
+                    <default>false</default>
+                    <label>IC:Insurance Card</label>
+                </value>
+                <value>
+                    <fullName>CE</fullName>
+                    <default>false</default>
+                    <label>CE : Copay Enrollment</label>
+                </value>
+                <value>
+                    <fullName>MR</fullName>
+                    <default>false</default>
+                    <label>MR : Medical Records</label>
+                </value>
+                <value>
+                    <fullName>PRAF</fullName>
+                    <default>false</default>
+                    <label>PRAF : Prior Authorization Form</label>
+                </value>
+                <value>
+                    <fullName>PRS</fullName>
+                    <default>false</default>
+                    <label>PRS : Prescription</label>
+                </value>
+                <value>
+                    <fullName>RER</fullName>
+                    <default>false</default>
+                    <label>RER : Research Required</label>
+                </value>
+                <value>
+                    <fullName>POA</fullName>
+                    <default>false</default>
+                    <label>POA : Power Of Attorney</label>
+                </value>
+                <value>
+                    <fullName>BIE</fullName>
+                    <default>false</default>
+                    <label>BIE : BI Enrollment</label>
+                </value>
+                <value>
+                    <fullName>DEN</fullName>
+                    <default>false</default>
+                    <label>DEN: Denial Letter</label>
+                </value>
+                <value>
+                    <fullName>PR</fullName>
+                    <default>false</default>
+                    <label>PR: Product Replacement</label>
+                </value>
+                <value>
+                    <fullName>APL</fullName>
+                    <default>false</default>
+                    <label>APL: Approval Letter</label>
+                </value>
+                <value>
+                    <fullName>SRF</fullName>
+                    <default>false</default>
+                    <label>SRF: Service Request</label>
+                </value>
+                <value>
+                    <fullName>APP</fullName>
+                    <default>false</default>
+                    <label>APP: PAP Application</label>
+                </value>
+                <value>
+                    <fullName>OTH</fullName>
+                    <default>false</default>
+                    <label>OTH: Other</label>
+                </value>
+                <value>
+                    <fullName>AF</fullName>
+                    <default>false</default>
+                    <label>Appeal Form</label>
+                </value>
+                <value>
+                    <fullName>POI</fullName>
+                    <default>false</default>
+                    <label>POI: Proof of Income</label>
+                </value>
+                <value>
+                    <fullName>IAPP</fullName>
+                    <default>false</default>
+                    <label>IAPP: Insurance Application</label>
+                </value>
+                <value>
+                    <fullName>CLM</fullName>
+                    <default>false</default>
+                    <label>CLM: Claim Form</label>
+                </value>
+                <value>
+                    <fullName>ATT</fullName>
+                    <default>false</default>
+                    <label>ATT: AfiniTRAC and Trial</label>
+                </value>
+                <value>
+                    <fullName>EENRL : eEnrollment</fullName>
+                    <default>false</default>
+                    <label>EENRL : eEnrollment</label>
+                </value>
+                <value>
+                    <fullName>PAUTH : Patient Authorization</fullName>
+                    <default>false</default>
+                    <label>PAUTH : Patient Authorization</label>
+                </value>
+                <value>
+                    <fullName>APP : Appeal Form</fullName>
+                    <default>false</default>
+                    <label>APP : Appeal Form</label>
+                </value>
+                <value>
+                    <fullName>LMN: Letter of Medical Necessity</fullName>
+                    <default>false</default>
+                    <label>LMN: Letter of Medical Necessity</label>
+                </value>
+                <value>
+                    <fullName>Network Pharmacy Precription</fullName>
+                    <default>false</default>
+                    <label>Network Pharmacy Precription</label>
+                </value>
+                <value>
+                    <fullName>Free Medication Prescription</fullName>
+                    <default>false</default>
+                    <label>Free Medication Prescription</label>
+                </value>
+                <value>
+                    <fullName>Coverage Review Submission Form</fullName>
+                    <default>false</default>
+                    <label>Coverage Review Submission Form</label>
+                </value>
+                <value>
+                    <fullName>Coverage Review Denial Form</fullName>
+                    <default>false</default>
+                    <label>Coverage Review Denial Form</label>
+                </value>
+                <value>
+                    <fullName>Appeal Denial Form</fullName>
+                    <default>false</default>
+                    <label>Appeal Denial Form</label>
+                </value>
+                <value>
+                    <fullName>Fax Cover Sheet</fullName>
+                    <default>false</default>
+                    <label>Fax Cover Sheet</label>
+                </value>
+                <value>
+                    <fullName>Clinical Documents</fullName>
+                    <default>false</default>
+                    <label>Clinical Documents</label>
+                </value>
+                <value>
+                    <fullName>Not Legible</fullName>
+                    <default>false</default>
+                    <label>Not Legible</label>
+                </value>
+                <value>
+                    <fullName>Appeal Decision</fullName>
+                    <default>false</default>
+                    <label>Appeal Decision</label>
+                </value>
+                <value>
+                    <fullName>Patient Authorization</fullName>
+                    <default>false</default>
+                    <label>Patient Authorization</label>
+                </value>
+                <value>
+                    <fullName>Prior Authorization Decision</fullName>
+                    <default>false</default>
+                    <label>Prior Authorization Decision</label>
+                </value>
+                <value>
+                    <fullName>Reauthorization Request</fullName>
+                    <default>false</default>
+                    <label>Reauthorization Request</label>
+                </value>
+                <value>
+                    <fullName>CDOC</fullName>
+                    <default>false</default>
+                    <label>CDOC: Clinical Documents</label>
+                </value>
+                <value>
+                    <fullName>FMP</fullName>
+                    <default>false</default>
+                    <label>FMP: Free Medication Prescription</label>
+                </value>
+                <value>
+                    <fullName>HIPAA</fullName>
+                    <default>false</default>
+                    <label>HIPAA: HIPAA Consent</label>
+                </value>
+                <value>
+                    <fullName>NPP</fullName>
+                    <default>false</default>
+                    <label>NPP: Network Pharmacy Prescription</label>
+                </value>
+                <value>
+                    <fullName>PRAD</fullName>
+                    <default>false</default>
+                    <label>PRAD: Prior Authorization Decision</label>
+                </value>
+                <value>
+                    <fullName>SRF: Service Request Form</fullName>
+                    <default>false</default>
+                    <label>SRF: Service Request Form</label>
+                </value>
+                <value>
+                    <fullName>APLF</fullName>
+                    <default>false</default>
+                    <label>APLF: Appeal Form</label>
+                </value>
+                <value>
+                    <fullName>IC: Insurance</fullName>
+                    <default>false</default>
+                    <label>IC: Insurance</label>
+                </value>
+                <value>
+                    <fullName>PEF</fullName>
+                    <default>false</default>
+                    <label>PEF: Patient Enrollment Form</label>
+                </value>
+                <value>
+                    <fullName>Duplicate Fax</fullName>
+                    <default>false</default>
+                    <label>Duplicate Fax</label>
+                </value>
+                <value>
+                    <fullName>Re-Enrollment Application</fullName>
+                    <default>false</default>
+                    <label>Re-Enrollment Application</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <controllingFieldValue>Entresto</controllingFieldValue>
+                <controllingFieldValue>TOBI</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>IC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <controllingFieldValue>Entresto</controllingFieldValue>
+                <controllingFieldValue>TOBI</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>PRAF</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <controllingFieldValue>Entresto</controllingFieldValue>
+                <controllingFieldValue>TOBI</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>POA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>SRF</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>OTH</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>LMN: Letter of Medical Necessity</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <valueName>CDOC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <valueName>FMP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <valueName>HIPAA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <valueName>NPP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <valueName>PRAD</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <valueName>APLF</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <valueName>PEF</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Cosentyx</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Cosentyx Direct to SP</controllingFieldValue>
+                <controllingFieldValue>Entresto</controllingFieldValue>
+                <controllingFieldValue>TOBI</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>Duplicate Fax</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Intake</controllingFieldValue>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Entresto</controllingFieldValue>
+                <controllingFieldValue>TOBI</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <valueName>ENRL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Entresto</controllingFieldValue>
+                <controllingFieldValue>TOBI</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>PAF</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Entresto</controllingFieldValue>
+                <controllingFieldValue>TOBI</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>CE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Entresto</controllingFieldValue>
+                <controllingFieldValue>TOBI</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>MR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Entresto</controllingFieldValue>
+                <controllingFieldValue>TOBI</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>PRS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>Entresto</controllingFieldValue>
+                <controllingFieldValue>TOBI</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>RER</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <valueName>DEN</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <valueName>PR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <valueName>APL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>APP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>POI</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <valueName>IAPP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <valueName>CLM</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>Patient Authorization</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Mayzent Support Program</controllingFieldValue>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>Reauthorization Request</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Entresto</controllingFieldValue>
+                <controllingFieldValue>TOBI</controllingFieldValue>
+                <valueName>BIE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>PANO</controllingFieldValue>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <valueName>ATT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NPAF</controllingFieldValue>
+                <valueName>Re-Enrollment Application</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>AF</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>Appeal Decision</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>AIMOVIG</controllingFieldValue>
+                <valueName>Prior Authorization Decision</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+</CustomObject>
