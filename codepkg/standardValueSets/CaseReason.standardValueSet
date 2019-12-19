@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Appeal</fullName>
+        <default>false</default>
+        <label>Appeal</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>New Enrollment</fullName>
+        <default>false</default>
+        <label>New Enrollment</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>No demographic information</fullName>
+        <default>false</default>
+        <label>No demographic information</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>No enrollment form</fullName>
+        <default>false</default>
+        <label>No enrollment form</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>No financial information</fullName>
+        <default>false</default>
+        <label>No financial information</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>No insurance card</fullName>
+        <default>false</default>
+        <label>No insurance card</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>No prescription</fullName>
+        <default>false</default>
+        <label>No prescription</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>No prior authorization</fullName>
+        <default>false</default>
+        <label>No prior authorization</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>No provider signature</fullName>
+        <default>false</default>
+        <label>No provider signature</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Renewal</fullName>
+        <default>false</default>
+        <label>Renewal</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+    <standardValue>
+        <fullName>Verification</fullName>
+        <default>false</default>
+        <label>Verification</label>
+        <cssExposed>false</cssExposed>
+    </standardValue>
+</StandardValueSet>
