@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>OneCRM - Canada</name>
+    <queueMembers>
+        <publicGroups>
+            <publicGroup>Canada_Users</publicGroup>
+            <publicGroup>AllInternalUsers</publicGroup>
+        </publicGroups>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>ZPAPER__zStack__c</sobjectType>
+    </queueSobject>
+</Queue>
