@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Diagnosis__c</fullName>
+        <externalId>false</externalId>
+        <label>Diagnosis</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Acute Renal Failure</fullName>
+                    <default>false</default>
+                    <label>Acute Renal Failure</label>
+                </value>
+                <value>
+                    <fullName>Ankylosing spondylitis</fullName>
+                    <default>false</default>
+                    <label>Ankylosing spondylitis</label>
+                </value>
+                <value>
+                    <fullName>Crohn&apos;s disease</fullName>
+                    <default>false</default>
+                    <label>Crohn&apos;s disease</label>
+                </value>
+                <value>
+                    <fullName>ESRD</fullName>
+                    <default>false</default>
+                    <label>ESRD</label>
+                </value>
+                <value>
+                    <fullName>Multiple Sclerosis</fullName>
+                    <default>false</default>
+                    <label>Multiple Sclerosis</label>
+                </value>
+                <value>
+                    <fullName>Plaque psoriasis</fullName>
+                    <default>false</default>
+                    <label>Plaque psoriasis</label>
+                </value>
+                <value>
+                    <fullName>Rheumatoid Arthritis</fullName>
+                    <default>false</default>
+                    <label>Rheumatoid Arthritis</label>
+                </value>
+                <value>
+                    <fullName>Type 2 Diabetes</fullName>
+                    <default>false</default>
+                    <label>Type 2 Diabetes</label>
+                </value>
+                <value>
+                    <fullName>Ulcerative colitis</fullName>
+                    <default>false</default>
+                    <label>Ulcerative colitis</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Facility__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is a provider office, hospital, pharmacy or distribution center</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a provider office, hospital, pharmacy or distribution center</inlineHelpText>
+        <label>Facility</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>zStacks (Facility)</relationshipLabel>
+        <relationshipName>zStacks1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fax__c</fullName>
+        <externalId>false</externalId>
+        <label>Fax</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>My_zStack__c</fullName>
+        <description>Use case:
+I want to filter out any item NOT owned by me (or any logged in user acting as the ME in the scenario) on a list view or report. For instance, I have a list view of all MY cases, and I need a list view of all NOT MY cases.</description>
+        <externalId>false</externalId>
+        <formula>If(Owner:User.Id = $User.Id, TRUE, FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>My zStack</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <description>Notes from zStack</description>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Problem_Codes__c</fullName>
+        <externalId>false</externalId>
+        <label>Problem Codes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>MI1 Missing Signature</fullName>
+                    <default>false</default>
+                    <label>MI1 Missing Signature</label>
+                </value>
+                <value>
+                    <fullName>MI2 MIssing OHIP Billing Number</fullName>
+                    <default>false</default>
+                    <label>MI2 MIssing OHIP Billing Number</label>
+                </value>
+                <value>
+                    <fullName>MI3 Missing CPSO Number</fullName>
+                    <default>false</default>
+                    <label>MI3 Missing CPSO Number</label>
+                </value>
+                <value>
+                    <fullName>MI4 Missing OHIP  Number</fullName>
+                    <default>false</default>
+                    <label>MI4 Missing OHIP  Number</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Provider_First_name__c</fullName>
+        <description>Provider first name</description>
+        <externalId>false</externalId>
+        <label>Provider First name</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Received_Date_Time__c</fullName>
+        <description>This is replacing the Received At from the Managed Package</description>
+        <externalId>false</externalId>
+        <formula>CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Received Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Time_Accepted_Date__c</fullName>
+        <description>This is the time and date a zStack was accepted from the Main Intake List</description>
+        <externalId>false</externalId>
+        <label>Time Accepted Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Time_Complete_Date__c</fullName>
+        <description>Our test for 2</description>
+        <externalId>false</externalId>
+        <label>Time Complete Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>zStack_Accepted_Age_in_Minutes__c</fullName>
+        <description>Time when a zStack was received and then accepted in minutes</description>
+        <externalId>false</externalId>
+        <formula>(Time_Accepted_Date__c -   Received_Date_Time__c  ) *1440</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Accepted Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zStack_Completed_Age_in_Minutes__c</fullName>
+        <description>This is the formula that calculates the time from when a zStack is accepted to when it is completed</description>
+        <externalId>false</externalId>
+        <formula>( Time_Complete_Date__c - Time_Accepted_Date__c) * 1440</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Completed Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>Indexed_Documents</fullName>
+        <columns>NAME</columns>
+        <columns>ZPAPER__Stage__c</columns>
+        <columns>ZPAPER__Classification__c</columns>
+        <columns>ZPAPER__faxType__c</columns>
+        <columns>ZPAPER__Pages__c</columns>
+        <columns>ZPAPER__Priority__c</columns>
+        <columns>ZPAPER__Parent__c</columns>
+        <columns>ZPAPER__Case__c</columns>
+        <columns>ZPAPER__Patient__c</columns>
+        <columns>ZPAPER__Provider__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ZPAPER__Stage__c</field>
+            <operation>equals</operation>
+            <value>Indexed</value>
+        </filters>
+        <filters>
+            <field>ZPAPER__Status__c</field>
+            <operation>equals</operation>
+            <value>Indexed Documents</value>
+        </filters>
+        <label>Indexed Documents</label>
+    </listViews>
+    <listViews>
+        <fullName>Master_Intake_List</fullName>
+        <columns>NAME</columns>
+        <columns>ZPAPER__Program_Name__c</columns>
+        <columns>ZPAPER__Classification__c</columns>
+        <columns>ZPAPER__Status__c</columns>
+        <columns>ZPAPER__latestFax__c</columns>
+        <columns>ZPAPER__Priority__c</columns>
+        <columns>ZPAPER__Pages__c</columns>
+        <columns>ZPAPER__Channel__c</columns>
+        <columns>ZPAPER__sentFaxTo__c</columns>
+        <columns>ZPAPER__From__c</columns>
+        <columns>Facility__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ZPAPER__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Complete,Split Documents</value>
+        </filters>
+        <filters>
+            <field>My_zStack__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>OWNER.ALIAS</field>
+            <operation>equals</operation>
+            <value>CCOfit</value>
+        </filters>
+        <label>Master Intake List</label>
+    </listViews>
+    <listViews>
+        <fullName>My_List</fullName>
+        <columns>ZPAPER__triageURL__c</columns>
+        <columns>NAME</columns>
+        <columns>ZPAPER__Classification__c</columns>
+        <columns>ZPAPER__Stage__c</columns>
+        <columns>ZPAPER__latestFax__c</columns>
+        <columns>Time_Accepted_Date__c</columns>
+        <columns>ZPAPER__Priority__c</columns>
+        <columns>ZPAPER__Pages__c</columns>
+        <columns>ZPAPER__Channel__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>My_zStack__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>ZPAPER__Stage__c</field>
+            <operation>notEqual</operation>
+            <value>Completed,Indexed,Rejected</value>
+        </filters>
+        <filters>
+            <field>ZPAPER__Priority__c</field>
+            <operation>notEqual</operation>
+            <value>Immediate</value>
+        </filters>
+        <filters>
+            <field>ZPAPER__Classification__c</field>
+            <operation>equals</operation>
+            <value>CCOfit</value>
+        </filters>
+        <label>My List</label>
+    </listViews>
+    <webLinks>
+        <fullName>zAccept</fullName>
+        <availability>online</availability>
+        <description>Setting the owner on a zStack record</description>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>zAccept</masterLabel>
+        <openType>sidebar</openType>
+        <page>zAccept</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+</CustomObject>
