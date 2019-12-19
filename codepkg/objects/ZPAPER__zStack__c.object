@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Assessment_Type__c</fullName>
+        <description>This is related to the Reported Outcomes object.</description>
+        <externalId>false</externalId>
+        <label>Assessment Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Initial Assessment</fullName>
+                    <default>false</default>
+                    <label>Initial Assessment</label>
+                </value>
+                <value>
+                    <fullName>Renewal Assessment</fullName>
+                    <default>false</default>
+                    <label>Renewal Assessment</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Clinical_Services_Record_Type__c</fullName>
+        <description>Used to create the Clinical Services record when the DocType is Injection Report, Lab Reports, or Medication Clarification.</description>
+        <externalId>false</externalId>
+        <label>Clinical Services Record Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Injection Training</fullName>
+                    <default>false</default>
+                    <label>Injection Training</label>
+                </value>
+                <value>
+                    <fullName>Lab Tests</fullName>
+                    <default>false</default>
+                    <label>Lab Tests</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Clinical_Services__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Clinical Services</label>
+        <referenceTo>Core_Clinical_Service__c</referenceTo>
+        <relationshipLabel>zStacks</relationshipLabel>
+        <relationshipName>zStacks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Coverage_Benefit__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Coverage Benefit</label>
+        <referenceTo>CoverageBenefit</referenceTo>
+        <relationshipLabel>zStacks</relationshipLabel>
+        <relationshipName>zStacks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Diagnosis__c</fullName>
+        <externalId>false</externalId>
+        <label>Diagnosis</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Acute Renal Failure</fullName>
+                    <default>false</default>
+                    <label>Acute Renal Failure</label>
+                </value>
+                <value>
+                    <fullName>Ankylosing spondylitis</fullName>
+                    <default>false</default>
+                    <label>Ankylosing spondylitis</label>
+                </value>
+                <value>
+                    <fullName>Crohn&apos;s disease</fullName>
+                    <default>false</default>
+                    <label>Crohn&apos;s disease</label>
+                </value>
+                <value>
+                    <fullName>ESRD</fullName>
+                    <default>false</default>
+                    <label>ESRD</label>
+                </value>
+                <value>
+                    <fullName>Multiple Sclerosis</fullName>
+                    <default>false</default>
+                    <label>Multiple Sclerosis</label>
+                </value>
+                <value>
+                    <fullName>Plaque psoriasis</fullName>
+                    <default>false</default>
+                    <label>Plaque psoriasis</label>
+                </value>
+                <value>
+                    <fullName>Rheumatoid Arthritis</fullName>
+                    <default>false</default>
+                    <label>Rheumatoid Arthritis</label>
+                </value>
+                <value>
+                    <fullName>Type 2 Diabetes</fullName>
+                    <default>false</default>
+                    <label>Type 2 Diabetes</label>
+                </value>
+                <value>
+                    <fullName>Ulcerative colitis</fullName>
+                    <default>false</default>
+                    <label>Ulcerative colitis</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Facility__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is a provider office, hospital, pharmacy or distribution center</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a provider office, hospital, pharmacy or distribution center</inlineHelpText>
+        <label>Facility</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>zStacks (Facility)</relationshipLabel>
+        <relationshipName>zStacks1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fax__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Fax</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Member_Plan__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Member Plan</label>
+        <referenceTo>MemberPlan</referenceTo>
+        <relationshipLabel>zStacks</relationshipLabel>
+        <relationshipName>zStacks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>My_zStack__c</fullName>
+        <description>Use case:
+I want to filter out any item NOT owned by me (or any logged in user acting as the ME in the scenario) on a list view or report. For instance, I have a list view of all MY cases, and I need a list view of all NOT MY cases.</description>
+        <externalId>false</externalId>
+        <formula>If(Owner:User.Id = $User.Id, TRUE, FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>My zStack</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <description>Notes from zStack</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Outcome_Type__c</fullName>
+        <description>This is related to the Reported Outcomes object.</description>
+        <externalId>false</externalId>
+        <label>Outcome Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Assessment Outcome</fullName>
+                    <default>false</default>
+                    <label>Assessment Outcome</label>
+                </value>
+                <value>
+                    <fullName>Health Metric Outcome</fullName>
+                    <default>false</default>
+                    <label>Health Metric Outcome</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Physician__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup to the Contact record (theoretically) with a record type of Physician</inlineHelpText>
+        <label>Physician</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>zStacks (Contact)</relationshipLabel>
+        <relationshipName>zStacks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Prescription__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Prescription</label>
+        <referenceTo>Core_Prescription__c</referenceTo>
+        <relationshipLabel>zStacks</relationshipLabel>
+        <relationshipName>zStacks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Received_Date_Time__c</fullName>
+        <description>This is replacing the Received At from the Managed Package</description>
+        <externalId>false</externalId>
+        <formula>CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Received Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Reported_Outcome__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Reported Outcome</label>
+        <referenceTo>Core_Patient_Reported_Outcomes__c</referenceTo>
+        <relationshipLabel>zStacks</relationshipLabel>
+        <relationshipName>zStacks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Service_Requested_Date__c</fullName>
+        <description>Related to the Clinical Services Object</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Service Requested Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Special_Authorization__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Special Authorization</label>
+        <referenceTo>CarePreauth</referenceTo>
+        <relationshipLabel>zStacks</relationshipLabel>
+        <relationshipName>zStacks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Time_Accepted_Date__c</fullName>
+        <description>This is the time and date a zStack was accepted from the Main Intake List</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Time Accepted Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Triage_Lightning__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;https://&quot;+$Setup.ZPAPER__zpaper__c.ZPAPER__server__c + &quot;/kb/jsp/SF_find.lightning.jsp?go=console.jsp&amp;X_buttonAction=LOCK_ZSTACK&amp;dbID=&quot;+ ZPAPER__receivedId__c &amp; &quot;&amp;SFuser=&quot; &amp; $User.Username &amp; &quot;&amp;SFserver=&quot; &amp; $Api.Partner_Server_URL_310 &amp; &quot;&amp;SFsession=&quot; &amp; $Api.Session_ID, &quot;Triage&quot;,&quot;Stack&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TriageL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>zStacks</relationshipLabel>
+        <relationshipName>zStacks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Channel__c</fullName>
+        <defaultValue>&quot;fax&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Channel</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>data</fullName>
+                    <default>false</default>
+                    <label>data</label>
+                </value>
+                <value>
+                    <fullName>email</fullName>
+                    <default>false</default>
+                    <label>email</label>
+                </value>
+                <value>
+                    <fullName>fax</fullName>
+                    <default>false</default>
+                    <label>fax</label>
+                </value>
+                <value>
+                    <fullName>file</fullName>
+                    <default>false</default>
+                    <label>file</label>
+                </value>
+                <value>
+                    <fullName>scan</fullName>
+                    <default>false</default>
+                    <label>scan</label>
+                </value>
+                <value>
+                    <fullName>SMS</fullName>
+                    <default>false</default>
+                    <label>SMS</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Classification__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Classification</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Intake</fullName>
+                    <default>false</default>
+                    <label>Intake</label>
+                </value>
+                <value>
+                    <fullName>Rinvoq</fullName>
+                    <default>true</default>
+                    <label>Rinvoq</label>
+                </value>
+                <value>
+                    <fullName>Humira</fullName>
+                    <default>false</default>
+                    <label>Humira</label>
+                </value>
+                <value>
+                    <fullName>Skyrizi</fullName>
+                    <default>false</default>
+                    <label>Skyrizi</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Priority__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Priority</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unassigned</fullName>
+                    <default>false</default>
+                    <label>Unassigned</label>
+                </value>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>zStack_Accepted_Age_in_Minutes__c</fullName>
+        <description>Time when a zStack was received and then accepted in minutes</description>
+        <externalId>false</externalId>
+        <formula>(Time_Accepted_Date__c -   Received_Date_Time__c  ) *1440</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Accepted Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>
