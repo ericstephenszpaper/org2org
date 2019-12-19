@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>sales.demo@zpaper.com</contactEmail>
+    <description>This is the provider&apos;s community page</description>
+    <label>Makana Provider Community</label>
+    <logoUrl>https://zpapersalesdemo--c.documentforce.com/servlet/servlet.ImageServer?id=0151U000001rWkL&amp;oid=00D1U000001AIRb</logoUrl>
+    <startUrl>https://zpapersalesdemo.force.com/makanahealth</startUrl>
+</ConnectedApp>
