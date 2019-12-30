@@ -1,12 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>Office address layout</members>
-        <name>Layout</name>
-    </types>
-    <types>
-        <members>Address_vod__c.Complete_Forms</members>
-        <name>WebLink</name>
-    </types>
-    <version>46.0</version>
-</Package>
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>Syneos Solution </fullName><description>Syneos Solution Package</description>   <types><members>Address_vod__c.Office address layout</members><name>Layout</name></types> <version>46.0</version> </Package>
+<!-- Last updated Mon Dec 30 15:50:43 EST 2019 -->
