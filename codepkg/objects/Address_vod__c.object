@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <webLinks>
+        <fullName>Complete_Forms</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Complete Forms</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>https://{!$Setup.ZPAPER__zpaper__c.ZPAPER__server__c}/kb/jsp/SF_find.jsp?go=formList.jsp&amp;sfIDs={!Address_vod__c.Id}&amp;SFserver={!$Api.Partner_Server_URL_310}&amp;SFsession={!$Api.Session_ID}&amp;prePopObj={!if(!ISNULL(Address_vod__c.Id),&quot;Address_vod__c&quot;,&quot;&quot;)}</url>
+    </webLinks>
+</CustomObject>
