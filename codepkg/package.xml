@@ -1,13 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>ZPAPER__zpaper__c.uploadDir__c</members>
-        <name>CustomField</name>
-    </types>
-    <types>
-        <members>zzAction_Index_Page_js</members>
-        <members>zzAction_zStack_Library_js</members>
-        <name>StaticResource</name>
-    </types>
-    <version>46.0</version>
-</Package>
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>Developing to Production Solution Container</fullName>    <description>Developing to Production Solution Container</description>   <types>          <members>zzAction_zStack_Library_js</members>          <members>zzAction_Index_Page_js</members>          <name>StaticResource</name>     </types>    <types>        <members>ZPAPER__zpaper__c.uploadDir__c</members>        <name>CustomField</name>    </types><version>46.0</version></Package>
+<!-- Last updated Thu Jan 02 11:10:00 EST 2020 -->
