@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Program_Member_MVN__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program Member</label>
+        <referenceTo>Program_Member_MVN__c</referenceTo>
+        <relationshipLabel>zStacks</relationshipLabel>
+        <relationshipName>zStacks</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>//ERS200202 TODO fix in MP</inlineHelpText>
+        <label>Program</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>ZPAPER__Classification__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ACTIMMUNE</fullName>
+                    <default>false</default>
+                    <label>ACTIMMUNE</label>
+                </value>
+                <value>
+                    <fullName>PROCYSBI</fullName>
+                    <default>false</default>
+                    <label>PROCYSBI</label>
+                </value>
+                <value>
+                    <fullName>RAVICTI</fullName>
+                    <default>false</default>
+                    <label>RAVICTI</label>
+                </value>
+                <value>
+                    <fullName>KRYSTEXXA</fullName>
+                    <default>false</default>
+                    <label>KRYSTEXXA</label>
+                </value>
+                <value>
+                    <fullName>TEPEZZA</fullName>
+                    <default>false</default>
+                    <label>TEPEZZA</label>
+                </value>
+                <value>
+                    <fullName>TEPRO</fullName>
+                    <default>false</default>
+                    <label>TEPRO</label>
+                </value>
+                <value>
+                    <fullName>zCharta</fullName>
+                    <default>false</default>
+                    <label>zCharta</label>
+                </value>
+                <value>
+                    <fullName>zPapyrus</fullName>
+                    <default>false</default>
+                    <label>zPapyrus</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <valueName>ACTIMMUNE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <valueName>PROCYSBI</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <valueName>RAVICTI</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <valueName>KRYSTEXXA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <valueName>TEPEZZA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Inflammation</controllingFieldValue>
+                <valueName>TEPRO</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Channel__c</fullName>
+        <defaultValue>&quot;fax&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Channel</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>fax</fullName>
+                    <default>true</default>
+                    <label>fax</label>
+                </value>
+                <value>
+                    <fullName>PROCYSBI</fullName>
+                    <default>false</default>
+                    <label>PROCYSBI</label>
+                </value>
+                <value>
+                    <fullName>RAVICTI</fullName>
+                    <default>false</default>
+                    <label>RAVICTI</label>
+                </value>
+                <value>
+                    <fullName>KRYSTEXXA</fullName>
+                    <default>false</default>
+                    <label>KRYSTEXXA</label>
+                </value>
+                <value>
+                    <fullName>TEPEZZA</fullName>
+                    <default>false</default>
+                    <label>TEPEZZA</label>
+                </value>
+                <value>
+                    <fullName>TEPRO</fullName>
+                    <default>false</default>
+                    <label>TEPRO</label>
+                </value>
+                <value>
+                    <fullName>email</fullName>
+                    <default>false</default>
+                    <label>email</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Classification__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Classification</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Orphan Rare Diseases</fullName>
+                    <default>false</default>
+                    <label>Orphan Rare Diseases</label>
+                </value>
+                <value>
+                    <fullName>Rheumatology</fullName>
+                    <default>false</default>
+                    <label>Rheumatology</label>
+                </value>
+                <value>
+                    <fullName>Inflammation</fullName>
+                    <default>false</default>
+                    <label>Inflammation</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Stage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Lifecycle of a document from its beginning to end within a flow.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Not all documents go through all stages.</inlineHelpText>
+        <label>Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>ZPAPER__faxType__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Discovered</fullName>
+                    <default>false</default>
+                    <label>Discovered</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Received</fullName>
+                    <default>false</default>
+                    <label>Received</label>
+                </value>
+                <value>
+                    <fullName>Indexed</fullName>
+                    <default>false</default>
+                    <label>Indexed</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Processed</fullName>
+                    <default>false</default>
+                    <label>Processed</label>
+                </value>
+                <value>
+                    <fullName>Updated</fullName>
+                    <default>false</default>
+                    <label>Updated</label>
+                </value>
+                <value>
+                    <fullName>Verified</fullName>
+                    <default>false</default>
+                    <label>Verified</label>
+                </value>
+                <value>
+                    <fullName>Generated</fullName>
+                    <default>false</default>
+                    <label>Generated</label>
+                </value>
+                <value>
+                    <fullName>Reviewed</fullName>
+                    <default>false</default>
+                    <label>Reviewed</label>
+                </value>
+                <value>
+                    <fullName>Delivered</fullName>
+                    <default>false</default>
+                    <label>Delivered</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Archived</fullName>
+                    <default>false</default>
+                    <label>Archived</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>FAX:fax</controllingFieldValue>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>SOB:SOB</controllingFieldValue>
+                <controllingFieldValue>APPL:Appeal Document</controllingFieldValue>
+                <controllingFieldValue>MED:Medical Record</controllingFieldValue>
+                <controllingFieldValue>PAP:PAP Application</controllingFieldValue>
+                <controllingFieldValue>MISC:Miscellaneous</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>POI:Proof of Insurance</controllingFieldValue>
+                <controllingFieldValue>FIN:Financial Info</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Received</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FAX:fax</controllingFieldValue>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>SOB:SOB</controllingFieldValue>
+                <controllingFieldValue>APPL:Appeal Document</controllingFieldValue>
+                <controllingFieldValue>MED:Medical Record</controllingFieldValue>
+                <controllingFieldValue>PAP:PAP Application</controllingFieldValue>
+                <controllingFieldValue>MISC:Miscellaneous</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>POI:Proof of Insurance</controllingFieldValue>
+                <controllingFieldValue>FIN:Financial Info</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Indexed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Completed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>APPL:Appeal Document</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>POI:Proof of Insurance</controllingFieldValue>
+                <controllingFieldValue>FIN:Financial Info</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Rejected</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>SOB:SOB</controllingFieldValue>
+                <controllingFieldValue>APPL:Appeal Document</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>POI:Proof of Insurance</controllingFieldValue>
+                <controllingFieldValue>FIN:Financial Info</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Processed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Updated</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Verified</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Generated</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Reviewed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Delivered</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <valueName>Discovered</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>POI:Proof of Insurance</controllingFieldValue>
+                <controllingFieldValue>FIN:Financial Info</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Archived</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Failed</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Incoming Status</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>ZPAPER__Intake_for_Triage</fullName>
+        <columns>ZPAPER__latestFax__c</columns>
+        <columns>NAME</columns>
+        <columns>ZPAPER__triageURL__c</columns>
+        <columns>Program__c</columns>
+        <columns>Program_Member_MVN__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>ZPAPER__Status__c</columns>
+        <columns>ZPAPER__Channel__c</columns>
+        <columns>ZPAPER__Pages__c</columns>
+        <columns>ZPAPER__faxType__c</columns>
+        <columns>ZPAPER__From__c</columns>
+        <columns>ZPAPER__Provider__c</columns>
+        <columns>ZPAPER__Case__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ZPAPER__Status__c</field>
+            <operation>notEqual</operation>
+            <value>Complete</value>
+        </filters>
+        <label>Intake for Triage</label>
+        <language>en_US</language>
+    </listViews>
+    <recordTypes>
+        <fullName>ZPAPER__Child</fullName>
+        <active>true</active>
+        <description>Split from the parent zStack</description>
+        <label>Child</label>
+        <picklistValues>
+            <picklist>Program__c</picklist>
+            <values>
+                <fullName>ACTIMMUNE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KRYSTEXXA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PROCYSBI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAVICTI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPEZZA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPRO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>zCharta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>zPapyrus</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ZPAPER__Channel__c</picklist>
+            <values>
+                <fullName>KRYSTEXXA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PROCYSBI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAVICTI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPEZZA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPRO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fax</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ZPAPER__Classification__c</picklist>
+            <values>
+                <fullName>Inflammation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orphan Rare Diseases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rheumatology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ZPAPER__Stage__c</picklist>
+            <values>
+                <fullName>Archived</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delivered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indexed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Processed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reviewed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Updated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Verified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ZPAPER__Incoming</fullName>
+        <active>true</active>
+        <description>All incoming zStacks start here</description>
+        <label>Incoming</label>
+        <picklistValues>
+            <picklist>Program__c</picklist>
+            <values>
+                <fullName>ACTIMMUNE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KRYSTEXXA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PROCYSBI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAVICTI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPEZZA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPRO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>zCharta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>zPapyrus</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ZPAPER__Channel__c</picklist>
+            <values>
+                <fullName>KRYSTEXXA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PROCYSBI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAVICTI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPEZZA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPRO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fax</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ZPAPER__Classification__c</picklist>
+            <values>
+                <fullName>Inflammation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orphan Rare Diseases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rheumatology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ZPAPER__Stage__c</picklist>
+            <values>
+                <fullName>Archived</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delivered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indexed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Processed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reviewed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Updated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Verified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>ZPAPER__Referral</fullName>
+        <active>true</active>
+        <description>Connects with Lead and Opportunity records</description>
+        <label>Referral</label>
+        <picklistValues>
+            <picklist>Program__c</picklist>
+            <values>
+                <fullName>ACTIMMUNE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KRYSTEXXA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PROCYSBI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAVICTI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPEZZA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPRO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>zCharta</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>zPapyrus</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ZPAPER__Channel__c</picklist>
+            <values>
+                <fullName>KRYSTEXXA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PROCYSBI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAVICTI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPEZZA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TEPRO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fax</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ZPAPER__Classification__c</picklist>
+            <values>
+                <fullName>Inflammation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orphan Rare Diseases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rheumatology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ZPAPER__Stage__c</picklist>
+            <values>
+                <fullName>Archived</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delivered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Generated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indexed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Processed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reviewed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Updated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Verified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>
