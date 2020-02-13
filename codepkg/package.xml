@@ -1,2 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_types_list.htm --><!-- https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/manifest_samples.htm --><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>o2o</fullName>    <description>zPaper:Triage</description><types><members>zPaperProfile</members><name>Profile</name></types> <!-- TODO ANDY DECIDE TO INCLUDE OR NOT <types><members>ZPAPER__zPaper_Basic_User</members><members>ZPAPER__zPaper_Integration_User</members><name>PermissionSet</name></types> --><types><members>ZPAPER__zpaper__c</members><name>CustomObject</name></types>    <types>        <members>zPaperFlowsData</members>        <members>zzAction_Client_Library_js</members>        <members>zzAction_Custom_Barcode_Received_js</members>        <members>zzAction_MVN_Library_js</members>        <members>zzAction_Create_Stack_from_Fax_js</members>        <members>zzAction_Reject_Page_js</members> <!-- TODO clientIgnore -->        <members>zzAction_Index_Page_js</members>         <members>zzAction_zStack_Library_js</members> <!-- may not be needed TODO ERS191122 -->        <!-- Lightning <members>zDocSetup_json</members> -->        <members>zzOrg_Settings_js</members>        <name>StaticResource</name>    </types>     <types>        <members>ZPAPER__zStack__c-ZPAPER__Admin zStack Layout</members>        <members>ZPAPER__zStack__c-ZPAPER__zStack Layout</members>        <members>ZPAPER__zStack__c-ZPAPER__zStack Referral</members>        <name>Layout</name>    </types>    <types>        <members>Document_MVN__c.File_MVN__c</members>        <name>CustomField</name>    </types>    <types>        <members>Document_MVN__c-Document Layout MVN</members>        <members>Program_Member_MVN__c-Program Member Layout - ACTIMMUNE</members>        <members>Program_Member_MVN__c-Program Member Layout - KRYSTEXXA</members>        <members>Program_Member_MVN__c-Program Member Layout - PROCYSBI</members>        <members>Program_Member_MVN__c-Program Member Layout - RAVICTI</members>        <members>Program_Member_MVN__c-Program Member Layout - TEPRO</members>        <members>Program_Member_MVN__c-Program Member Layout MVN</members>        <members>Program_Member_MVN__c-Program Member Layout MVN-admin</members>        <name>Layout</name>    </types>    <types>        <members>ZPAPER__zStack__c.ZPAPER__Intake_for_Triage</members>        <name>ListView</name>     </types>   <types>        <members>ZPAPER__zStack__c.ZPAPER__Child</members>        <members>ZPAPER__zStack__c.ZPAPER__Incoming</members>        <members>ZPAPER__zStack__c.ZPAPER__Referral</members>        <name>RecordType</name>    </types><!-- picklists and zStack custom fields --><types>        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>        <members>ZPAPER__zStack__c.Program__c</members>        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Stage__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Status__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Channel__c</members>        <members>ZPAPER__zStack__c.Program_Member_MVN__c</members>        <name>CustomField</name></types><version>46.0</version></Package>
-<!-- Last updated Thu Feb 13 17:36:13 EST 2020 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Document_MVN__c.File_MVN__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.Program_Member_MVN__c</members>
+        <members>ZPAPER__zStack__c.Program__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Channel__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Stage__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Status__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>ZPAPER__zpaper__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c-ZPAPER__Admin zStack Layout</members>
+        <members>ZPAPER__zStack__c-ZPAPER__zStack Layout</members>
+        <members>ZPAPER__zStack__c-ZPAPER__zStack Referral</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Document_MVN__c-Document Layout MVN</members>
+        <members>Program_Member_MVN__c-Program Member Layout - ACTIMMUNE</members>
+        <members>Program_Member_MVN__c-Program Member Layout - KRYSTEXXA</members>
+        <members>Program_Member_MVN__c-Program Member Layout - PROCYSBI</members>
+        <members>Program_Member_MVN__c-Program Member Layout - RAVICTI</members>
+        <members>Program_Member_MVN__c-Program Member Layout - TEPRO</members>
+        <members>Program_Member_MVN__c-Program Member Layout MVN</members>
+        <members>Program_Member_MVN__c-Program Member Layout MVN-admin</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.ZPAPER__Intake_for_Triage</members>
+        <name>ListView</name>
+    </types>
+    <types>
+        <members>zPaperProfile</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.ZPAPER__Child</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Incoming</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Referral</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>zPaperFlowsData</members>
+        <members>zzAction_Client_Library_js</members>
+        <members>zzAction_Create_Stack_from_Fax_js</members>
+        <members>zzAction_Custom_Barcode_Received_js</members>
+        <members>zzAction_Index_Page_js</members>
+        <members>zzAction_MVN_Library_js</members>
+        <members>zzAction_Reject_Page_js</members>
+        <members>zzAction_zStack_Library_js</members>
+        <members>zzOrg_Settings_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>46.0</version>
+</Package>
