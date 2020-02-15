@@ -1,2 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>zPaperManifest</fullName>    <description>manifest of zPaper elements for the December 2019 sprint</description>    <types>       <members>zzAction_Bulk_Delivery_COMPLETE_js</members>        <name>StaticResource</name>    </types>    <version>46.0</version></Package>
-<!-- Last updated Sat Feb 15 10:52:08 EST 2020 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>zzAction_Bulk_Delivery_COMPLETE_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>46.0</version>
+</Package>
