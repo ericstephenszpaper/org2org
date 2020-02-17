@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <fullName>Complete_Forms_PM</fullName>
+        <availability>online</availability>
+        <description>Complete Forms button for Custom Object Program Member</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Complete Forms PM</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>https://{!$Setup.ZPAPER__zpaper__c.ZPAPER__server__c}/kb/jsp/SF_find.jsp?go=formList.jsp&amp;sfIDs={!Program_Member_MVN__c.Id}&amp;SFserver={!$Api.Partner_Server_URL_310}&amp;SFsession={!$Api.Session_ID}&amp;prePopObj={!if(!ISNULL(Program_Member_MVN__c.Id),&quot;Program_Member_MVN__c&quot;,&quot;&quot;)}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_A_Doc_PM</fullName>
+        <availability>online</availability>
+        <description>Send a Doc for custom Object Program Member</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Send A Doc PM</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>https://{!$Setup.ZPAPER__zpaper__c.ZPAPER__server__c}/kb/jsp/massFaxBin.jsp?sfUser={!$User.Username}&amp;sfOrg={!$Organization.Id}&amp;sfIDs={!Program_Member_MVN__c.Id}&amp;SFserver={!$Api.Partner_Server_URL_310}&amp;SFsession={!$Api.Session_ID}</url>
+    </webLinks>
+</CustomObject>
