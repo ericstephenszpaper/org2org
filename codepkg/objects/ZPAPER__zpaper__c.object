@@ -148,19 +148,6 @@ Add Classification3/Program3/Channel3 settings as needed</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>ZPAPER__Home_Service_Page__c</fullName>
-        <defaultValue>&quot;/kb/jsp/SF_kbGreetings.jsp&quot;</defaultValue>
-        <deprecated>false</deprecated>
-        <description>JSP that creates KB sessions and may also do a useful SF operation like capture drag and drops or searches like in /kb/jsp/SF_getCaseReferences.jsp</description>
-        <externalId>false</externalId>
-        <label>Home_Service_Page</label>
-        <length>80</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>ZPAPER__Importer__c</fullName>
         <defaultValue>&quot;-:3:Account:Fax&quot;</defaultValue>
         <deprecated>false</deprecated>
