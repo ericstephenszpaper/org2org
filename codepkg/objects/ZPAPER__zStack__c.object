@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Program__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>//ERS200202 TODO fix in MP</inlineHelpText>
+        <label>Program</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>ZPAPER__Classification__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ACTIMMUNE</fullName>
+                    <default>false</default>
+                    <label>ACTIMMUNE</label>
+                </value>
+                <value>
+                    <fullName>PROCYSBI</fullName>
+                    <default>false</default>
+                    <label>PROCYSBI</label>
+                </value>
+                <value>
+                    <fullName>RAVICTI</fullName>
+                    <default>false</default>
+                    <label>RAVICTI</label>
+                </value>
+                <value>
+                    <fullName>KRYSTEXXA</fullName>
+                    <default>false</default>
+                    <label>KRYSTEXXA</label>
+                </value>
+                <value>
+                    <fullName>TEPRO</fullName>
+                    <default>false</default>
+                    <label>TEPRO</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <valueName>ACTIMMUNE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <valueName>PROCYSBI</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <valueName>RAVICTI</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <valueName>KRYSTEXXA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>TEPRO</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Channel__c</fullName>
+        <defaultValue>&quot;fax&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Channel</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>fax</fullName>
+                    <default>true</default>
+                    <label>fax</label>
+                </value>
+                <value>
+                    <fullName>PROCYSBI</fullName>
+                    <default>false</default>
+                    <label>PROCYSBI</label>
+                </value>
+                <value>
+                    <fullName>RAVICTI</fullName>
+                    <default>false</default>
+                    <label>RAVICTI</label>
+                </value>
+                <value>
+                    <fullName>KRYSTEXXA</fullName>
+                    <default>false</default>
+                    <label>KRYSTEXXA</label>
+                </value>
+                <value>
+                    <fullName>TEPEZZA</fullName>
+                    <default>false</default>
+                    <label>TEPEZZA</label>
+                </value>
+                <value>
+                    <fullName>TEPRO</fullName>
+                    <default>false</default>
+                    <label>TEPRO</label>
+                </value>
+                <value>
+                    <fullName>email</fullName>
+                    <default>false</default>
+                    <label>email</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Classification__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Classification</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Orphan Rare Diseases</fullName>
+                    <default>false</default>
+                    <label>Orphan Rare Diseases</label>
+                </value>
+                <value>
+                    <fullName>Rheumatology</fullName>
+                    <default>false</default>
+                    <label>Rheumatology</label>
+                </value>
+                <value>
+                    <fullName>Ophthalmology</fullName>
+                    <default>false</default>
+                    <label>Ophthalmology</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Stage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Lifecycle of a document from its beginning to end within a flow.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Not all documents go through all stages.</inlineHelpText>
+        <label>Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>ZPAPER__faxType__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Discovered</fullName>
+                    <default>false</default>
+                    <label>Discovered</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Received</fullName>
+                    <default>false</default>
+                    <label>Received</label>
+                </value>
+                <value>
+                    <fullName>Indexed</fullName>
+                    <default>false</default>
+                    <label>Indexed</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Processed</fullName>
+                    <default>false</default>
+                    <label>Processed</label>
+                </value>
+                <value>
+                    <fullName>Updated</fullName>
+                    <default>false</default>
+                    <label>Updated</label>
+                </value>
+                <value>
+                    <fullName>Verified</fullName>
+                    <default>false</default>
+                    <label>Verified</label>
+                </value>
+                <value>
+                    <fullName>Generated</fullName>
+                    <default>false</default>
+                    <label>Generated</label>
+                </value>
+                <value>
+                    <fullName>Reviewed</fullName>
+                    <default>false</default>
+                    <label>Reviewed</label>
+                </value>
+                <value>
+                    <fullName>Delivered</fullName>
+                    <default>false</default>
+                    <label>Delivered</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Archived</fullName>
+                    <default>false</default>
+                    <label>Archived</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>FAX:fax</controllingFieldValue>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>SOB:SOB</controllingFieldValue>
+                <controllingFieldValue>APPL:Appeal Document</controllingFieldValue>
+                <controllingFieldValue>MED:Medical Record</controllingFieldValue>
+                <controllingFieldValue>PAP:PAP Application</controllingFieldValue>
+                <controllingFieldValue>MISC:Miscellaneous</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>POI:Proof of Insurance</controllingFieldValue>
+                <controllingFieldValue>FIN:Financial Info</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Received</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>FAX:fax</controllingFieldValue>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>SOB:SOB</controllingFieldValue>
+                <controllingFieldValue>APPL:Appeal Document</controllingFieldValue>
+                <controllingFieldValue>MED:Medical Record</controllingFieldValue>
+                <controllingFieldValue>PAP:PAP Application</controllingFieldValue>
+                <controllingFieldValue>MISC:Miscellaneous</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>POI:Proof of Insurance</controllingFieldValue>
+                <controllingFieldValue>FIN:Financial Info</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Indexed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Completed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>APPL:Appeal Document</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>POI:Proof of Insurance</controllingFieldValue>
+                <controllingFieldValue>FIN:Financial Info</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Rejected</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>SOB:SOB</controllingFieldValue>
+                <controllingFieldValue>APPL:Appeal Document</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>POI:Proof of Insurance</controllingFieldValue>
+                <controllingFieldValue>FIN:Financial Info</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Processed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Updated</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Verified</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Generated</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Reviewed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>OPT:HIPAA/Opt in</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Delivered</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <valueName>Discovered</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>ENRL:Enrollment</controllingFieldValue>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>POI:Proof of Insurance</controllingFieldValue>
+                <controllingFieldValue>FIN:Financial Info</controllingFieldValue>
+                <controllingFieldValue>IC:Insurance Card</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Archived</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>MIF:Missing Info</controllingFieldValue>
+                <controllingFieldValue>PAF:PA Document</controllingFieldValue>
+                <controllingFieldValue>PREL:Patient Release</controllingFieldValue>
+                <valueName>Failed</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Incoming Status</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__faxType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Document Type</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>ZPAPER__Classification__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ENRL:Enrollment</fullName>
+                    <default>true</default>
+                    <label>ENRL:Enrollment</label>
+                </value>
+                <value>
+                    <fullName>SOB:SOB</fullName>
+                    <default>false</default>
+                    <label>SOB:SOB</label>
+                </value>
+                <value>
+                    <fullName>PAF:PA Document</fullName>
+                    <default>false</default>
+                    <label>PAF:PA Document</label>
+                </value>
+                <value>
+                    <fullName>APPL:Appeal Document</fullName>
+                    <default>false</default>
+                    <label>APPL:Appeal Document</label>
+                </value>
+                <value>
+                    <fullName>OPT:HIPAA/Opt in</fullName>
+                    <default>false</default>
+                    <label>OPT:HIPAA/Opt in</label>
+                </value>
+                <value>
+                    <fullName>IC:Insurance Card</fullName>
+                    <default>false</default>
+                    <label>IC:Insurance Card</label>
+                </value>
+                <value>
+                    <fullName>MED:Medical Record</fullName>
+                    <default>false</default>
+                    <label>MED:Medical Record</label>
+                </value>
+                <value>
+                    <fullName>PAP:PAP Application</fullName>
+                    <default>false</default>
+                    <label>PAP:PAP Application</label>
+                </value>
+                <value>
+                    <fullName>MISC:Miscellaneous</fullName>
+                    <default>false</default>
+                    <label>MISC:Miscellaneous</label>
+                </value>
+                <value>
+                    <fullName>MIF:Missing Info</fullName>
+                    <default>false</default>
+                    <label>MIF:Missing Info</label>
+                </value>
+                <value>
+                    <fullName>POI:Proof of Insurance</fullName>
+                    <default>false</default>
+                    <label>POI:Proof of Insurance</label>
+                </value>
+                <value>
+                    <fullName>FIN:Financial Info</fullName>
+                    <default>false</default>
+                    <label>FIN:Financial Info</label>
+                </value>
+                <value>
+                    <fullName>PREL:Patient Release</fullName>
+                    <default>false</default>
+                    <label>PREL:Patient Release</label>
+                </value>
+                <value>
+                    <fullName>FAX:fax</fullName>
+                    <default>false</default>
+                    <label>FAX:fax</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>ENRL:Enrollment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>SOB:SOB</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>PAF:PA Document</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>APPL:Appeal Document</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>OPT:HIPAA/Opt in</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>IC:Insurance Card</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>MED:Medical Record</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>PAP:PAP Application</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>MISC:Miscellaneous</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>MIF:Missing Info</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>POI:Proof of Insurance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>FIN:Financial Info</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>PREL:Patient Release</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Orphan Rare Diseases</controllingFieldValue>
+                <controllingFieldValue>Rheumatology</controllingFieldValue>
+                <controllingFieldValue>Ophthalmology</controllingFieldValue>
+                <valueName>FAX:fax</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+</CustomObject>
