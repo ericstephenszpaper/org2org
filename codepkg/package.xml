@@ -1,2 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>o2o</fullName><description>Abbvie Promotion</description><types>    <members>zzAction_zStack_Library_js</members>    <members>zzAction_Index_Page_js</members>     <members>zzAction_Client_Library_js</members>    <members>zzAction_Create_Stack_from_Fax_js</members>    <members>ZPAPER__zAction_zPaper_OCR_Library_js</members>    <members>ZPAPER__zAction_Data_Entry_Saved_js</members>    <members>ZPAPER__zAction_DELIVERY_COMPLETE_js</members>    <members>zzAction_Clear_Lookups_js</members>    <members>ZPAPER__zAction_Markup_Handler_js</members>    <members>ZPAPER__zAction_Reject_Page_js</members>    <members>ZPAPER__zAction_LOCK_ZSTACK_js</members>    <members>ZPAPER__zAction_Ignore_Page_js</members>    <members>ZPAPER__zAction_UNLOCK_ZSTACK_js</members>    <members>zzAction_Stack_Complete_js</members>    <members>zzAction_Standard_Barcode_Received_js</members>    <members>ZPAPER__zAction_Attach_Page_js</members>    <members>zzOrg_Settings_js</members>    <name>StaticResource</name>    </types><version>46.0</version></Package>
-<!-- Last updated Thu Mar 19 14:02:48 EDT 2020 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ZPAPER__zAction_Attach_Page_js</members>
+        <members>ZPAPER__zAction_DELIVERY_COMPLETE_js</members>
+        <members>ZPAPER__zAction_Data_Entry_Saved_js</members>
+        <members>ZPAPER__zAction_Ignore_Page_js</members>
+        <members>ZPAPER__zAction_LOCK_ZSTACK_js</members>
+        <members>ZPAPER__zAction_Markup_Handler_js</members>
+        <members>ZPAPER__zAction_Reject_Page_js</members>
+        <members>ZPAPER__zAction_UNLOCK_ZSTACK_js</members>
+        <members>ZPAPER__zAction_zPaper_OCR_Library_js</members>
+        <members>zzAction_Clear_Lookups_js</members>
+        <members>zzAction_Client_Library_js</members>
+        <members>zzAction_Create_Stack_from_Fax_js</members>
+        <members>zzAction_Index_Page_js</members>
+        <members>zzAction_Stack_Complete_js</members>
+        <members>zzAction_Standard_Barcode_Received_js</members>
+        <members>zzAction_zStack_Library_js</members>
+        <members>zzOrg_Settings_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>46.0</version>
+</Package>
