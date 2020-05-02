@@ -1,20 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>ZPAPER__zStack__c.Drug_Type__c</members>
-        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>
-        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>
-        <name>CustomField</name>
-    </types>
-    <types>
-        <members>ZPAPER__zStack__c.RH_Immunology</members>
-        <name>RecordType</name>
-    </types>
-    <types>
-        <members>zzAction_Create_Stack_from_Fax_js</members>
-        <members>zzAction_Standard_Barcode_Received_js</members>
-        <members>zzAction_zStack_Library_js</members>
-        <name>StaticResource</name>
-    </types>
-    <version>47.0</version>
-</Package>
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>zPaperManifest</fullName>    <description>AbbVie April 2020 sprint promotion (OriX)</description>    <types>        <members>ZPAPER__zStack__c.Drug_Type__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>        <name>CustomField</name>    </types>    <types>        <members>ZPAPER__zStack__c.RH_Immunology</members>        <name>RecordType</name>    </types>    <types>        <members>zzAction_Create_Stack_from_Fax_js</members>        <members>zzAction_Standard_Barcode_Received_js</members>        <members>zzAction_zStack_Library_js</members>        <name>StaticResource</name>    </types>    <version>47.0</version></Package>
+<!-- Last updated Sat May 02 14:06:22 EDT 2020 -->
