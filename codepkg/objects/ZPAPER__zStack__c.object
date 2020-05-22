@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Drug_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Drug Type</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>ZPAPER__Classification__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Humira</fullName>
+                    <default>false</default>
+                    <label>Humira</label>
+                </value>
+                <value>
+                    <fullName>Lupron</fullName>
+                    <default>false</default>
+                    <label>Lupron</label>
+                </value>
+                <value>
+                    <fullName>Skyrizi</fullName>
+                    <default>false</default>
+                    <label>Skyrizi</label>
+                </value>
+                <value>
+                    <fullName>HIPAA</fullName>
+                    <default>false</default>
+                    <label>HIPAA</label>
+                </value>
+                <value>
+                    <fullName>RINVOQ</fullName>
+                    <default>false</default>
+                    <label>RINVOQ</label>
+                </value>
+                <value>
+                    <fullName>Creon</fullName>
+                    <default>false</default>
+                    <label>Creon</label>
+                </value>
+                <value>
+                    <fullName>Mavyret</fullName>
+                    <default>false</default>
+                    <label>Mavyret</label>
+                </value>
+                <value>
+                    <fullName>ORILISSA</fullName>
+                    <default>false</default>
+                    <label>ORILISSA</label>
+                </value>
+                <value>
+                    <fullName>ORIAHNN</fullName>
+                    <default>false</default>
+                    <label>ORIAHNN</label>
+                </value>
+                <value>
+                    <fullName>DrugX</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>DrugX</label>
+                </value>
+                <value>
+                    <fullName>Oncology Drug</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Oncology Drug</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>PAP</controllingFieldValue>
+                <controllingFieldValue>RH-Immunology</controllingFieldValue>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>Humira</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RH-Immunology</controllingFieldValue>
+                <valueName>Lupron</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RH-Immunology</controllingFieldValue>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>ORIAHNN</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>Skyrizi</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>HIPAA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>RINVOQ</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>Creon</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>Mavyret</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>ORILISSA</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Classification__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Classification</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>PAP</fullName>
+                    <default>false</default>
+                    <label>PAP</label>
+                </value>
+                <value>
+                    <fullName>RH-Immunology</fullName>
+                    <default>false</default>
+                    <label>RH-Immunology</label>
+                </value>
+                <value>
+                    <fullName>RH-Oncology</fullName>
+                    <default>false</default>
+                    <label>RH-Oncology</label>
+                </value>
+                <value>
+                    <fullName>Complete Intake</fullName>
+                    <default>false</default>
+                    <label>Complete Intake</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__faxType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Document Type</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>ZPAPER__Classification__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>APN:Application</fullName>
+                    <default>false</default>
+                    <label>APN:Application</label>
+                </value>
+                <value>
+                    <fullName>FIN:Financial Info</fullName>
+                    <default>false</default>
+                    <label>FIN:Financial Info</label>
+                </value>
+                <value>
+                    <fullName>IC:Insurance Card</fullName>
+                    <default>false</default>
+                    <label>IC:Insurance Card</label>
+                </value>
+                <value>
+                    <fullName>MISC:Miscellaneous</fullName>
+                    <default>false</default>
+                    <label>MISC:Miscellaneous</label>
+                </value>
+                <value>
+                    <fullName>PRN:Prescription</fullName>
+                    <default>false</default>
+                    <label>PRN:Prescription</label>
+                </value>
+                <value>
+                    <fullName>HIP:HIPAA Release</fullName>
+                    <default>false</default>
+                    <label>HIP:HIPAA Release</label>
+                </value>
+                <value>
+                    <fullName>VCH:Voucher</fullName>
+                    <default>false</default>
+                    <label>VCH:Voucher</label>
+                </value>
+                <value>
+                    <fullName>CFM:Case Form</fullName>
+                    <default>false</default>
+                    <label>CFM:Case Form</label>
+                </value>
+                <value>
+                    <fullName>PRI:Prior Authorization</fullName>
+                    <default>false</default>
+                    <label>PRI:Prior Authorization</label>
+                </value>
+                <value>
+                    <fullName>DEM:Patient Demographics</fullName>
+                    <default>false</default>
+                    <label>DEM:Patient Demographics</label>
+                </value>
+                <value>
+                    <fullName>MED:Medications</fullName>
+                    <default>false</default>
+                    <label>MED:Medications</label>
+                </value>
+                <value>
+                    <fullName>MISD:Legacy</fullName>
+                    <default>false</default>
+                    <label>MISD:Legacy</label>
+                </value>
+                <value>
+                    <fullName>MISD:Misdirected</fullName>
+                    <default>false</default>
+                    <label>MISD:Misdirected</label>
+                </value>
+                <value>
+                    <fullName>MISD:PAP</fullName>
+                    <default>false</default>
+                    <label>MISD:PAP</label>
+                </value>
+                <value>
+                    <fullName>MISD:Other ABV Prog</fullName>
+                    <default>false</default>
+                    <label>MISD:Other ABV Prog</label>
+                </value>
+                <value>
+                    <fullName>CEF:Complete Enrollment Form</fullName>
+                    <default>false</default>
+                    <label>CEF:Complete Enrollment Form</label>
+                </value>
+                <value>
+                    <fullName>POA:Power of Attorney</fullName>
+                    <default>false</default>
+                    <label>POA:Power of Attorney</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>PAP</controllingFieldValue>
+                <valueName>APN:Application</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>PAP</controllingFieldValue>
+                <valueName>FIN:Financial Info</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>PAP</controllingFieldValue>
+                <controllingFieldValue>RH-Immunology</controllingFieldValue>
+                <controllingFieldValue>RH-Oncology</controllingFieldValue>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>IC:Insurance Card</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>PAP</controllingFieldValue>
+                <controllingFieldValue>RH-Immunology</controllingFieldValue>
+                <controllingFieldValue>RH-Oncology</controllingFieldValue>
+                <valueName>MISC:Miscellaneous</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>PAP</controllingFieldValue>
+                <controllingFieldValue>RH-Immunology</controllingFieldValue>
+                <controllingFieldValue>RH-Oncology</controllingFieldValue>
+                <valueName>PRN:Prescription</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>PAP</controllingFieldValue>
+                <valueName>MED:Medications</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RH-Immunology</controllingFieldValue>
+                <controllingFieldValue>RH-Oncology</controllingFieldValue>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>HIP:HIPAA Release</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RH-Immunology</controllingFieldValue>
+                <controllingFieldValue>RH-Oncology</controllingFieldValue>
+                <valueName>VCH:Voucher</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RH-Immunology</controllingFieldValue>
+                <controllingFieldValue>RH-Oncology</controllingFieldValue>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>CFM:Case Form</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RH-Immunology</controllingFieldValue>
+                <controllingFieldValue>RH-Oncology</controllingFieldValue>
+                <valueName>PRI:Prior Authorization</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RH-Immunology</controllingFieldValue>
+                <controllingFieldValue>RH-Oncology</controllingFieldValue>
+                <valueName>DEM:Patient Demographics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>MISD:Legacy</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>MISD:Misdirected</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>MISD:PAP</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>MISD:Other ABV Prog</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>CEF:Complete Enrollment Form</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Complete Intake</controllingFieldValue>
+                <valueName>POA:Power of Attorney</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <recordTypes>
+        <fullName>RH_Immunology</fullName>
+        <active>true</active>
+        <description>RH-Immunology zStack record type</description>
+        <label>RH-Immunology</label>
+        <picklistValues>
+            <picklist>Drug_Type__c</picklist>
+            <values>
+                <fullName>Humira</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Lupron</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ORIAHNN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ZPAPER__Classification__c</picklist>
+            <values>
+                <fullName>RH-Immunology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RH-Oncology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ZPAPER__faxType__c</picklist>
+            <values>
+                <fullName>CEF%3AComplete Enrollment Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CFM%3ACase Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DEM%3APatient Demographics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HIP%3AHIPAA Release</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IC%3AInsurance Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MISC%3AMiscellaneous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MISD%3ALegacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MISD%3AMisdirected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MISD%3AOther ABV Prog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MISD%3APAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>POA%3APower of Attorney</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PRI%3APrior Authorization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PRN%3APrescription</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VCH%3AVoucher</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>
