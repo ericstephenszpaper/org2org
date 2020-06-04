@@ -1,2 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>zzOrgSettings</fullName>    <description>zPaper Org Settings</description>    <types>        <members>zzOrg_Settings_js</members>        <name>StaticResource</name>    </types>    <version>48.0</version></Package>
-<!-- Last updated Thu Jun 04 16:02:59 EDT 2020 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>zzOrg_Settings_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>48.0</version>
+</Package>
