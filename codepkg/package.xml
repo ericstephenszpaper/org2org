@@ -1,2 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>QAto Production Solution Container</fullName>    <description>V3Dev to V3Demo Solution Container</description>        <types>            <members>zzAction_Delete_Document_js</members>            <name>StaticResource</name>        </types><version>46.0</version></Package>
-<!-- Last updated Tue Jul 14 17:04:55 EDT 2020 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>zzAction_Delete_Document_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>46.0</version>
+</Package>
