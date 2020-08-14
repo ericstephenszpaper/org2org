@@ -195,11 +195,12 @@
             <actionType>QuickAction</actionType>
             <sortOrder>6</sortOrder>
         </platformActionListItems>
+        <!--
         <platformActionListItems>
             <actionName>NewNote</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>7</sortOrder>
-        </platformActionListItems>
+        </platformActionListItems> -->
         <platformActionListItems>
             <actionName>NewEvent</actionName>
             <actionType>QuickAction</actionType>
@@ -358,9 +359,10 @@
         <quickActionListItems>
             <quickActionName>NewCase</quickActionName>
         </quickActionListItems>
+        <!--
         <quickActionListItems>
             <quickActionName>NewNote</quickActionName>
-        </quickActionListItems>
+        </quickActionListItems>-->
         <quickActionListItems>
             <quickActionName>NewEvent</quickActionName>
         </quickActionListItems>
