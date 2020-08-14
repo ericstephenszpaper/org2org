@@ -362,14 +362,13 @@
         <!--
         <quickActionListItems>
             <quickActionName>NewNote</quickActionName>
-        </quickActionListItems>-->
+        </quickActionListItems>
         <quickActionListItems>
             <quickActionName>NewEvent</quickActionName>
         </quickActionListItems>
-       <!--
         <quickActionListItems>
             <quickActionName>FeedItem.RypplePost</quickActionName>
-        </quickActionListItems> -->
+        </quickActionListItems>
         <quickActionListItems>
             <quickActionName>FeedItem.LinkPost</quickActionName>
         </quickActionListItems>
@@ -381,7 +380,7 @@
         </quickActionListItems>
         <quickActionListItems>
             <quickActionName>SendEmail</quickActionName>
-        </quickActionListItems>
+        </quickActionListItems>-->
     </quickActionList>
     <relatedContent>
         <relatedContentItems>
