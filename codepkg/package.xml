@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_types_list.htm --><!-- https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/manifest_samples.htm --><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>o2o</fullName>    <description>zPaper:Triage PAP</description><types><members>ZPAPER__zpaper__c</members><name>CustomObject</name></types>   <types>        <members>ZPAPER__zStack__c.ZPAPER__Child</members>        <members>ZPAPER__zStack__c.ZPAPER__Incoming</members>        <members>ZPAPER__zStack__c.ZPAPER__Referral</members>        <name>RecordType</name>    </types>    <types>        <!-- zBase ERS200904 <members>zzAction_Client_Library_js</members> -->        <!-- zBase ERS200904 <members>zzAction_Custom_Barcode_Received_js</members> -->        <!-- zBase ERS200904 <members>zzAction_Create_Stack_from_Fax_js</members> -->        <members>zzAction_Reject_Page_js</members>        <members>zzAction_Index_Page_js</members>         <members>zzAction_Ignore_Page_js</members>         <members>zzAction_Stack_Complete_js</members>        <!-- zBase ERS200904 <members>zzAction_zStack_Library_js</members> -->        <name>StaticResource</name>    </types><version>46.0</version></Package>
-<!-- Last updated Sat Sep 05 18:58:08 EDT 2020 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ZPAPER__zpaper__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.ZPAPER__Child</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Incoming</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Referral</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>zzAction_Ignore_Page_js</members>
+        <members>zzAction_Index_Page_js</members>
+        <members>zzAction_Reject_Page_js</members>
+        <members>zzAction_Stack_Complete_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>46.0</version>
+</Package>
