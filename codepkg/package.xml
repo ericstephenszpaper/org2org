@@ -1,2 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>zConfig Actions</fullName>    <description>zConfig Actions</description>    <types>         <members>zDocSetup_json</members>        <name>StaticResource</name>    </types><version>46.0</version></Package>
-<!-- Last updated Mon Sep 21 14:25:59 EDT 2020 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>zDocSetup_json</members>
+        <name>StaticResource</name>
+    </types>
+    <version>46.0</version>
+</Package>
