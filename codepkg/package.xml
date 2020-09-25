@@ -1,2 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>zConfig Actions</fullName>    <description>zConfig Actions</description>    <types>         <members>zDocSetup_json</members>        <members>zzAction_Client_Library_js</members>        <members>zzAction_Create_Stack_from_Fax_js</members>                      <members>zzAction_Create_zStack_js</members>        <members>zzAction_DELIVERY_COMPLETE_js</members>        <members>zzAction_zStack_Library_js</members>        <!--<members>zzOrg_Settings_js</members> -->        <name>StaticResource</name>     </types>    <types>        <members>HealthCloudGA__EhrObservation__c.faxType__c</members>        <members>HealthCloudGA__EhrObservation__c.latestFax__c</members>        <members>HealthCloudGA__EhrObservation__c.newFax__c</members>        <members>HealthCloudGA__EhrObservation__c.outboundFaxTemplate__c</members>        <members>HealthCloudGA__EhrObservation__c.producedId__c</members>        <members>HealthCloudGA__EhrObservation__c.receivedId__c</members>        <members>HealthCloudGA__EhrObservation__c.sentFaxAt__c</members>        <members>HealthCloudGA__EhrObservation__c.sentFaxStatus__c</members>        <members>HealthCloudGA__EhrObservation__c.sentFaxTo__c</members>        <members>Order.faxType__c</members>        <members>Order.latestFax__c</members>        <members>Order.newFax__c</members>        <members>Order.outboundFaxTemplate__c</members>        <members>Order.producedId__c</members>        <members>Order.receivedId__c</members>        <members>Order.sentFaxAt__c</members>        <members>Order.sentFaxStatus__c</members>        <members>Order.sentFaxTo__c</members>        <members>Order.sentFax__c</members>        <name>CustomField</name>    </types>    <!--ERS200917 #76892 TODO and must be done by permission set or instead?-->    <types>        <members>Admin</members>        <name>Profile</name>    </types>    <types>        <members>ZPAPER__zStack__c.ZPAPER__zIntake</members>        <name>ListView</name>    </types><types>        <members>HealthCloudGA__EhrObservation__c.Send_Test_Results</members>        <members>Order.Send_Order_Received_Form</members>        <name>WorkflowFieldUpdate</name> </types><types>        <members>HealthCloudGA__EhrObservation__c.SendEHRObservationFax</members>        <members>Order.SendOrderFax</members>        <name>WorkflowOutboundMessage</name> </types>    <types>        <members>HealthCloudGA__EhrObservation__c.Send Test Results</members>        <members>Order.Send Order Received Form</members>        <name>WorkflowRule</name>    </types><types><members>Contact_Record_Page</members><members>zStack_Record_Page</members><members>Case_Record_Page</members><name>FlexiPage</name></types><!--AN200921<types><members>Contact-Contact Layout</members><members>Case-Case Layout</members><name>Layout</name></types>--><types><members>ZPAPER__zpaper__c</members><name>CustomObject</name></types><version>46.0</version></Package>
-<!-- Last updated Fri Sep 25 14:55:23 EDT 2020 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>HealthCloudGA__EhrObservation__c.faxType__c</members>
+        <members>HealthCloudGA__EhrObservation__c.latestFax__c</members>
+        <members>HealthCloudGA__EhrObservation__c.newFax__c</members>
+        <members>HealthCloudGA__EhrObservation__c.outboundFaxTemplate__c</members>
+        <members>HealthCloudGA__EhrObservation__c.producedId__c</members>
+        <members>HealthCloudGA__EhrObservation__c.receivedId__c</members>
+        <members>HealthCloudGA__EhrObservation__c.sentFaxAt__c</members>
+        <members>HealthCloudGA__EhrObservation__c.sentFaxStatus__c</members>
+        <members>HealthCloudGA__EhrObservation__c.sentFaxTo__c</members>
+        <members>Order.faxType__c</members>
+        <members>Order.latestFax__c</members>
+        <members>Order.newFax__c</members>
+        <members>Order.outboundFaxTemplate__c</members>
+        <members>Order.producedId__c</members>
+        <members>Order.receivedId__c</members>
+        <members>Order.sentFaxAt__c</members>
+        <members>Order.sentFaxStatus__c</members>
+        <members>Order.sentFaxTo__c</members>
+        <members>Order.sentFax__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>ZPAPER__zpaper__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Case_Record_Page</members>
+        <members>Contact_Record_Page</members>
+        <members>zStack_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.ZPAPER__zIntake</members>
+        <name>ListView</name>
+    </types>
+    <types>
+        <members>Admin</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>zDocSetup_json</members>
+        <members>zzAction_Client_Library_js</members>
+        <members>zzAction_Create_Stack_from_Fax_js</members>
+        <members>zzAction_Create_zStack_js</members>
+        <members>zzAction_DELIVERY_COMPLETE_js</members>
+        <members>zzAction_zStack_Library_js</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>HealthCloudGA__EhrObservation__c.Send_Test_Results</members>
+        <members>Order.Send_Order_Received_Form</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>HealthCloudGA__EhrObservation__c.SendEHRObservationFax</members>
+        <members>Order.SendOrderFax</members>
+        <name>WorkflowOutboundMessage</name>
+    </types>
+    <types>
+        <members>HealthCloudGA__EhrObservation__c.Send Test Results</members>
+        <members>Order.Send Order Received Form</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>46.0</version>
+</Package>
