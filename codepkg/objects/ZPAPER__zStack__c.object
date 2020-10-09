@@ -720,7 +720,6 @@ TODO: received, split who/when, attached who/when, data entry who/when
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
- <!-- //ERS201009 HACK
     <fields>
         <fullName>ZPAPER__faxType__c</fullName>
         <deprecated>false</deprecated>
@@ -734,11 +733,13 @@ TODO: received, split who/when, attached who/when, data entry who/when
             <controllingField>ZPAPER__Classification__c</controllingField>
             <valueSetDefinition>
                 <sorted>false</sorted>
+<!-- //ERS201009 HACK
                 <value>
                     <fullName>FAX</fullName>
                     <default>false</default>
                     <label>FAX:fax</label>
                 </value>
+-->
                 <value>
                     <fullName>TOR</fullName>
                     <default>false</default>
@@ -752,7 +753,6 @@ TODO: received, split who/when, attached who/when, data entry who/when
             </valueSetDefinition>
         </valueSet>
     </fields>
--->
     <fields>
         <fullName>ZPAPER__fromPages__c</fullName>
         <deprecated>false</deprecated>
