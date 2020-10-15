@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>Physician Order</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>ZPAPER__sentFaxStatus__c</fieldNames>
+        <fieldNames>ClosedDate</fieldNames>
+        <info>&lt;p&gt;All stages are complete and patient received kit with results sent to the patient.&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>Reason</fieldNames>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Go to Communications Tab and select specific template related to missing information.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Missing Information</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>CreatedDate</fieldNames>
+        <info>&lt;p&gt;Verify:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Document signed and dated by &lt;b&gt;HCP&lt;/b&gt;&lt;/li&gt;&lt;li&gt;Document signed and dated by &lt;b&gt;patient&lt;/b&gt;&lt;/li&gt;&lt;li&gt;All &lt;b&gt;HCP &lt;/b&gt;information filled out&lt;/li&gt;&lt;li&gt;All &lt;b&gt;patient &lt;/b&gt;information filled out&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>New</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Physician_Order</recordTypeName>
+</PathAssistant>

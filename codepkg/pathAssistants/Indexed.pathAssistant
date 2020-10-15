@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>ZPAPER__zStack__c</entityName>
+    <fieldName>ZPAPER__Stage__c</fieldName>
+    <masterLabel>Indexed</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>ZPAPER__Stage__c</fieldNames>
+        <fieldNames>ZPAPER__faxType__c</fieldNames>
+        <fieldNames>ZPAPER__Case__c</fieldNames>
+        <info>&lt;p&gt;&lt;b&gt;Triaging process started&lt;/b&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Existing patient found or new patient created&lt;/li&gt;&lt;li&gt;Prescribing provider found&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;All pages have been doctyped properly&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Case created&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;SLAs met&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Indexed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>ZPAPER__Stage__c</fieldNames>
+        <fieldNames>ZPAPER__faxType__c</fieldNames>
+        <fieldNames>ZPAPER__Case__c</fieldNames>
+        <info>&lt;p&gt;&lt;b&gt;Specific page&lt;/b&gt;(s) require a different case workflow&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Case created with rejected document doctype.&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Rejected</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>ZPAPER__Stage__c</fieldNames>
+        <fieldNames>ZPAPER__faxType__c</fieldNames>
+        <fieldNames>ZPAPER__Case__c</fieldNames>
+        <info>&lt;p&gt;Review that required &lt;b&gt;signatures&lt;/b&gt; are on all forms&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Enrollment, Prescription, Consent and HIPAA documents are signed.&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Signed</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Child</recordTypeName>
+</PathAssistant>

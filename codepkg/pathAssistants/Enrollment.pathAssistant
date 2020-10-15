@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>Enrollment</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>Reason</fieldNames>
+        <fieldNames>ZPAPER__outboundFaxTemplate__c</fieldNames>
+        <fieldNames>ZPAPER__sentFaxStatus__c</fieldNames>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Verify correct template is selected.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Authorized</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>ZPAPER__sentFaxStatus__c</fieldNames>
+        <fieldNames>ClosedDate</fieldNames>
+        <info>&lt;ul&gt;&lt;li&gt;All stages are complete and patient received kit with results sent to the patient.&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>Reason</fieldNames>
+        <fieldNames>ZPAPER__outboundFaxTemplate__c</fieldNames>
+        <fieldNames>ZPAPER__sentFaxStatus__c</fieldNames>
+        <info>&lt;p&gt;Verify correct template is selected.&lt;/p&gt;</info>
+        <picklistValueName>Escalated</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>Reason</fieldNames>
+        <info>&lt;p&gt;Go to Communications Tab and select &lt;span style=&quot;font-size: 13px;&quot;&gt;specific template related to missing information.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Missing Information</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>CreatedDate</fieldNames>
+        <info>&lt;p&gt;Verify:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Document signed and dated by &lt;b&gt;HCP&lt;/b&gt;&lt;/li&gt;&lt;li&gt;Document signed and dated by &lt;b&gt;patient&lt;/b&gt;&lt;/li&gt;&lt;li&gt;All &lt;b&gt;HCP &lt;/b&gt;information filled out&lt;/li&gt;&lt;li&gt;All &lt;b&gt;patient &lt;/b&gt;information filled out&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>New</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>Reason</fieldNames>
+        <fieldNames>ZPAPER__outboundFaxTemplate__c</fieldNames>
+        <fieldNames>ZPAPER__sentFaxStatus__c</fieldNames>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Verify correct template is selected.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Processing</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>Reason</fieldNames>
+        <fieldNames>ZPAPER__sentFaxStatus__c</fieldNames>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Verify that Status changed to Working which will automatically send out Acknowledgment letter to the provider letting them know the Enrollment is being processed.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Working</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Enrollment</recordTypeName>
+</PathAssistant>
