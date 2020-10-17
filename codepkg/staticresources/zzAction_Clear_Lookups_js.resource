@@ -1,0 +1,2 @@
+alert("TODO get the validation scripts into Static Resources");
+addPostExecutionScript(doc, "var e=~ZPAPER__Case__c,ZPAPER__Case__c_CaseNumber,ZPAPER__Provider__c,ZPAPER__Provider__c_Name,ZPAPER__Patient__c,ZPAPER__Patient__c_Name~.split(~,~);for (i in e) document.getElementById(e[i]).value=~~");
