@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>Enrollment</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>ZPAPER__outboundFaxTemplate__c</fieldNames>
+        <fieldNames>ZPAPER__sentFaxStatus__c</fieldNames>
+        <info>&lt;p&gt;Sending out Prior Authorization &lt;/p&gt;</info>
+        <picklistValueName>Authorized</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>ClosedDate</fieldNames>
+        <fieldNames>zStack_Case_Age_in_Minutes__c</fieldNames>
+        <info>&lt;p&gt;All required documentation received and completed.&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>ZPAPER__outboundFaxTemplate__c</fieldNames>
+        <fieldNames>ZPAPER__sentFaxStatus__c</fieldNames>
+        <picklistValueName>Escalated</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>ZPAPER__outboundFaxTemplate__c</fieldNames>
+        <fieldNames>ZPAPER__sentFaxStatus__c</fieldNames>
+        <info>&lt;p&gt;Outbound communications that could be sent to provider:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Missing signature of provider on &lt;b&gt;Enrollment&lt;/b&gt;&lt;/li&gt;&lt;li&gt;Missing signature of patient on &lt;b&gt;Enrollment&lt;/b&gt;&lt;/li&gt;&lt;li&gt;Missing &lt;b&gt;insurance &lt;/b&gt;information&lt;/li&gt;&lt;li&gt;Missing signature on &lt;b&gt;Consent &lt;/b&gt;form&lt;/li&gt;&lt;li&gt;Missing signature on &lt;b&gt;HIPAA &lt;/b&gt;form&lt;/li&gt;&lt;/ol&gt;</info>
+        <picklistValueName>Missing Information</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>CreatedDate</fieldNames>
+        <info>&lt;p&gt;Verify:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Document signed and dated by &lt;b&gt;HCP&lt;/b&gt;&lt;/li&gt;&lt;li&gt;Document signed and dated by &lt;b&gt;patient&lt;/b&gt;&lt;/li&gt;&lt;li&gt;All &lt;b&gt;HCP &lt;/b&gt;information filled out&lt;/li&gt;&lt;li&gt;All &lt;b&gt;patient &lt;/b&gt;information filled out&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>New</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>ZPAPER__outboundFaxTemplate__c</fieldNames>
+        <fieldNames>ZPAPER__sentFaxStatus__c</fieldNames>
+        <picklistValueName>Processing</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Status</fieldNames>
+        <fieldNames>ZPAPER__outboundFaxTemplate__c</fieldNames>
+        <fieldNames>ZPAPER__sentFaxStatus__c</fieldNames>
+        <info>&lt;p&gt;Sending out Acknowledgment letter letting provider know the Enrollment is being processed.&lt;/p&gt;</info>
+        <picklistValueName>Working</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Enrollment</recordTypeName>
+</PathAssistant>
