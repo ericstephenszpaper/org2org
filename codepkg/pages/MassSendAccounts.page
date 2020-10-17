@@ -1,0 +1,50 @@
+<apex:page standardController="Account" recordSetVar="accounts"  sidebar="false" showHeader="false">
+<script>
+var zIds="{!selected}".replace("[","").replace("]","");
+</script>
+<apex:pageBlock >
+    <apex:pageBlockTable value="{!selected}" var="a" >
+        <apex:column value="{!a.Id}"/>
+        <apex:column value="{!a.name}"/>
+        <script>zIds+="{!a.Id},";</script>
+    </apex:pageBlockTable>
+</apex:pageBlock>
+<script>
+var sfType="Account";
+var kbHost = "https://{!$Setup.ZPAPER__zpaper__c.ZPAPER__server__c}";
+kbHost="https://demo.zpaper.com"; //ERS200507 #72327 maybe its the gw
+
+if (zIds.length < 30) {
+alert("Please select at least two rows");
+} else {
+var myForm = document.createElement("form")
+myForm.setAttribute("method", "POST");
+myForm.setAttribute("action", kbHost+"/kb/jsp/massFaxBin.jsp");
+
+var myInput = document.createElement("input") ;
+myInput.setAttribute("name", "SFserver") ;
+myInput.setAttribute("value","{!$Api.Partner_Server_URL_410}");  //ERS180129 was 310
+myForm.appendChild(myInput);
+
+myInput = document.createElement("input") ;
+myInput.setAttribute("name", "SFsession") ;
+myInput.setAttribute("value","{!$Api.Session_ID}");
+myForm.appendChild(myInput);
+
+myInput = document.createElement("input") ;
+myInput.setAttribute("name", "SFtype") ;
+myInput.setAttribute("value",sfType);
+myForm.appendChild(myInput);
+
+myInput = document.createElement("input") ;
+myInput.setAttribute("name", "sfIDs") ;
+myInput.setAttribute("value",zIds);
+//alert(records.toString());
+myForm.appendChild(myInput);
+
+document.body.appendChild(myForm) ;
+if (1==1 || confirm(zIds)) myForm.submit() ;
+document.body.removeChild(myForm) ;
+}
+</script>
+</apex:page>
