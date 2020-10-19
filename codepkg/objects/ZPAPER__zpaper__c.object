@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>zPaper preferences and other settings.
+Add Classification3/Program3/Channel3 settings as needed</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ADdataConfidence__c</fullName>
+        <externalId>false</externalId>
+        <label>ADData Confidence</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>ADdata__c</fullName>
+        <description>list of docTypes to capture fields data</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>docTypes with field data (&quot;,ENRL,PA,DEM,ORD,&quot;)</inlineHelpText>
+        <label>ADData</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADpersonConfidence__c</fullName>
+        <externalId>false</externalId>
+        <label>ADPerson Confidence</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>ADpersonTypes__c</fullName>
+        <description>which docTypes lookup people</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>templates must have ADLookup formulas</inlineHelpText>
+        <label>ADPersonTypes</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADsignatures__c</fullName>
+        <description>docTypes with detectable signatures</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>list of docTypes to look for signatures (&quot;,PA,ENRL,HIPAA,DEM,CON,&quot;)</inlineHelpText>
+        <label>ADSignatures</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADtemplateConfidence__c</fullName>
+        <externalId>false</externalId>
+        <label>ADTemplate Confidence</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>ADtemplates__c</fullName>
+        <description>document types and template IDs</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>list of docType:templateId (&quot;ORD:PhysicianOrder_Form&quot;,&quot;CON:zCARTaConsent19_Form&quot;)</inlineHelpText>
+        <label>ADTemplates</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Channel4__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Channel4</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Channel5__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Channel5</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Channel6__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Channel6</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Classification3__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Classification3</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Classification4__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Classification4</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Classification5__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Classification5</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Classification6__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Classification6</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PatientRecordType__c</fullName>
+        <description>01246000000NGFYAA4 in dev</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>01246000000NGFYAA4 in dev org</inlineHelpText>
+        <label>PatientRecordType</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program3__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Program3</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program4__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Program4</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program5__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Program5</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program6__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Program6</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProviderRecord__c</fullName>
+        <defaultValue>&quot;Account&quot;</defaultValue>
+        <description>Account is assumed.  HC uses Contacts</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Account,Contact, etc</inlineHelpText>
+        <label>ProviderRecord</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__CaseFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>static values for JSON bootstrap for new records</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>new record static values
+{&quot;Type&quot;:&quot;Eligibility&quot;,&quot;OwnerId&quot;:&quot;00Gc0000003vgqw&quot;,&quot;RecordTypeId&quot;:&quot;0126A000000JEKeQAO&quot;};</inlineHelpText>
+        <label>CaseFields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Channel1__c</fullName>
+        <deprecated>false</deprecated>
+        <description>phone number, folder name, HL7, etc</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>phone number, folder name, HL7 endpoint, etc</inlineHelpText>
+        <label>Channel1</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Channel2__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Channel2</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Classification1__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Client name or department so that Classification/Program/Channel is the organizing hierarchy</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Client name or department so that Classification/Program/Channel is the organizing hierarchy</inlineHelpText>
+        <label>Classification1</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Classification2__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Classification2</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Importer__c</fullName>
+        <defaultValue>&quot;-:3:Account:Fax&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Simple parser for importing PDFs.  -:3:Account:Fax</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Simple parser for importing PDFs. -:3:Account:Fax splits the filename on - then takes a parts array to build a SOQL query such as Contact.Fax=parts[3] to find a record</inlineHelpText>
+        <label>Importer</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__PatientFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>static values for JSON bootstrap for new records</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>new record static values 
+{&quot;AccountId&quot;:&quot;001E0000002gc0K&quot;,&quot;RecordTypeId&quot;:&quot;0126A000000JE8yQAG&quot;}</inlineHelpText>
+        <label>PatientFields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__PatientRecord__c</fullName>
+        <defaultValue>&quot;Contact&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Contact, Account, Lead</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Contact, Account, Lead or project for Patient__c</inlineHelpText>
+        <label>PatientRecord</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Program1__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Drug or service</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Drug or service (patient assistance or referrals)</inlineHelpText>
+        <label>Program1</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Program2__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Program2</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__Records__c</fullName>
+        <defaultValue>&quot;Case,Lead&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Records that get zPaper Attachment envelopes.  Customize per channel with Records1, Records2.</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Records that get zPaper Attachment envelopes.  Customize per channel with Records1, Records2.</inlineHelpText>
+        <label>Attached Records</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__activated__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>can control VF visibility settings</description>
+        <externalId>false</externalId>
+        <label>activated</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__server__c</fullName>
+        <defaultValue>&quot;gw.zpaper.com&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>zPaper server or gateway</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>e.g. gw.zpaper.com</inlineHelpText>
+        <label>server</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__zCaseQueueId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Initial case owner if set and can be extended by Channel</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Initial case owner if set and can be extended by Channel</inlineHelpText>
+        <label>zCaseQueueId</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__zChildFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>static values for JSON bootstrap for new records</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>static values for child stacks
+{&quot;ZPAPER__Status__c&quot;:&quot;Splt&quot;,&quot;zStack_Received__c&quot;:&quot;{!formatNow}&quot;,&quot;RecordTypeId&quot;:&quot;0126A000000JEKeQAO&quot;};</inlineHelpText>
+        <label>zChildFields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__zReferralQueueId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Initial lead owner if set and can be extended by Channel</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Initial lead owner if set and can be extended by Channel</inlineHelpText>
+        <label>zReferralQueueId</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__zStackFields__c</fullName>
+        <deprecated>false</deprecated>
+        <description>static values for JSON bootstrap for new records</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>new record simple or static values 
+{&quot;ZPAPER__Status__c&quot;:&quot;New Stack&quot;,&quot;zStack_Received__c&quot;:&quot;{!formatNow}&quot;,&quot;RecordTypeId&quot;:&quot;0126A000000JEKeQAO&quot;};</inlineHelpText>
+        <label>zStackFields</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ZPAPER__zStackQueueId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>initial owner if set and can be extended by Channel</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>initial owner if set and can be extended by Channel</inlineHelpText>
+        <label>zStackQueueId</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zChannel1__c</fullName>
+        <description>define the basic fields for receiving a new file</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>{&apos;path&apos;:&apos;Orphan Rare Diseases/ACTIMMUNE/16789489774&apos;,&apos;db-readers&apos;:&apos;:-20100.1:&apos;,&apos;db-users&apos;:&apos;:-20100.1:&apos;}</inlineHelpText>
+        <label>zChannel1</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>zChannel2__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>just like channel 1</inlineHelpText>
+        <label>zChannel2</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>zChannel3__c</fullName>
+        <description># . Program . sandbox @mfb.zpaper.com</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>zChannel3</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>zChannel4__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>zChannel4</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zChannel5__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>zChannel5</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zChannel6__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>zChannel6</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zChannel7__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>zChannel7</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>zChannel8__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>zChannel8</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <label>zpaper</label>
+    <visibility>Public</visibility>
+</CustomObject>
