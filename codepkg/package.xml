@@ -1,2 +1,57 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_types_list.htm --><!-- https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/manifest_samples.htm --><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>o2o</fullName>    <description>zPaper:Triage PAP</description>    <types>    <!-- zBase ERS200904 <members>zzAction_Client_Library_js</members> -->        <!-- zBase ERS200904 <members>zzAction_Custom_Barcode_Received_js</members> -->        <!-- zBase ERS200904 <members>zzAction_Create_Stack_from_Fax_js</members> -->        <members>zzAction_Reject_Page_js</members>        <members>zzAction_Index_Page_js</members>     <members>zzAction_Ignore_Page_js</members>     <members>zzAction_Stack_Complete_js</members>    <members>zzAction_Clear_Lookups_js</members>        <!-- zBase ERS200904 <members>zzAction_zStack_Library_js</members> -->        <name>StaticResource</name>    </types><!-- //ERS201017 #77252 cannot get the Case.Origin and Case.Statis picklist value to import into HCW21 org --><types><members>Enrollment</members><name>PathAssistant</name></types>    <types>        <members>Case.Enrollment</members>        <name>BusinessProcess</name>    </types><!-- --><types><members>Account.Mass_Send_Accounts</members><members>Contact.Mass_Send_Contacts</members><members>ZPAPER__zStack__c.zAccept</members><name>WebLink</name></types><types>        <members>zAcceptController</members>        <members>zAcceptControllerTests</members>        <members>zPaperCalloutDemonstratorController</members>        <name>ApexClass</name></types>    <types>        <members>MassSendAccounts</members>        <members>MassSendContacts</members>        <members>zAccept</members>        <name>ApexPage</name>    </types><!-- <types><members>zPaper_Community_User</members><name>PermissionSet</name></types> --><types><members>zCARTa</members><members>zCharta</members><members>zPapyrus</members><name>Queue</name></types><!-- ERS201103 too many picklist complications<types><members>Case.Enrollment</members><name>RecordType</name></types> --><!-- ERS201017 outbound message user<types>        <members>Case.Outbound_Fax_ACK_Template_Value</members>        <members>Case.Outbound_Fax_MINFO_Template_Value</members><name>WorkflowFieldUpdate</name></types><types><members>Case.New_Outbound_Template_Message</members><name>WorkflowOutboundMessage</name></types><types><members>Case.Sending Outbound Acknowledgement Template</members><members>Case.Sending Outbound Missing Information Template</members><name>WorkflowRule</name></types>--><types><members>ZPAPER__zStack__c.Date_Time_Stamp</members><!-- //ERS201103 <members>ZPAPER__zStack__c.Time_Accepted</members><members>ZPAPER__zStack__c.Time_Stamp_Accepted</members> --><name>WorkflowFieldUpdate</name></types><types><members>ZPAPER__zStack__c.Time Completed Date Stamp</members><members>ZPAPER__zStack__c.zAccept</members><name>WorkflowRule</name></types><types><members>ZPAPER__zStack__c.Facility__c</members><!-- ERS201103 too many picklist complications <members>Case.Destination_Preference__c</members><members>Case.Facility_Name__c</members><members>Case.Missing_Information__c</members><members>Account.Communication_Preferences__c</members><members>Case.Status</members><members>Case.Origin</members><members>Case.Priority</members><members>Case.Reason</members> --><name>CustomField</name></types><version>46.0</version></Package>
-<!-- Last updated Tue Nov 03 14:03:53 EST 2020 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>zAcceptController</members>
+        <members>zAcceptControllerTests</members>
+        <members>zPaperCalloutDemonstratorController</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>MassSendAccounts</members>
+        <members>MassSendContacts</members>
+        <members>zAccept</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>Case.Enrollment</members>
+        <name>BusinessProcess</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.Facility__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Enrollment</members>
+        <name>PathAssistant</name>
+    </types>
+    <types>
+        <members>zCARTa</members>
+        <members>zCharta</members>
+        <members>zPapyrus</members>
+        <name>Queue</name>
+    </types>
+    <types>
+        <members>zzAction_Clear_Lookups_js</members>
+        <members>zzAction_Ignore_Page_js</members>
+        <members>zzAction_Index_Page_js</members>
+        <members>zzAction_Reject_Page_js</members>
+        <members>zzAction_Stack_Complete_js</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>Account.Mass_Send_Accounts</members>
+        <members>Contact.Mass_Send_Contacts</members>
+        <members>ZPAPER__zStack__c.zAccept</members>
+        <name>WebLink</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.Date_Time_Stamp</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.Time Completed Date Stamp</members>
+        <members>ZPAPER__zStack__c.zAccept</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>46.0</version>
+</Package>
