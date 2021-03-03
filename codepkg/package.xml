@@ -1,2 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_types_list.htm --><!-- https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/manifest_samples.htm --><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <types>        <members>ZPAPER__zStack__c.Document_Received_Date__c</members>        <members>ZPAPER__zStack__c.Document_Signature_Date__c</members>        <members>ZPAPER__zStack__c.Facility__c</members>        <members>ZPAPER__zStack__c.Product_Detail__c</members>        <members>ZPAPER__zStack__c.Product__c</members>        <members>ZPAPER__zStack__c.Therapy_Area_Details__c</members>        <members>ZPAPER__zStack__c.Therapy_Area__c</members>        <members>ZPAPER__zStack__c.Time_Accepted_Date__c</members>        <members>ZPAPER__zStack__c.Time_Complete_Date__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Channel__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>        <name>CustomField</name>    </types>    <types>        <members>ZPAPER__zStack__c-ZPAPER__zStack Layout</members>        <name>Layout</name>    </types>    <types>        <members>ZPAPER__zStack__c.My_Closed_zStacks</members>        <members>ZPAPER__zStack__c.My_Open_zStacks</members>        <name>ListView</name>    </types>    <types>        <members>Admin</members>        <members>CC</members>        <members>PSM</members><members>US PM Admin</members>        <name>Profile</name>    </types>    <types>        <members>Natpara</members>        <members>Natpara_REMS</members>        <name>Queue</name>    </types>    <types>        <members>zzAction_Client_Library_js</members>        <members>zzAction_Create_zStack_js</members>        <members>zzAction_Custom_Barcode_Received_js</members>        <members>zzAction_DELIVERY_COMPLETE_js</members>        <members>zzAction_Enrollment_Wizard_js</members>        <members>zzAction_Index_Page_js</members>        <members>zzAction_PopulateFields_js</members>        <members>zzAction_zStack_Library_js</members>        <members>zzOrg_Settings_js</members>        <name>StaticResource</name>    </types></Package>
-<!-- Last updated Wed Mar 03 11:56:45 EST 2021 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ZPAPER__zStack__c.Document_Received_Date__c</members>
+        <members>ZPAPER__zStack__c.Document_Signature_Date__c</members>
+        <members>ZPAPER__zStack__c.Facility__c</members>
+        <members>ZPAPER__zStack__c.Product_Detail__c</members>
+        <members>ZPAPER__zStack__c.Product__c</members>
+        <members>ZPAPER__zStack__c.Therapy_Area_Details__c</members>
+        <members>ZPAPER__zStack__c.Therapy_Area__c</members>
+        <members>ZPAPER__zStack__c.Time_Accepted_Date__c</members>
+        <members>ZPAPER__zStack__c.Time_Complete_Date__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Channel__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c-ZPAPER__zStack Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.My_Closed_zStacks</members>
+        <members>ZPAPER__zStack__c.My_Open_zStacks</members>
+        <name>ListView</name>
+    </types>
+    <types>
+        <members>Admin</members>
+        <members>CC</members>
+        <members>PSM</members>
+        <members>US PM Admin</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>Natpara</members>
+        <members>Natpara_REMS</members>
+        <name>Queue</name>
+    </types>
+    <types>
+        <members>zzAction_Client_Library_js</members>
+        <members>zzAction_Create_zStack_js</members>
+        <members>zzAction_Custom_Barcode_Received_js</members>
+        <members>zzAction_DELIVERY_COMPLETE_js</members>
+        <members>zzAction_Enrollment_Wizard_js</members>
+        <members>zzAction_Index_Page_js</members>
+        <members>zzAction_PopulateFields_js</members>
+        <members>zzAction_zStack_Library_js</members>
+        <members>zzOrg_Settings_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>45.0</version>
+</Package>
