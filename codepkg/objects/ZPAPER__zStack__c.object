@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>HHN_Program_Training__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Relates the zstack to the HH Nurse Training</description>
+        <externalId>false</externalId>
+        <label>HHN Program Training</label>
+        <referenceTo>HHN_Program_Training__c</referenceTo>
+        <relationshipLabel>zStacks</relationshipLabel>
+        <relationshipName>zStacks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+</CustomObject>
