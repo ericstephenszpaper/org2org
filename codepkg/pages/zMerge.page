@@ -1,0 +1,203 @@
+<apex:page docType="html-5.0" showHeader="false" renderAs="html">
+<h2>zPaper:Merge brings new data to existing templates...</h2>
+<script type='text/javascript' src='https://{!$Setup.ZPAPER__zpaper__c.ZPAPER__server__c}/kb/js/jquery/jquery-1.12.4.min.js'></script>
+<script>
+function w(s) {document.write(s);}
+
+//alert("URL="+document.location.href);
+var aURL=document.location.href;
+var sfId=null;
+var i=aURL.indexOf("id=");
+i=aURL.indexOf("&id="); //ERS180205 #45252 Spring18 update changed the URL
+if (1==1 || aURL.indexOf("retURL=%2Fprojectone")>-1) { //ERS140326 keep from trigger SSO in non-SF1 situations (SF bug?)
+if (i>-1) {
+   j=aURL.indexOf("&",i+1); if (j==-1) j=1000;
+   sfId=aURL.substring(i+3+1,j); //ERS180205 the +1 for the &
+   var html='<iframe width="100%" height="500" ' +
+     'src="https://{!$Setup.ZPAPER__zpaper__c.ZPAPER__server__c}/kb/jsp/SF_find.jsp?go=massFaxBin.jsp&sfIDs=$Id&' +
+     'close=,advanced,destination,&open=,build,coverpage,&'+ //ERS170804 #40496
+     'SFserver={!$Api.Partner_Server_URL_160}&SFsession={!$Api.Session_ID}"></iframe>';
+   html=html.replace("$Id",sfId);
+   //ERS201209 see below for cool code! w(html);
+} else { 
+   w("<h4>Error: No record Id was found in " + aURL+"</h4>");
+}
+}
+
+var simpleForm=""; //"<div><h4>Let's hope for the best with a form with a file and headers like our QA screen capture tool uses.</h4></div>";
+w(simpleForm);
+
+function sMsg(s) {
+    var str = JSON.stringify(s, null, 2);
+    document.getElementById("status").innerHTML=str;
+}
+
+function zippiHeaders(req) { //ERS190305 #57090 //SHR201214 reusable function
+    req.setRequestHeader("Authorization","Bearer {!$Api.Session_ID}");
+    req.setRequestHeader("X-Z-SFuser", "{!$User.username}"); //"xtoorgtest26@zpaper.com"
+    req.setRequestHeader("X-API-Key","{!$Setup.ZPAPER5__ZpaperConfig__c.ZPAPER5__API_Key__c}");
+    req.setRequestHeader("Accept","application/json"); //ERS201210 //ERS200216
+//  req.setRequestHeader("Content-Type","multipart/form-data"); //ERS201210
+}
+
+function preview(zId, pdfName) {
+    if (!zId) zId=document.getElementById("newItemId").value;
+    if (1===1) { //ERS210105 #79572 quick hack
+        var vURL="https://{!$Setup.ZPAPER__zpaper__c.ZPAPER__server__c}/kb/jsp/SF_find.jsp?go=SF_files.jsp&dbID="+zId;
+        vURL+="&SFserver={!$Api.Partner_Server_URL_160}";
+        vURL+="&SFsession={!$Api.Session_ID}";
+        var w=window.open(vURL,"zViewer","resizable=1");
+        w.focus();
+        return;
+    }
+    $.ajax({
+        type: "GET",
+        target: "zippiViewer",
+        beforeSend: zippiHeaders,
+        url: aURL.replace("jobs/PDF", "view/PDF/"+zId),
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            if (XMLHttpRequest && (typeof XMLHttpRequest.responseJSON === 'object')) {
+                textStatus = XMLHttpRequest.responseJSON.errorMessage;
+            }
+            sMsg("Error viewing: " + errorThrown + ". Status = " + textStatus);
+        },
+        success: function (output, textStatus, XMLHttpRequest) {
+            //sMsg(output);
+            //var zv=window.open("data:application/pdf,"+escape(output),"zViewer","resizable=1");
+            //zv.focus();
+
+            //SHR201215 use a link to "download" the file contents
+            var blob = new Blob([output], {type: "application/pdf"});
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            //link.href = "data:application/pdf,"+escape(output);
+            //link.target = "_blank";
+            link.download = pdfName || "preview.pdf";
+            link.click();
+        }
+    });
+}
+
+var aURL="https://zippi2.herokuapp.com/jobs/PDF";
+//aURL="https://zippi-heroku.herokuapp.com/jobs/PDF";
+//aURL="https://devshr.zpaper.com/zippi/jobs/PDF";
+//aURL="https://sb08.zpaper.com/zippi2/jobs/PDF";
+//aURL="https://sb08.zpaper.com/zippi/items";
+//aURL="https://sb08.zpaper.com/kb/jsp/SF_sendFax.jsp";
+//aURL="https://sb08.zpaper.com/kb/jsp/SF_find.jsp?go=SF_sendFax.jsp";
+
+function sendToZippi(event,frm) {
+    event.preventDefault();
+    if (!frm) frm=document.getElementById("zippiJobFORM");
+    var zu=document.getElementById("zEndpoint");
+    aURL=zu.value || "https://gw.zpaper.com/zippi/jobs/PDF";
+    var df=document.getElementById("deliveringFile");
+    var s="Need a DOCX or select a template";
+    sMsg(s);
+    var f=df.files[0];
+    var t="",tv="";
+    if (f) s="Welcome to the party! "+f.name;
+    else {
+        t=document.getElementById("template");
+        //tv=t.options[t.selectedIndex].value;
+        tv="29200ee8Z1e21q8to1:PhysicianOrder_Form";
+        s="Welcome to "+tv;
+    }
+    s+="\nwith "+aURL;
+    //alert(s); 
+    sMsg(s);
+    
+    if (1==0 && !confirm(aURL)) return;
+    var zURL="", dataBuffer="";
+    dataBuffer="{\"template0\": \""+tv+"\"}";
+    var formData=new FormData(frm);
+    //SHR201214 extra snippet fields needed for channel console?
+    //var fname = f.name || "unknown";
+    //var ftype = (f.name || "").replace(/.*\./, "");
+    //formData.append("type", "File");
+    //formData.append("X_docType", ftype);
+    formData.append("X_source", "{!$User.username}");
+    formData.append("X_destination", "fileMerge");
+    formData.append("X_getURL", "https://{!$Setup.ZPAPER__zpaper__c.ZPAPER__server__c}/kb/org/getXFields.jsp?fields={{fieldNames}}&data={{fieldValues}}");
+    //formData.append("X_attachedTo", origin.replace(".visualforce.", ".salesforce.")+"/"+sfId); //SHR201214 just until zippi takes care of this
+    //if (f) formData.append("file",f); //("template0",f); //f.name
+    //else if (t) { formData.append("template0",tv); } else {s="Need a file or a template"; return false;}
+    zURL=aURL;
+    sMsg(formData);
+    $.ajax({
+        type: "POST",
+        beforeSend: zippiHeaders,
+        url: zURL,
+        //crossDomain: true,
+        data: formData,
+        contentType: false,
+        processData: false,
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            if (XMLHttpRequest && (typeof XMLHttpRequest.responseJSON === 'object')) {
+                textStatus = XMLHttpRequest.responseJSON.errorMessage;
+            }
+            sMsg("Error Importing: " + errorThrown + ". Status = " + textStatus);
+            //alert("Error Importing: " + errorThrown + ". Status = " + textStatus);
+        },
+        success: function (data, textStatus, XMLHttpRequest) {
+            if (data.id) document.getElementById("newItemId").value=data.id;
+            if (1==0 && data.id && confirm("Download the Document?")) {
+                var newfile = data.url.replace(/.*\//, ""); //SHR201221 use the newly created pdf filename
+                preview(data.id, newfile); //SHR201215 include the filename for download?
+            }
+            sMsg(data);
+            //SHR201215 exec rules on the new snippet
+            if (1==0 && typeof data === 'object' && data.id) { //SHR201218 outgoing only needs DELIVERY_COMPLETE rule to run
+                console.info("Document:", data.id, "was created. Running actions...");
+                $.ajax({
+                    type: "POST",
+                    beforeSend: zippiHeaders,
+                    url: aURL.replace("jobs/PDF", "actions/" + data.id + "?X_buttonAction=DELIVERY_COMPLETE"),
+                    data: "",
+                    accept: "application/json",
+                    contentType: "application/x-www-form-urlencoded",
+                    processData: false,
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        if (XMLHttpRequest && (typeof XMLHttpRequest.responseJSON === 'object')) {
+                            textStatus = XMLHttpRequest.responseJSON.errorMessage;
+                        }
+                        sMsg("Error Executing rules: " + errorThrown + ". Status = " + textStatus);
+                    },
+                    success: function (output, textStatus, XMLHttpRequest) {
+                        sMsg(output);
+                    }
+                });
+            }
+            else {
+                console.warn("Document was not created! Skipping actions...");
+            }
+        }
+    });
+}
+        
+</script>
+<p>
+Using Endpoint: <input id="zEndpoint" value="https://{!$Setup.ZPAPER__zpaper__c.ZPAPER__server__c}/zippi/jobs/PDF" style="width: 300px"></input>
+</p>
+
+<form id="zippiJobFORM" method="POST" onsubmit="sendToZippi(event,this)" enctype="multipart/form-data">
+<input name="recordId" id="recordId" type="hidden" value0="5004W00001WjhOGQAZ" value="!Id" why="ERS201212 look for script setting it below"/>
+<input name="file" id="deliveringFile" type="file"/>
+<!-- TODO get a list with zippi items? url: '../jsp/SF_formList.jsp?formType=&formType0=_Form&limit=80&rtnFormat=jsonp', -->
+<!-- <input type="checkbox" name="mergeDocx"/> merge DOCX data -->
+<input type="submit" value="Merge"/>
+<!-- input name="templateId" type="hidden" value="https://devers.zpaper.com/kb/org/getXFields.jsp" / -->
+<!--
+<h2 id="captureFormH2" style="text-shadow: none; color: rgb(0, 0, 0); font-family: Arial, Helvetica, Verdana; white-space: nowrap;">
+ Templates</h2>
+<p><input name="templateId" title="PhysicianOrder_Form" type="radio" value="29200ee8Z1e21q8to1" />Physician Order Imaging Form (AD)
+<input name="templateId" title="ProviderDispute_Form" type="radio" value="29200fb0Z1e3d13183" />Provider Dispute (AD)
+<input name="templateId" title="AutoDriveEnrollment_Form" type="radio" value="292007e4Z1dkjit1r5" />zCARTa Enrollment (AD)</p>
+-->
+</form>
+<script>
+document.getElementById("recordId").value=sfId; //ERS201212 #79565
+</script>
+Status: <div style="background-Color: #DDFFFF; font-family: monospace; white-space: break-spaces; overflow-wrap: anywhere; width: 500px; height: 100px; overflow-y: auto; border: thin solid darkgray; box-shadow: rgb(204, 204, 204) 0 0 10px; padding: 5px; margin: 5px;" id="status"></div>
+<input type="button" onclick="preview()" value="Preview PDF"/>: <input id="newItemId" size="40" value="merge 1st!"/>
+</apex:page>
