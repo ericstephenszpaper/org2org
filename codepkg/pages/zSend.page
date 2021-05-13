@@ -1,0 +1,497 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://edge.zpaper.com/kb/js/jquery/jquery-ui.min.css" />
+<script why="ERS210207 TODO not edge" type="text/javascript" src="https://edge.zpaper.com/kb/js/jquery/jquery-ui.min.js"></script>
+
+  <!-- Import the Design System style sheet -->
+  <apex:slds />
+  
+     <!-- REQUIRED SLDS WRAPPER -->
+  <div class="slds-scope">
+  <script>
+  
+  function addRow(ele,t) {
+    var tele=$("#"+t+"TABLE");
+    if (t=="cover") {
+        tele=document.getElementById("coverTR");
+        if (tele) {
+            s=""; if (tele.style.display != "none") { s="none";}
+            tele.style.display=s;
+        }
+        return false;
+    }
+    var rows=tele.find("TR").length-1; //-1 for the hidden lastTR
+    var rows0=rows;
+      //alert("rows="+rows+" of "+tele.find("TR"));
+    rows++;
+    if(rows>9) {alert("That's the limit!"); return false;}
+    var tr1=document.getElementById(t+"TR1");
+    if (tr1) {
+        //var px=regex("/"+rows+"2px"+"/g");
+        //corrupt the template id //var rowHtml=tr1.innerHTML.replace(/1/g,rows).replace(rows+"-","1-").replace(rows+"2px","12px").replace(rows+"2px","12px");
+        //var rowHtml=tr1.innerHTML.replace(/1"/g,rows+"\"").replace(/1,/g,rows+",").replace(/1'/g,rows+"'").replace(/1)/g,rows+")");
+        var rowHtml=tr1.innerHTML.replace(/1([,"')])/g,rows+"$1");
+        //if (confirm(rowHtml)) 
+        $('#'+t+'LastTR').before("<tr>"+rowHtml+"</tr>");
+    }
+      //
+    return true;
+  }
+      
+  function setTemplateURL(r,sel) { //ERS210210
+    var hi=document.getElementById("templateURL"+r);
+    if (hi) hi.value=sel.options[sel.selectedIndex].value; else alert("Failed template "+r);
+    var j=document.getElementById("job1");
+    if (j && j.value == "" && hi.value.indexOf("COVER")==-1) {
+        var v=sel.options[sel.selectedIndex].value; //text.substring(0,40);
+        v=v.substring(v.indexOf(":")+1).replace("_Form","");
+        j.value=v;
+    }
+  }
+      
+  function filterTemplates(r,sel) { //ERS210506 tweak as needed
+    var ti=document.getElementById("coverID"+r);
+    if (ti) {
+       	var ol=ti.options.length;
+        var j=0;
+        var filter0=sel.options[sel.selectedIndex].text;
+        //if (filter=="all") filter="";
+        for (var i=0; i<ol; i++) {
+            if (filter0=="all" || (ti.options[i].value).indexOf(filter0)>-1) {
+                ti.options[i].style.display="";
+                if (j==0) ti.options[i].selected='true';
+                //$(ti.options[i]).toggleOption(true);
+                j++; 
+            } else { 
+                ti.options[i].style.display="none"; 
+                //$(ti.options[i]).toggleOption(false);
+            }
+        }
+        //alert("filtered "+ol+" to "+j+" with '"+filter0+"'");
+    }
+  }
+  </script>
+      
+ <div style="float:left;">        
+        <!-- Lightning icon example -->
+        <span class="slds-icon_container slds-icon-standard-task" title="build and send documents">
+            <svg aria-hidden="true" class="slds-icon">
+                <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#task')}"></use>
+            </svg>
+            <span class="slds-assistive-text">DOCX and PDF files</span>
+        </span>
+      </div>
+      <div style="padding-left:40px;font-size:14px;font-weight:bold;">zPaper:Send</div>
+      
+    <!-- ajax post from zPaper:Merge {!$User.Username}&SForg={!$Organization.Id} -->
+<form name="sendThem" id="sendThem" enctype="multipart/form-data" target="sendFilesIF" method="post"
+      action="https://gw.zpaper.com/kb/jsp/SF_sendFax.jsp" skip="?SForg={!$Organization.Id}"
+    >
+    <input type="HIDDEN" NAME="UserFax" value="{!$User.Fax}" />
+    <input type="HIDDEN" NAME="UserCompanyName" value="User.Company" />
+    <input type="HIDDEN" NAME="Notes" id="Notes" value="" />
+    <input type="HIDDEN" NAME="kbUser" value="{!$User.Username}" />
+    <!-- input type="HIDDEN" NAME="kbUserID" value="20400" /-->
+    <input type="HIDDEN" NAME="SFtype" id="SFtype" value="Contact" />
+    <input type="HIDDEN" NAME="SForg" id="SForg" value="{!$Organization.Id}" />
+    <input type="HIDDEN" NAME="SFuser" id="SFuser" value="{!$User.Username}" />
+    <input type="HIDDEN" id="kbMail" NAME="kbMail" value="{!$User.Email}" />
+    
+    <input type="hidden" name="ContactFax" id="ContactFax" value0="" />
+    <input type="hidden" name="ContactName" id="ContactName" value0="" />
+    <input type="hidden" name="taskID" id="taskID" value="" />
+    <input type="hidden" name="SFids" id="SFids" value="0014T000002O7cBQAS" />
+    <input type="hidden" name="coverID" id="coverID" value="none" why="ERS210210 using templateURL1 to templateURL9" />
+    <input type="hidden" name="mergeDocx" id="mergeDocx" value="true" why="ERS210213 should apply to all docx files" />
+    <input type="HIDDEN" id="SFsession" NAME="SFsession" value="{!GETSESSIONID()}" why="ERS210215 CMA said to" />
+    
+  <div class="slds-form-element slds-box slds-box_x-small slds-m-around--x-small">
+      <!-- ERS210506 clean up
+      <label class="slds-form-element__label" for="select-01">Deliver on 
+          <input type="datetime-local" style="width:120px;" maxlength="17" id="X_sendAt" name="X_sendAt" value="" why="ERS140409" title="Send this document at a future date."/>
+          to <input class0="slds-button" type="button" onclick="addRow(this,'send')" value="+"/> </label>
+		-->
+      
+  <table width="500px" id="sendTABLE" border0='1' class0='slds-table' role0="grid" class="slds-grid slds-wrap" aria-multiselectable="true">      
+  <tr class="detailRow" id="sendTR1">
+  <!-- <td class="labelCol">&nbsp;</td> -->
+  <td class="dataCol col02">
+  <div class="requiredInput slds-box slds-box_x-small slds-m-around--x-small">
+     Send To <input type="text" id="send1" name="sendTo" size0="15" pattern="" value="PDF" value0="1-999-555-1212" style="font-size:90%;width:200px;"/>
+     Title <input type="text" id="job1" name="docTitle" size0="15" pattern="" value="" style="font-size:90%;width:300px;"/>
+      </div>
+      </td></tr><tr id="sendLastTR" style="display:none"></tr>
+      </table>
+      </div>
+ 
+ <div class="slds-form-element slds-box slds-box_x-small slds-m-around--x-small" id="coverDIV">
+      <label class="slds-form-element__label" for="select-01">Coversheet 
+          <select name0="coverID" id="coverID">
+              <option value='none' selected='selected'>Barcode</option><option value='noCode'>No Barcode</option>
+              </select>
+          <input class0="slds-button" type="button" onclick="addRow(this,'cover')" value="+"/></label>
+      
+  <table width="500px" id="coverTABLE" border0='1' class0='slds-table' role0="grid" class="slds-grid slds-wrap" aria-multiselectable="true">      
+  <tr class="detailRow" id="coverTR" style="display:none">
+  <!-- <td class="labelCol">&nbsp;</td> -->
+  <td class="dataCol col02">
+  <div class="requiredInput slds-box slds-box_x-small slds-m-around--x-small">
+      <input type="checkbox" name="Urgent" value="1" checked="true" />Urgent
+                    <input type="checkbox" name="Confidential" value="1" />Confidential
+                    <input type="checkbox" name="Review" value="1" />Review
+                    <input type="checkbox" name="Sign" value="1" />Sign &amp; Return
+      </div>
+  <div class="requiredInput slds-box slds-box_x-small slds-m-around--x-small">
+      <span><table><tr><td valign="middle">Notes</td><td><textarea name="NotesTA" cols="80" rows="3"></textarea></td></tr></table></span>
+      </div>
+      </td></tr>
+      </table>
+      </div>
+      
+  <div class="slds-form-element slds-box slds-box_x-small slds-m-around--x-small">
+      <label class="slds-form-element__label" for="select-01">Build Document <input class0="slds-button" type="button" onclick="addRow(this,'file')" value="+"/> 
+         <!-- <span class="smallquestion tooltip" id="attachSourceQ"><span class="small">?</span></span> --></label>
+                          
+  <table width="500px" id="fileTABLE" border0='1' class0='slds-table' role0="grid" class="slds-grid slds-wrap" aria-multiselectable="true">      
+  <tr class="detailRow" id="fileTR1">
+  <!-- <td class="labelCol">&nbsp;</td> -->
+  <td class="dataCol col02">
+  <div class="requiredInput slds-box slds-box_x-small slds-m-around--x-small">
+      <input type="checkbox" id="fileCB1" checked="checked" value="file1"/>
+  <select id="attachSource1" name="attachSource1" onchange="enableSourceControls(this,1);" style="font-size:12px;">
+      <option value="harddrive">Hard drive</option><option value="SF">Files</option>
+      <option value="ZT">Templates</option>
+      <option value="SFR">Lightning</option><option why="ERS210206" value="ZP">zDocSet</option></select>
+  &nbsp;<span id="fileBrowseControls1"><input style="width:250px;" name="template1" id="template1" onchange="goodFile(this.value);" type="file"/>
+  <span style="font-size:12px;font-weight:bold;padding-left:5px;">&nbsp;Pages&nbsp;<input type="text" id="startPageFile1" name="startPage1" size="6" value="1-99" style="font-size:90%;width:64px;"/>
+  </span></span>
+      <select id="has1" tabindex="9" style="width:60px;display:none;font-size:12px;" onchange="filterTemplates(1,this)"><!--ERS210506-->
+          <option selected='1'>all</option><option>COVER_</option><option>OH_</option><option>MD_</option><option>MI_</option><option>NY_</option><option>TX_</option><option>WI_</option><option>PDF</option></select>
+      <select name0="coverID1" id="coverID1" tabindex="9" style="width:280px;display:none;font-size:12px;" onchange="setTemplateURL(1,this)"></select>
+      <button type="button" style="display:none" class="slds-button" id="preview1" onclick="previewFile(1)"><u>View</u></button> 
+  <span id="webBrowseControls1" style="display:none;padding:0px;">
+  <input style="width:250px;padding-right:0px;margin:0px;" type="text" name="templateURL1" id="templateURL1"/>
+  <input type="button" id="webBrowseBtn1" value="Browse..." style="padding-left:0px;width:72px;margin:0" onclick="exploreFiles('attachSource1','templateURL1','')"/>
+  <button type="button" style="display:none" class="slds-button" id="previewFile1" onclick="previewFile(1)"><u>View</u></button> 
+  <span style="font-size:12px;font-weight:bold;padding-left:5px;">Pages <input type="text" id="startPageWeb1" disabled="disabled" name="startPage1" size="6" value="1-999" style="font-size:90%;width:44px;"/>
+      </span></span>
+      
+  </div></td></tr><tr id="fileLastTR" style="display:none"></tr>    
+  </table>
+      </div>
+<div class="slds-form-element slds-box slds-box_x-small slds-m-around--x-small">
+<!-- ERS210506 <button type="button" class="slds-button slds-button_neutral" onclick="press('preview',this.form)">Preview</button> -->
+    <button type="button" class="slds-button slds-button_neutral" onclick="press('send',this.form)">Send</button> 
+    <button type="reset" class="slds-button slds-button_neutral" onclick="press('cancel',this.form)">Cancel</button>
+    <!-- <input type="button" value="Send" onclick="press('send',this.form)" /> -->
+      </div>
+  </form>
+
+<!-- ERS210210 use a new window for a while still 
+<div id="targetDIV" class="slds-form-element slds-box slds-box_x-small slds-m-around--x-small">
+  <iframe name="sendFilesIF" id="sendFilesIF" width="100%" height="400">
+      </iframe>
+      </div>
+-->
+      
+<div id="salesforceAttachmentsDlg" style="display:none;" title="Attach Document" class="slds-form-element slds-box slds-box_x-small slds-m-around--x-small">
+    <div id="sfAttachContent" style="width:98%;height:90%;padding:6px;overflow:hidden;">
+        <table id="sfAttachTbl" style="width:100%;" border="1">
+            <tbody>
+            <tr>
+                <div style="width:100%;height:320px;"><iframe id="sfAttachmentIFrame" src="about:none" style="width:100%;height:100%;"></iframe></div>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    var sfId="{sfId}";
+      
+    function getType(id) { //ERS210210 TODO CRN to find proper way
+        if (!id) id=sfId;
+        var t="";
+        if (!t && id.indexOf("500")==0) t="Case";
+        else if (!t && id.indexOf("001")==0) t="Account";
+        else if (!t && id.indexOf("003")==0) t="Contact";
+        else { t=""; console.log("ERS210210 could not find sfType from "+id); }
+        return t;
+    }
+      
+      //var zHost="https://gw.zpaper.com/kb/jsp/";
+      var sfOrg="{!$Organization.Id}";
+      var sfType="{!$ObjectType.name}"; //TODO figure it out
+      
+      var sfSession="{!GETSESSIONID()}";
+      var aURL=document.location.href;
+      var i=aURL.indexOf("&id="); //ERS180205 #45252 Spring18 update changed the URL
+      var j=aURL.indexOf("&",i+1); if (j==-1) j=1000;
+      sfId=aURL.substring(i+3+1,j); //ERS180205 the +1 for the & //ERS210210 TODO get the sfType
+      if (!sfType) sfType=getType(sfId);
+
+      
+      var zHost="https://{!$Setup.ZPAPER__zpaper__c.ZPAPER__server__c}/kb/jsp/";
+      //var kbURL = zHost+"../jsp/SF_formList.jsp?formType=_Form&rtnFormat=jsonp&SFuser={!$User.Username}&SForg={!$Organization.Id}";
+      //alert(sfType+":"+sfId);
+      
+      function press(b,f) {
+          if (!f) f=$("#sendThem").get(0);
+          //if (!confirm(b)) return;
+          if (b=="cancel") alert("Reset to initial setup."); //ERS210210 TODO reset via reload of frame?
+          if (b=="preview") alert("Build, put on hold with a deliery date, open Review");
+          if (b=="send") {
+            var zHost2 = zHost; //CMA?? "https://edge.zpaper.com/kb/jsp/"; //ERS210210 TODO CMA gw.zpaper.com file proxy
+            if (zHost2.indexOf("gw.zpaper.com")>-1) zHost2="https://edge.zpaper.com/kb/jsp/"; //ERS210210 TODO CMA gw.zpaper.com file proxy FIX THIS
+              zHost2="https://gwtest.zpaper.com/kb/jsp/"; //CMA210219 TODO fix zSend.vfp on edge and DQ orgs when gw works
+              f.action=zHost2+"SF_sendFax.jsp?SForg="+sfOrg; //ERS210213 TODO CMA POST?
+            $("#SFtype").val(sfType);
+            $("#SFids").val(sfId);
+            $("#SForg").val(sfOrg);
+              //f.style.display="none";
+            if (1==1 || confirm(f.action +" for "+$("#SFids").val() )) {
+                f.submit();
+            }
+          }
+          return false; //don't do the normal submit
+      }
+
+      function checkForm(fid) { //ERS180216 #45270 NY state //ERS210210 HELP example of using record data to drive template selection
+        var rtnVal = true;
+        //MSH180309 make sure we have latest state value
+        if (1==0) { //ERS210215 just an example that may or may not still work - TODO working example in help.js
+            sforce.connection.sessionId = "{!GETSESSIONID()}";
+            var recordQuery = "Select Account.MailingState From Case WHERE Id = '" + caseId + "'";
+            var result = sforce.connection.query(recordQuery);
+            var cases = result.getArray("records");
+            var theCase = cases[0];
+            var HCPState = theCase.Account.MailingState;
+            //var HCPState="{ ! Case.HCP_Address_State__c }"; ////ERS180216 #45270 get the HCP address and check it
+            if ("2025620194519144549_Form,2025620195719175732_Form,2020020172221202210_Form".indexOf(fid) > -1) {
+              if ("NY" === HCPState) {
+                alert("That form is restricted from being sent to NY physicians. Please access zVariable Paragraphs Forms and use the AbbVie_Missing_Info_PCQ_MD form instead.");
+                rtnVal = false;
+              }
+            }
+        }
+        return rtnVal;
+      }
+
+      function previewFile(row) { //TODO support the page range and markup settings
+        var fid = $("input[name=template]:radio:checked").val();
+        fid=document.getElementById("templateURL"+row).value;
+        var pages=document.getElementById("startPageWeb"+row).value;
+        if (!fid) {
+          alert("Select a template or file first.");
+          return;
+        }
+        if (fid.indexOf("sf://") == 0) { //ERS210215 #81253
+            //alert("View "+fid);
+            var zID=fid.substring(5,fid.indexOf("/",6));
+            fURL = zHost + "../jsp/SF_find.lightning.jsp";
+            if (zID.indexOf("06")==0 || zID.indexOf("00P")==0 || zID.indexOf("01")==0 ) {
+                //fURL += "&go=getSFfile.jsp"; //HACK
+                var kID=zID+"-IGNORE789012345678";
+                fURL += "?dbID="+"123456789012345678";
+                fURL += "&go=page_pdf.jsp"; //HACK
+                fURL += "&pdfURL="+kID+encodeURIComponent(fid.substring(fid.lastIndexOf("/"))); //HACK TODO page_pdf.jsp pdfURL override
+            } else {
+                fURL +="?dbID="+zID;
+                fURL += "&go=page_pdf.jsp"; //HACK  
+            }
+            fURL += "&page="+pages;
+            fURL += "&SFuser={!$User.Username}";
+            fURL += "&SFsession="+sfSession;
+            //return false;
+        } else {
+            var fBATES=fid;//ERS210215 #81253
+            if (fid.indexOf(":")>-1) fBATES=fid.substring(1+fid.indexOf(":")); //ERS140410 added kbID
+            if (!checkForm(fid)) return; //ERS180216 #45270
+            fURL = zHost + "../jsp/SF_pull.jsp?BATES="+sfId+"@"+sfOrg+"-"+ fBATES + ".htm";
+            fURL += "&SFuser={!$User.Username}";
+            fURL += "&SFsession="+sfSession;
+            //fURL+="&SFserver={!$Api.Partner_Server_URL_310}&SFsession={!$Api.Session_ID}"; //ERS180216 MSH TODO replace static values
+        }
+        if (1 == 1 || confirm(fURL)) {
+          zd = document.getElementById("zDIV");
+          var newWindow=(window.document.body.clientHeight < window.document.body.scrollHeight); //ERS160924 || confirm("Open new window") ; //ERS160922
+          newWindow=true; //ERS171012 #42359
+          if (zd && !newWindow) {
+            zd.style.display = "";
+            zf = document.getElementById("zPDF");
+            zf.src = fURL;
+          } else { //ERS160921 Lightning hack
+            //ERS160921 TODO inLightning? window.open(fURL,"_top"); //ERS140325 mobile needs the whole window
+            var w=window.open(fURL,"zForms","width=700,height=800,resizable=1");
+            w.focus();
+          }
+        }
+      }
+      
+      function inFilter(form) { return true; }
+      
+      function zForms() {
+        $.ajax({
+          url: zHost+"../jsp/SF_formList.jsp?formType=&formType0=_Form&limit=80&rtnFormat=jsonp&SFuser={!$User.Username}&SForg={!$Organization.Id}",
+          dataType: "jsonp",
+          error: function (jqXHR, textStatus, errorThrown) {
+            alert("Error retrieving forms: " + errorThrown + ", textStatus = " + textStatus+" from "+url);
+          },
+          success: function (data, textStatus, jqXHR) {
+            var aUL = document.getElementById("coverID");
+            var buffer = "";
+            var none="previewAndFaxUL,captureFormUL,coversheetUL,dataFormUL,coverID"; //ERS140308 //ERS160923 dataFormUL
+            console.log(data.forms.length+" forms");
+            for (var i in data.forms) {
+              var form = data.forms[i];
+              var item00 = ""; //ERS140324 IE needs var
+              var hint=""; if (form.type == "Coversheet") { hint+="CS"; } 
+              if (form.URL.toLowerCase().indexOf(".docx") >-1) { hint+=" DOCX"; }
+              if (hint != "") {hint=" ("+hint+")"; }
+              if (form.type == "Coversheet" || form.type == "Form" || form.type == "Preview") { //ERS210506 Preview
+                  aUL = document.getElementById("coverID1"); //coversheetUL was coverID
+                  if (form.prepopType == sfType || form.prepopType.indexOf("$sfType")>-1) { //TODO filter on sfType
+                      item00 = "<option value='"+form.id+":"+form.BATES+"'>"+form.name.replace(".pdf", "").replace(".htm", "") + hint + "</option>";
+                  }
+              }
+              if (1==1 || inFilter(form)) { //ERS160423 simple way to show only some forms based on form.BATES
+                if (aUL && item00 != "") {
+                  aUL.innerHTML += item00;
+                }
+              }
+            }
+            var ids=none.split(",");
+            for (var i in ids) { //ERS140308
+              aUL=document.getElementById(ids[i]);
+              if (aUL) { aUL.innerHTML += "<li>None found.</li>"; }
+            }
+          }
+        });
+      }
+      //ERS180216 if (confirm("call zForms() with on "+zHost))
+      zForms();
+      console.log("zForms loaded");
+      
+   function enableSourceControls(sel, idx) {
+            // alert("Selected value = " + $(sel).val());
+            if (!idx)   idx = "0";
+            var selVal = $(sel).val();
+            if ("harddrive" == selVal) {
+                $("#webBrowseControls" + idx).hide();
+                $('#startPageWeb' + idx)[0].disabled = true;
+                $("#fileBrowseControls" + idx).show();
+                $('#startPageFile' + idx)[0].disabled = false;
+                $("#coverID" + idx).hide();
+                $("#has" + idx).hide(); //ERS210506
+                $("#preview" + idx).hide();
+                $("#previewFile" + idx).hide(); //ERS210215 could not find a smooth way with only 1 button
+            } else if ("ZT" == selVal) {
+                $("#coverID" + idx).show(); //ERS210506
+                $("#has" + idx).show();
+                //manual control for notes and checkboxes //$("#coverDIV").show();
+                $("#webBrowseControls" + idx).hide();
+                $('#startPageWeb' + idx)[0].disabled = true;
+                $("#fileBrowseControls" + idx).hide();
+                $('#startPageFile' + idx)[0].disabled = true;
+                $("#preview" + idx).show();
+                $("#previewFile" + idx).hide();
+            } else {
+                $("#coverID" + idx).hide();
+                $("#has" + idx).hide(); //ERS210506
+                $("#webBrowseControls" + idx).show();
+                $('#startPageWeb' + idx)[0].disabled = false;
+                $("#fileBrowseControls" + idx).hide();
+                $('#startPageFile' + idx)[0].disabled = true;
+                $("#preview" + idx).hide();
+                $("#previewFile" + idx).show();
+                $('#webBrowseBtn'+idx).off();   // clear the old click handler
+                if ("GDR" == selVal) {
+                    $('#webBrowseBtn' + idx).on("click", function() {
+                        exploreDriveFiles('templateURL' + idx);
+                    });
+                }
+                else {
+                    $('#webBrowseBtn' + idx).on("click", function() {
+                        exploreFiles('attachSource'+idx,'templateURL' + idx,''); //ERS210210 added idx to Source
+                    });
+                }
+            }
+        }
+   
+   //ERS210210 #81014 callbacks don't work with VF to zp so use dom.POST instead like the ribbon does to SF_files.jsp
+    function zListener(event) {
+        if (event.origin.indexOf("force.com")>-1 || event.origin.indexOf(".zpaper.com")>-1) {
+            //hide-kbButtons, click-bSplit
+            //var parts=event.data.split("-");
+            console.log("heard "+event.data);
+            if (event.data.indexOf("{") == 0) {
+                var msg=JSON.parse(""+event.data);
+                if (msg.operation=="includeFile") {
+                    explore_callback(msg.payload.attachUrl);    
+                }
+            } else console.log("Ignoring "+event.data);
+            
+        }
+    }
+    if (window.addEventListener) addEventListener("message",zListener,false);
+     else attachEvent("onmessage",zListener);
+      
+   var activeInput="";
+   function exploreFiles(a_sel_name, a_inp_name, a_call) {
+        a_sel_name2 = a_sel_name;
+        a_inp_name2 = a_inp_name;
+        sel = document.getElementById(a_sel_name);
+        a_call2 = a_call;
+        activeInput = document.getElementById(a_inp_name);
+        current_id = document.getElementById(a_inp_name).value;
+        current_label = sel.options[sel.selectedIndex].text;
+        url = zHost+"fileExplorer.jsp?URL=" + current_id + "&label=" + escape(current_label);
+        url+="&sfID="+sfId; //0014T000002O7cBQAS"; //ERS111014 //ERS130819 replaced sfIDs with TODO make sfID
+        url+="&sfType0="+sfType; //Contact"; //ERS140319
+        url+="&sfOrg="+sfOrg;
+
+        iframeEle = document.getElementById('sfAttachmentIFrame');
+        if (1==1 || confirm(url)) {
+            iframeEle.src = url;
+            //CRN171003 Case #41969 Use jQuery modal dialog instead of window.open() (iFrame is enbedded in the dialog)
+            $gAttachDlg = $('#salesforceAttachmentsDlg').dialog({
+                autoOpen: true,
+                height: 320,
+                width: 600,
+                modal: true
+            });
+         }
+    }
+      
+    function goodFile(fn) {
+        if (fn.toLowerCase().indexOf(".png") > -1 || fn.toLowerCase().indexOf(".jpg") > -1) {alert("Only DOCX, PDF, and zPaper HTM files."); return false;} //ERS210210 #81253 TODO better test
+        return true;
+    }
+
+    //CRN171003 Case #41969 Use jQuery modal dialog instead of window.open()
+    function explore_callback(a_dir_id_label) {
+        if (a_dir_id_label) {
+            pieces = a_dir_id_label.split("+");
+            a_id = pieces[0];
+            a_group = pieces[1];
+            a_label = pieces[2];
+            if (!goodFile(a_dir_id_label)) { return false; } //ERS210210
+            ele = activeInput;
+            if (!ele) ele = document.getElementById("templateURL0");
+            if (ele) ele.value = a_id;
+            else alert(a_id);
+            ele=document.getElementById("docTitle"); //ERS121105
+            if (ele) ele.value=a_id.substring(a_id.lastIndexOf("/")+1);
+        }
+        $gAttachDlg.dialog("close");
+    }
+    function explore_cancel() {
+        $gAttachDlg.dialog("close");
+    }
+    console.log("zSend loaded");
+      </script>
+
+    </div>
+  </html>
+</apex:page>
