@@ -1,2 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata"><!-- AN20210520 SI should move this not us<types>        <members>zSend</members>        <name>ApexPage</name>    </types><types><members>CGA_New_Lightning_Page</members><name>FlexiPage</name></types>-->    <types>        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Stage__c</members>        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>        <members>Case.zTemplate__c</members> <!--ERS210527 #83378 -->        <name>CustomField</name>    </types>    <types>        <members>ZPAPER5__Document_Viewer_Action_Ribbon.Approve</members>        <members>ZPAPER5__Document_Viewer_Action_Ribbon.Expedite</members>        <members>ZPAPER5__Document_Viewer_Action_Ribbon.Print</members>        <members>ZPAPER5__Document_Viewer_Action_Ribbon.Reject</members><name>CustomMetadata</name>    </types>    <types>        <members>ZPAPER__zStack__c.ZPAPER__Child</members>        <members>ZPAPER__zStack__c.ZPAPER__Incoming</members>        <members>ZPAPER__zStack__c.ZPAPER__Outgoing</members>        <members>ZPAPER__zStack__c.ZPAPER__Referral</members>        <name>RecordType</name>    </types>    <types><members>logos</members>        <members>zDocSetup_json</members>        <members>zPaperFlowsData</members>        <members>zzAction_CLIENT_APPROVED_js</members>        <members>zzAction_CLIENT_EXPEDITED_js</members>        <members>zzAction_CLIENT_REJECTED_js</members>        <members>zzAction_Client_Library_js</members>        <members>zzAction_Create_zStack_js</members>        <members>zzAction_Standard_Barcode_Received_js</members>        <members>zzAction_zStack_Library_js</members>        <members>zzOrg_Settings_js</members>        <name>StaticResource</name>    </types>    <version>50.0</version></Package>
-<!-- Last updated Thu May 27 17:38:26 EDT 2021 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Case.zTemplate__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Stage__c</members>
+        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>ZPAPER5__Document_Viewer_Action_Ribbon.Approve</members>
+        <members>ZPAPER5__Document_Viewer_Action_Ribbon.Expedite</members>
+        <members>ZPAPER5__Document_Viewer_Action_Ribbon.Print</members>
+        <members>ZPAPER5__Document_Viewer_Action_Ribbon.Reject</members>
+        <name>CustomMetadata</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.ZPAPER__Child</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Incoming</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Outgoing</members>
+        <members>ZPAPER__zStack__c.ZPAPER__Referral</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>logos</members>
+        <members>zDocSetup_json</members>
+        <members>zPaperFlowsData</members>
+        <members>zzAction_CLIENT_APPROVED_js</members>
+        <members>zzAction_CLIENT_EXPEDITED_js</members>
+        <members>zzAction_CLIENT_REJECTED_js</members>
+        <members>zzAction_Client_Library_js</members>
+        <members>zzAction_Create_zStack_js</members>
+        <members>zzAction_Standard_Barcode_Received_js</members>
+        <members>zzAction_zStack_Library_js</members>
+        <members>zzOrg_Settings_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>50.0</version>
+</Package>
