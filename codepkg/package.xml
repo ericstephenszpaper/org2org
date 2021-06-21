@@ -1,2 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>o2o</fullName>    <description>ERS200229 AutoDrive with Split, Signatures, Data, and Index!</description>    <types>    <members>zzAction_Sign_document_js</members>    <members>zzAction_Invite_to_sign_document_js</members>    <members>zzAction_Capture_mobile_signature_js</members>    <name>StaticResource</name>    </types>   <!-- ERS200520 not needed here <types>    <members>ZPAPER__zpaper__c</members>    <name>CustomObject</name>    </types> --> <!-- ERS200427 not required and often already customized <types>       <members>ZPAPER__zStack__c.ZPAPER__Classification__c</members>        <members>ZPAPER__zStack__c.ZPAPER__faxType__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Stage__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Status__c</members>        <members>ZPAPER__zStack__c.ZPAPER__Channel__c</members>        <name>CustomField</name></types>  -->  <version>46.0</version></Package>
-<!-- Last updated Mon Jun 21 12:30:14 EDT 2021 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>zzAction_Capture_mobile_signature_js</members>
+        <members>zzAction_Invite_to_sign_document_js</members>
+        <members>zzAction_Sign_document_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>46.0</version>
+</Package>
