@@ -1,0 +1,1088 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false"
+           docType="html-5.0">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/redmond/jquery-ui.min.css"></link>
+    <script src="https://static.zpaper.com/js/help.js"></script>
+
+    <style>
+        .infoIcon {
+            display: inline-block;
+            margin: 2px 5px;
+        }
+        .input-fld-match-alignment-container {
+            position: relative  !important;
+        }
+        .input-fld-match-alignment {
+            position: absolute          !important;
+            bottom: 0                   !important;
+            right: 12px                 !important;
+        }
+        /* Fix the vertical alignment problem that occurs when a button is placed next to the text input field */
+        .grid-fix-slds-wrap-vertical-alignment {
+            align-items: flex-end       !important;     /* overcome slds-wrap style */
+        }
+        .grid-fix-slds-text-field {
+            margin-top: -22px           !important;
+            margin-left: -70px          !important;
+        }
+        .all-on-one-line {
+            white-space: nowrap         !important;
+        }
+        .extra-vertical-spacing-small {
+            margin-top: 8px             !important;
+        }
+        .extra-vertical-spacing-medium {
+            margin-top: 16px            !important;
+        }
+        .extra-vertical-spacing-large {
+            margin-top: 24px            !important;
+        }
+        .extra-vertical-spacing-tweak-large {
+            margin-top: 20px            !important;
+        }
+        .element-hidden {
+            display: none               !important;
+        }
+    </style>
+    <!-- Import the Design System style sheet -->
+    <apex:slds />
+
+    <!-- REQUIRED SLDS WRAPPER -->
+    <div class="slds-scope">
+        <script>
+            let SFserver = "{!$Api.Partner_Server_URL_310}"; //ERS210622
+            let SFsession = "{!GETSESSIONID()}"; //ERS210622
+
+            <!-- Salesforce Library and Associated Files Browsing -->
+            let curPageUrl = "{!$CurrentPage.URL}";
+            let curPageHost = "{!LEFT($CurrentPage.URL,FIND('/',$CurrentPage.URL,9))}";
+
+            function previewFile(idx) {
+                let sfFile = $('#salesforce-file-text-input-' + idx).val();
+                if (!sfFile) {
+                    alert("First select a Salesforce file to view.");
+                    return;
+                }
+                let idxBegin = sfFile.indexOf("//") + 2;
+                let idxEnd = sfFile.indexOf('/', idxBegin);
+                let sfId = sfFile.substring(idxBegin, idxEnd);
+                let w = window.open(curPageHost + '/' + sfId, '_blank', 'width=760, height=900');
+                w.focus();
+            }
+
+            function sldsHelpIcons(compName) {
+                let toolTips = helpStrings && helpStrings[compName];
+                console.log("ToolTips for: " + compName, toolTips);
+                if (!toolTips) {
+                    console.warn("Help is not available for this component!");
+                    //SHR210722 until we get the static help.js file updated, use these
+                    toolTips = {
+                        "helpDoc": "zMerge Overview and Usage.pdf",
+                        "sendToPdf": "The destination for Merged documents is a PDF file attached to this record.\nPlease contact sales@zpaper.com if you want to send documents via Fax or Email.",
+                        "sendToPdfQ": "",
+                        "docTitle": "Set your own title for the generated Document.\nThis information will be used to name the PDF file that is attached to this record.",
+                        "coverBarcode": "Option for selecting either the standard Barcoded or non-Barcoded coversheet",
+                        "coverBarcodeQ": "&search='coversheet'",
+                    };
+                }
+
+                let $infoDivs = $('div.infoIcon');
+                console.log("Found " + $infoDivs.length + " help icons for: " + compName);
+                for (const div of $infoDivs) {
+                    let helpId = div.id && div.id.replace(/Q$/, ''); // the base help id
+                    let helpText = toolTips[helpId]; // title text for the base id
+                    let helpLink = toolTips[helpId + 'Q'] || toolTips.helpDoc; // link to help doc
+                    $(div).html(`
+                        <button class="slds-button slds-button_icon" title="${helpText}">
+                            <svg class="slds-button__icon" aria-hidden="true">
+                                <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/utility-sprite/svg/symbols.svg#info')}"></use>
+                            </svg>
+                            <span class="slds-assistive-text">${helpText}</span>
+                        </button>
+                    `);
+                }
+            }
+
+            // Allow use to select Salesforce Files associated to current SObject record or in Library.
+            function exploreSalesforceFiles(ele, associatedFiles) {
+                let sObjectId = "{!$CurrentPage.parameters.id}";
+
+                let $ele = $(ele);
+                console.log($ele);
+                // set up global variables that will be used inside of dialog to set selected value
+                window.__inputField__ = $ele.closest("div.salesforce-file-browse").find("input")[0];
+
+                // Build UI to put into salesforceContentDlgDocumentDiv
+                window.__$contentDlg__ = $('#salesforceContentDlg').dialog({
+                    autoOpen: true,
+                    height: '250',
+                    width: '98%',
+                    modal: true,
+                });
+                // Let's compact the dialog a bit...
+                $('.ui-dialog').find('.ui-dialog-buttonpane').css('padding', '0');
+                $('.ui-dialog').find('.ui-dialog-buttonpane').css('margin-top', '0');
+                $('.ui-dialog').css('font-size', '0.9em');
+
+                // show the correct input div
+                if (associatedFiles) {
+                    $('#salesforceContentDlgAssociatedFileDiv').show();
+                    $('#salesforceContentDlgDocumentDiv').hide();
+                    buildAssociatedFileList();
+                } else {
+                    $('#salesforceContentDlgAssociatedFileDiv').hide();
+                    $('#salesforceContentDlgDocumentDiv').show();
+                    buildWorkspaceList();
+                }
+                return false;
+            }
+
+            function buildAssociatedFileList() {
+                let sObjectId = "{!$CurrentPage.parameters.id}";
+                // reset the list of options
+                $('#salesforceAssociatedFileTable').html("");
+                querySalesforce("SELECT ContentDocument.Id,ContentDocument.Title,ContentDocument.FileExtension,ContentDocument.CreatedDate from ContentDocumentLink WHERE LinkedEntityId='" + sObjectId + "' ORDER BY ContentDocument.Title",
+                    function (data, textStatus, jqXHR) {
+                        let $folderTable = $("#salesforceAssociatedFileTable");
+                        if (data && data.totalSize) {
+                            data.records.forEach(datum => {
+                                let fileExtension = datum.ContentDocument.FileExtension;
+                                if ("pdf" === fileExtension || "docx" === fileExtension) {
+                                    fileExtension = "docx" === fileExtension ? "word" : fileExtension;
+                                    $folderTable.append(`<tr><td>
+                                                    <div style="float:left;">
+                                                    <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" class="slds-icon">
+                                                    <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/doctype-sprite/svg/symbols.svg#${fileExtension}')}"></use>
+                                                    </svg></div>
+                                                    <div style="display:table-cell;float:left;margin-top:7px;padding-left:6px;">
+                                                    <a href="#" onclick="return libraryFileSelected(this)" data-value="${datum.ContentDocument.Id}" data-type="file">${datum.ContentDocument.Title}</a></div>
+                                                    </td></tr>`);
+                                }
+                            });
+                        }
+                    },
+                    function (jqXHR, textStatus, errorThrown) {
+                        alert("Error loading Salesforce Libraries: " + errorThrown);
+                    }
+                );
+                return false;
+            }
+
+            function buildWorkspaceList() {
+                $('#salesforceContentBreadcrumbDiv').html("Files");
+                // reset the list of options
+                $('#salesforceLibraryFileTable').html("");
+                // Reinitialize our breadcrumb trail...
+                __gBreadCrumbTrail__ = [];
+                querySalesforce("SELECT Id,Name,RootContentFolderId from ContentWorkspace WHERE Name like '%' ORDER BY Name",
+                    function (data, textStatus, jqXHR) {
+                        let $folderTable = $("#salesforceLibraryFileTable");
+                        if (data && data.totalSize) {
+                            data.records.forEach(datum => {
+                                $folderTable.append('<tr><td>' +
+                                    '<div style="float:left;">' +
+                                    '<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" class="slds-icon">' +
+                                    '<use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/doctype-sprite/svg/symbols.svg#library_folder')}"></use>' +
+                                    '</svg></div>' +
+                                    '<div style="display:table-cell;float:left;margin-top:7px;padding-left:6px;">' +
+                                    (datum.RootContentFolderId ?
+                                            '<a href="#" onclick="return libraryFileSelected(this)" data-value="' + datum.RootContentFolderId + '" data-type="workspace">' + datum.Name + '</a>'
+                                            :
+                                            datum.Name
+                                    ) + '</div></td></tr>');
+                            });
+                        }
+                    },
+                    function (jqXHR, textStatus, errorThrown) {
+                        alert("Error loading Salesforce Libraries: " + errorThrown);
+                    }
+                );
+                return false;
+            }
+
+            function querySalesforce(query, successFunction, errorFunction) {
+                let url = curPageHost + "services/data/v52.0/query/?q=" + encodeURIComponent(query);
+                $.ajax({
+                    url: url,
+                    dataType: "json",
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                        "Accept": "application/json",
+                        "Authorization": "Bearer {!GETSESSIONID()}"
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        // alert("Error retrieving Folders: " + errorThrown + ", textStatus = " + textStatus+" from " + zUrl);
+                        if (errorFunction) {
+                            errorFunction(jqXHR, textStatus, errorThrown);
+                        }
+                    },
+                    success: function (data, textStatus, jqXHR) {
+                        console.log(data);
+                        if (successFunction) {
+                            successFunction(data, textStatus, jqXHR);
+                        }
+                    }
+                });
+            }
+
+            __gBreadCrumbTrail__ = [];
+
+            function libraryFileSelected(ele, curCrumbCount) {
+                // debugger;
+                let $ele = $(ele);
+                let fileType = $ele.attr("data-type");
+                let sObjectId = $ele.attr("data-value");
+                let sObjectName = $ele.text();
+                // reset the list of folders/files
+                $('#salesforceLibraryFileTable').html("");
+                let zUrl = "";
+                if (curCrumbCount) {
+                    // clean up our list of crumbs
+                    __gBreadCrumbTrail__ = __gBreadCrumbTrail__.slice(0, curCrumbCount - 1);
+                }
+                // Build the breadcrumbs UI at the top of the dialog.
+                let buffer = "Files > <a href='#' onclick='return buildWorkspaceList();'>Libraries</a>";
+                for (let idx = 0; idx < __gBreadCrumbTrail__.length; idx++) {
+                    let crumb = __gBreadCrumbTrail__[idx];
+                    buffer += " > <a href='#' onclick='return libraryFileSelected(this," + (idx + 1) + ");' " +
+                        "data-type='" + crumb.type + "' data-value='" + crumb.id + "'>" + crumb.label + "</a>";
+                }
+                $('#salesforceContentBreadcrumbDiv').html(buffer);
+                switch (fileType) {
+                    case 'workspace':
+                        // Reinitialize our breadcrumb trail...
+                        __gBreadCrumbTrail__ = [];
+                        __gBreadCrumbTrail__.push({id: sObjectId, label: sObjectName, type: fileType});
+                        // $('#salesforceContentBreadcrumbDiv').html("Files > <a href='#' onclick='return buildWorkspaceList();'>Libraries</a>");
+                        // Pull folders in this workspace/library
+                        querySalesforce("SELECT Id,Name from ContentFolder WHERE ParentContentFolderId = '" + sObjectId + "' ORDER BY Name",
+                            function (data, textStatus, jqXHR) {
+                                let $folderTable = $("#salesforceLibraryFileTable");
+                                if (data && data.totalSize) {
+                                    data.records.forEach(datum => {
+                                        $folderTable.append('<tr><td>' +
+                                            '<div style="float:left;">' +
+                                            '<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" class="slds-icon">' +
+                                            '<use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/doctype-sprite/svg/symbols.svg#folder')}"></use>' +
+                                            '</svg></div>' +
+                                            '<div style="display:table-cell;float:left;margin-top:7px;padding-left:6px;">' +
+                                            '<a href="#" onclick="return libraryFileSelected(this)" ' +
+                                            'data-value="' + datum.Id + '" data-type="folder" ' +
+                                            'data-parent-id="' + sObjectId + '" data-parent-label="' + sObjectName + '">' +
+                                            datum.Name + '</a></div>' +
+                                            '</td></tr>');
+                                    });
+                                }
+                                querySalesforce("SELECT ChildRecordId,ChildRecord.Title,ChildRecord.FileExtension,ChildRecord.FileType from ContentFolderMember WHERE ParentContentFolderId = '" + sObjectId + "' ORDER BY ChildRecord.Title",
+                                    function (data, textStatus, jqXHR) {
+                                        let $folderTable = $("#salesforceLibraryFileTable");
+                                        if (data && data.totalSize) {
+                                            data.records.forEach(datum => {
+                                                let fileExtension = datum.ChildRecord.FileExtension;
+                                                if ("pdf" === fileExtension || "docx" === fileExtension) {
+                                                    fileExtension = "docx" === fileExtension ? "word" : fileExtension;
+                                                    $folderTable.append(`<tr><td>
+                                                    <div style="float:left;">
+                                                    <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" class="slds-icon">
+                                                    <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/doctype-sprite/svg/symbols.svg#${fileExtension}')}"></use>
+                                                    </svg></div>
+                                                    <div style="display:table-cell;float:left;margin-top:7px;padding-left:6px;">
+                                                    <a href="#" onclick="return libraryFileSelected(this)" data-value="${datum.ChildRecordId}" data-type="file">${datum.ChildRecord.Title}</a></div>
+                                                    </td></tr>`);
+                                                }
+                                            });
+                                        }
+                                    },
+                                    function (jqXHR, textStatus, errorThrown) {
+                                        alert("Error retrieving Library files: " + errorThrown + ", textStatus = " + textStatus + " from " + zUrl);
+                                    }
+                                );
+                            },
+                            function (jqXHR, textStatus, errorThrown) {
+                                alert("Error retrieving Library folders: " + errorThrown + ", textStatus = " + textStatus + " from " + zUrl);
+                            }
+                        );
+                        break;
+                    case 'folder':
+                        __gBreadCrumbTrail__.push({id: sObjectId, label: sObjectName, type: fileType});
+                        // Pull subfolders in this folder
+                        querySalesforce("SELECT Id,Name from ContentFolder WHERE ParentContentFolderId = '" + sObjectId + "' ORDER BY Name",
+                            function (data, textStatus, jqXHR) {
+                                let $folderTable = $("#salesforceLibraryFileTable");
+                                if (data && data.totalSize) {
+                                    data.records.forEach(datum => {
+                                        $folderTable.append('<tr><td>' +
+                                            '<div style="float:left;">' +
+                                            '<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" class="slds-icon">' +
+                                            '<use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/doctype-sprite/svg/symbols.svg#folder')}"></use>' +
+                                            '</svg></div>' +
+                                            '<div style="display:table-cell;float:left;margin-top:7px;padding-left:6px;">' +
+                                            '<a href="#" onclick="return libraryFileSelected(this)" ' +
+                                            'data-value="' + datum.Id + '" data-type="folder" ' +
+                                            'data-parent-id="' + sObjectId + '" data-parent-label="' + sObjectName + '">' +
+                                            datum.Name + '</a></div>' +
+                                            '</td></tr>');
+                                    });
+                                }
+                                querySalesforce("SELECT ChildRecordId,ChildRecord.Title,ChildRecord.FileExtension,ChildRecord.FileType from ContentFolderMember WHERE ParentContentFolderId = '" + sObjectId + "' ORDER BY ChildRecord.Title",
+                                    function (data, textStatus, jqXHR) {
+                                        let $folderTable = $("#salesforceLibraryFileTable");
+                                        if (data && data.totalSize) {
+                                            data.records.forEach(datum => {
+                                                let fileExtension = datum.ChildRecord.FileExtension;
+                                                if ("pdf" === fileExtension || "docx" === fileExtension) {
+                                                    fileExtension = "docx" === fileExtension ? "word" : fileExtension;
+                                                    $folderTable.append(`<tr><td>
+                                                    <div style="float:left;">
+                                                    <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" class="slds-icon">
+                                                    <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/doctype-sprite/svg/symbols.svg#${fileExtension}')}"></use>
+                                                    </svg></div>
+                                                    <div style="display:table-cell;float:left;margin-top:7px;padding-left:6px;">
+                                                    <a href="#" onclick="return libraryFileSelected(this)" data-value="${datum.ChildRecordId}" data-type="file">${datum.ChildRecord.Title}</a></div>
+                                                    </td></tr>`);
+                                                }
+                                            });
+                                        }
+                                    },
+                                    function (jqXHR, textStatus, errorThrown) {
+                                        alert("Error retrieving Library files: " + errorThrown + ", textStatus = " + textStatus + " from " + zUrl);
+                                    }
+                                );
+                            },
+                            function (jqXHR, textStatus, errorThrown) {
+                                alert("Error retrieving Library folders: " + errorThrown + ", textStatus = " + textStatus + " from " + zUrl);
+                            }
+                        );
+                        break;
+                    case 'file':
+                        window.__inputField__.value = "sf://" + sObjectId + "/" + sObjectName;
+                        window.__$contentDlg__.dialog("close");
+                        break;
+                    default:
+                        break;
+                }
+                return false;
+            }
+
+            function exploreSalesforceFolder(ele) {
+                // debugger;
+                let $ele = $(ele);
+                console.log($ele);
+                let inputField = $ele.closest("div.slds-grid").find("input")[0];
+
+                // Make AJAX call to zippi to pull Documents from selected Folder.
+                let folderId = $ele.val();
+                if (!folderId) {
+                    return;         // the select... option was selected
+                }
+                let zUrl = "https://gw.zpaper.com/zippi/externalItems/salesforce/Folder/" + folderId + "/Document";
+                $.ajax({
+                    url: zUrl,
+                    dataType: "json",
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                        "Accept": "application/json",
+                        "Authorization": "Bearer {!GETSESSIONID()}"
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert("Error retrieving Folders: " + errorThrown + ", textStatus = " + textStatus + " from " + zUrl);
+                    },
+                    success: function (data, textStatus, jqXHR) {
+                        console.log(data);
+                        // reset the list of options
+                        $('#salesforceDocumentSelect option').remove();
+                        let $fileSelect = $("#salesforceDocumentSelect");
+                        $fileSelect.append('<option value="">...</option>');
+                        if (data && data.length) {
+                            data.forEach(datum => {
+                                $fileSelect.append("<option value='" + datum.id + "'>" + datum.label + "." + datum.metadata.Type + "</option>");
+                            });
+                        }
+                        // show the Documents select
+                        $('#salesforceContentDocumentsDiv').show();
+                    }
+                });
+            }
+
+            __gContentLines__ = 1;
+            function addContentLine() {
+                // debugger;
+                __gContentLines__++;
+                let $browseControlDiv = $('#browseControlsContainer-1');
+                let newContent = $browseControlDiv[0].outerHTML
+                    .replace(/-1/g, '-'+__gContentLines__)
+                    .replace(/this,1/g, 'this,'+__gContentLines__)
+                    .replace('previewFile(1)', 'previewFile('+__gContentLines__+')')
+                    .replace(/attachSource1/g, 'attachSource'+__gContentLines__)
+                    .replace(/template1/g, 'template'+__gContentLines__)
+                    .replace(/templageURL1/g, 'templateURL'+__gContentLines__)
+                    .replace(/startPage1/g, 'startPage'+__gContentLines__);
+                $browseControlDiv.parent().append(newContent);
+                let $newEle = $('#browseControlsContainer-' + __gContentLines__);
+                // $newEle.find('.source-select').toggleClass(['slds-size_3-of-4', 'slds-size_1-of-1']);
+                $newEle.find('.source-add').remove();
+                $("#webBrowseControls-" + __gContentLines__).addClass('element-hidden');
+                $("#fileBrowseControls-" + __gContentLines__).addClass('element-hidden');
+                return false;
+            }
+            <!-- Salesforce Library and Associated Files Browsing -- END -->
+
+            function addRow(ele, t) {
+                let tele = $("#" + t + "TABLE");
+                if (t == "cover") {
+                    tele = document.getElementById("coverTR");
+                    if (tele) {
+                        s = "";
+                        if (tele.style.display != "none") {
+                            s = "none";
+                        }
+                        tele.style.display = s;
+                    }
+                    return false;
+                }
+                let rows = tele.find("TR").length - 1; //-1 for the hidden lastTR
+                let rows0 = rows;
+                //alert("rows="+rows+" of "+tele.find("TR"));
+                rows++;
+                if (rows > 9) {
+                    alert("Only 9 Documents allowe.");
+                    return false;
+                }
+                let tr1 = document.getElementById(t + "TR1");
+                if (tr1) {
+                    //let px=regex("/"+rows+"2px"+"/g");
+                    //corrupt the template id //let rowHtml=tr1.innerHTML.replace(/1/g,rows).replace(rows+"-","1-").replace(rows+"2px","12px").replace(rows+"2px","12px");
+                    //let rowHtml=tr1.innerHTML.replace(/1"/g,rows+"\"").replace(/1,/g,rows+",").replace(/1'/g,rows+"'").replace(/1)/g,rows+")");
+                    let rowHtml = tr1.innerHTML.replace(/1([,"')])/g, rows + "$1");
+                    //if (confirm(rowHtml))
+                    $('#' + t + 'LastTR').before("<tr>" + rowHtml + "</tr>");
+                }
+                //
+                return true;
+            }
+
+            function setTemplateURL(r, sel) { //ERS210210
+                let hi = document.getElementById("templateURL" + r);
+                if (hi) hi.value = sel.options[sel.selectedIndex].value; else alert("Failed template " + r);
+            }
+        </script>
+
+        <form name="sendThem" id="sendThem" enctype="multipart/form-data" target="sendFilesIF" method="post"
+              action="https://gw.zpaper.com/zippi/jobs">
+            <input type="hidden" name="UserFax" value="{!$User.Fax}"/>
+            <input type="hidden" name="UserCompanyName" value="User.Company"/>
+            <input type="hidden" name="Notes" id="Notes" value=""/>
+            <input type="hidden" name="kbUser" value="{!$User.Username}"/>
+            <input type="hidden" name="SFtype" id="SFtype" value="Contact"/>
+            <input type="hidden" name="SForg" id="SForg" value="{!$Organization.Id}"/>
+            <input type="hidden" name="SFuser" id="SFuser" value="{!$User.Username}"/>
+            <input type="hidden" name="SFserver" id="SFserver" value="{!$Api.Partner_Server_URL_310}"/>
+            <input type="hidden" name="kbMail" id="kbMail" value="{!$User.Email}"/>
+
+            <input type="hidden" name="ContactFax" id="ContactFax" value0=""/>
+            <input type="hidden" name="ContactName" id="ContactName" value0=""/>
+            <input type="hidden" name="taskID" id="taskID" value=""/>
+            <input type="hidden" name="SFids" id="SFids" value=""/>
+            <!-- //ERS210723 duplicate// input type="hidden" name="coverID" id="coverID" value="none"
+                   why="ERS210210 using templateURL1 to templateURL9"/ -->
+            <input type="hidden" name="mergeDocx" id="mergeDocx" value="true"
+                   why="ERS210213 should apply to all docx files"/>
+            <input type="hidden" name="SFsession" id="SFsession" value="{!GETSESSIONID()}"
+                   why="ERS210215 CMA said to"/>
+            <input type="hidden" name="sendTo" value="PDF" value0="filePDF@zMerge" />
+
+            <div class="slds-grid slds-gutters slds-wrap grid-fix-slds-wrap-vertical-alignment extra-vertical-spacing-medium" id="coversheet-parent-div">
+                <div class="slds-col slds-size_3-of-5">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="sendto-input-id-1">
+                            Send To
+                        </label>
+                        <div class="infoIcon helpDoc" id="sendToPdfQ"></div>
+                        <div class="slds-form-element__control">
+                            <!-- This is only here for advertising. The real value is submitted in a hidden field above. -->
+                            <input type="text" id="sendto-input-id-1" placeholder="PDF"
+                                   title="Contact sales@zpaper.com to send document via fax or email."
+                                   disabled="true" value="PDF" class="slds-input sendto-input-field" size="12" />
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_2-of-5 input-fld-match-alignment-container source-add">
+                    <span>
+                        <div class="slds-form-element input-fld-match-alignment" id="add-source-btn-container">
+                            <button class="slds-button slds-button_outline-brand all-on-one-line"
+                                    onclick="window.open('../apex/zPaperFields','mergeDocSFDC','location=0,width=900,height=200,resizable=1').focus(); return false;">
+                                Define Fields...
+                            </button>
+                        </div>
+                    </span>
+                </div>
+
+                <div class="slds-col slds-size_4-of-5">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="doctitle-input-id-1">
+                            Document Title
+                        </label>
+                        <div class="infoIcon helpDoc" id="docTitle"></div>
+                        <div class="slds-form-element__control">
+                            <!-- This is only here for advertising. The real value is submitted in a hidden field above. -->
+                            <input type="text" name="docTitle" id="doctitle-input-id-1" placeholder="zMergeToPDF"
+                                   title="Contact sales@zpaper.com to send document via fax or email."
+                                   value="zMergeToPDF" class="slds-input doctitle-input-field" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Javascript to show/hide accordion sections -->
+            <!-- Do not edit this section unless you know what you are doing; you could break the accordion functionality. -->
+            <script type="text/javascript">
+                function expandContractAccordionSection(sectionName) {
+                    let $button = $('#btn-' + sectionName);
+                    let $section = $('#section-' + sectionName);
+                    $section.toggleClass('slds-is-open');
+                    $button.attr('aria-expanded',  "true" === $button.attr('aria-expanded') ? "false" : "true");
+                    console.log('Opening/Closing Accordion Seciont');
+                    return false;
+                }
+            </script>
+            <!-- Javascript to show/hide accordion sections -- END -->
+            <div>
+                <ul class="slds-accordion">
+                    <li class="slds-accordion__list-item">
+                        <section id="section-coversheet" class="slds-accordion__section">
+                            <div class="slds-accordion__summary">
+                                <h2 class="slds-accordion__summary-heading">
+                                    <button id="btn-coversheet" class="slds-button slds-button_reset slds-accordion__summary-action"
+                                            aria-controls="referenceId-24" aria-expanded="false" title="Coversheet Information"
+                                            onclick="return expandContractAccordionSection('coversheet');">
+                                        <svg class="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left"
+                                             aria-hidden="true">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/utility-sprite/svg/symbols.svg#switch')}"></use>
+                                        </svg>
+                                        <span class="slds-accordion__summary-content">Coversheet Information</span>
+                                    </button>
+                                </h2>
+                            </div>
+                            <div class="slds-accordion__content" id="referenceId-24">
+                                <div class="slds-grid slds-gutters slds-wrap grid-fix-slds-wrap-vertical-alignment" id="sendto-parent-div">
+                                    <div class="slds-col slds-size_3-of-5">
+                                        <div class="slds-form-element">
+                                            <label class="slds-form-element__label" for="select-01">
+                                                Coversheet
+                                            </label>
+                                            <div class="infoIcon" id="coverBarcode"></div>
+                                            <div class="slds-form-element__control">
+                                                <div class="slds-select_container">
+                                                    <select name="coverID" class="slds-select" id="select-01">
+                                                        <option value="none">Barcode</option>
+                                                        <option value="noCode">No Barcode</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-size_2-of-5">
+                                    </div>
+
+                                    <div class="slds-col slds-size_1-of-5 extra-vertical-spacing-small">
+                                        <span>
+                                            <div class="slds-form-element">
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-checkbox all-on-one-line">
+                                                        <input type="checkbox" name="Urgent" id="checkbox-unique-id-72" value="1" checked=""/>
+                                                        <label class="slds-checkbox__label" for="checkbox-unique-id-72">
+                                                            <span class="slds-checkbox_faux"></span>
+                                                            <span class="slds-form-element__label">Urgent</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-5">
+                                        <span>
+                                            <div class="slds-form-element">
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-checkbox all-on-one-line">
+                                                        <input type="checkbox" name="Confidential" id="checkbox-unique-id-73" value="1" checked=""/>
+                                                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                                                            <span class="slds-checkbox_faux"></span>
+                                                            <span class="slds-form-element__label">Confidential</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-5">
+                                        <span>
+                                            <div class="slds-form-element">
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-checkbox all-on-one-line">
+                                                        <input type="checkbox" name="Review" id="checkbox-unique-id-74" value="1" checked=""/>
+                                                        <label class="slds-checkbox__label" for="checkbox-unique-id-74">
+                                                            <span class="slds-checkbox_faux"></span>
+                                                            <span class="slds-form-element__label">Review</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-5">
+                                        <div class="slds-form-element">
+                                            <div class="slds-form-element__control">
+                                                <div class="slds-checkbox all-on-one-line">
+                                                    <input type="checkbox" name="Sign" id="checkbox-unique-id-75" value="1" checked=""/>
+                                                    <label class="slds-checkbox__label" for="checkbox-unique-id-75">
+                                                        <span class="slds-checkbox_faux"></span>
+                                                        <span class="slds-form-element__label">Sign&nbsp;&amp;&nbsp;Return</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-size_4-of-5">
+                                        <div class="slds-form-element">
+                                            <label class="slds-form-element__label" for="textarea-id-01">Notes</label>
+                                            <div class="slds-form-element__control">
+                                                <textarea id="textarea-id-01" name="NotesTA" placeholder="Enter your notes here..." class="slds-textarea"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </li>
+                    <li class="slds-accordion__list-item">
+                        <section id="section-contents" class="slds-accordion__section slds-is-open">
+                            <div class="slds-accordion__summary">
+                                <h2 class="slds-accordion__summary-heading">
+                                    <button id="btn-contents" class="slds-button slds-button_reset slds-accordion__summary-action"
+                                            aria-controls="referenceId-26" aria-expanded="true" title="Document Contents"
+                                            onclick="return expandContractAccordionSection('contents');">
+                                        <svg class="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/utility-sprite/svg/symbols.svg#switch')}"></use>
+                                        </svg>
+                                        <span class="slds-accordion__summary-content">Document Contents</span>
+                                    </button>
+                                </h2>
+                            </div>
+                            <div hidden="" class="slds-accordion__content" id="content-parent-div">
+                                <div id="browseControlsContainer-1">
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col slds-size_3-of-5 source-select">
+                                            <div class="slds-form-element">
+                                                <label class="slds-form-element__label" for="select-02">Source</label>
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-select_container">
+                                                        <select class="slds-select" id="attachSource1" name="attachSource1"
+                                                                onchange="enableSourceControls(this,1);">
+                                                            <option value="">Please select...</option>
+                                                            <option value="harddrive">Hard drive</option>
+                                                            <option value="SF">Salesforce File</option>
+                                                            <option value="SFR">Salesforce Associated File</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-5 input-fld-match-alignment-container source-add">
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-5 input-fld-match-alignment-container source-add">
+                                            <span>
+                                            <div class="slds-form-element input-fld-match-alignment" id="add-source-btn-container">
+                                                <button class="slds-button slds-button_outline-brand all-on-one-line"
+                                                        onclick="return addContentLine();">Add Document</button>
+                                            </div>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div id="fileBrowseControls-1" class="slds-grid slds-gutters element-hidden">
+                                        <div class="slds-col slds-size_3-of-5">
+                                            <div class="slds-form-element">
+                                                <div class="slds-form-element">
+                                                    <div class="slds-form-element__control">
+                                                        <label class="slds-form-element__label" for="upload-file-text-input-1">
+                                                            Uploaded File-1
+                                                        </label>
+                                                        <input type="text" id="upload-file-text-input-1" disabled="true" class="slds-input slds-is-disabled" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-5 extra-vertical-spacing-medium">
+                                            <div class="slds-form-element">
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-file-selector slds-file-selector_files">
+                                                        <div class="slds-file-selector__dropzone">
+                                                            <input type="file" class="slds-file-selector__input slds-assistive-text zippiTemplateFile"
+                                                                   accept="application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                                                                   id="harddrive-upload-input-1" name="template1"
+                                                                   aria-labelledby="file-selector-primary-label file-selector-secondary-label"
+                                                                   onchange="handleFileChoice(this,1);" />
+                                                            <label class="slds-file-selector__body" for="harddrive-upload-input-1"
+                                                                   id="file-selector-secondary-label">
+                                                                <span class="slds-file-selector__button slds-button slds-button_neutral">
+                                                                    <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                                                                        <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/utility-sprite/svg/symbols.svg#upload')}"></use>
+                                                                    </svg>
+                                                                    Upload
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-5">
+                                            <div class="slds-form-element">
+                                                <div class="slds-form-element__control">
+                                                    <label class="slds-form-element__label" for="startPageFile-1">Pages</label>
+                                                    <input type="text" id="startPageFile-1" disabled="true" class="slds-input slds-is-disabled zippiTemplateFilePages"
+                                                        title="Contact sales@zpaper.com to enable page selection." placeholder="All" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="webBrowseControls-1" class="slds-grid slds-gutters element-hidden salesforce-file-browse">
+                                        <div class="slds-col slds-size_3-of-5">
+                                            <div class="slds-form-element">
+                                                <div class="slds-form-element">
+                                                    <div class="slds-form-element__control">
+                                                        <label class="slds-form-element__label" for="salesforce-file-text-input-1">Selected File-1</label>
+                                                        <input type="text" id="salesforce-file-text-input-1" name="templateURL1"
+                                                               disabled="true" class="slds-input slds-is-disabled zippiTemplateUrl" />
+                                                        <button type="button" class="slds-button" id="previewFile-1" onclick="previewFile(1)"><u>View</u></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-5 extra-vertical-spacing-tweak-large">
+                                            <div class="slds-form-element">
+                                                <div class="slds-form-element">
+                                                    <div class="slds-form-element__control">
+                                                        <button class="slds-button slds-button_brand" id="webBrowseBtn-1">Browse...</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-5">
+                                            <div class="slds-form-element">
+                                                <div class="slds-form-element__control">
+                                                    <label class="slds-form-element__label" for="startPageWeb-1">Pages</label>
+                                                    <input type="text" id="startPageWeb-1" disabled="true" class="slds-input slds-is-disabled zippiTemplateUrlPages"
+                                                        title="Contact sales@zpaper.com to enable page selection." placeholder="All" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  <!-- grid/gutters end -->
+                            </div>
+                        </section>
+                    </li>
+                </ul>
+            </div>
+<!-- End of new styled code -->
+
+            <div class="slds-form-element">
+                <!-- //ERS210623 <button type="button" class="slds-button slds-button_neutral" onclick="press('preview',this.form)">Preview</button> -->
+                <button id="zPaperSendBtn" type="button" class="slds-button slds-button_neutral" onclick="press('send',this.form)">
+                    Generate and Attach PDF
+                </button>
+                <span id="zPaperSendPleaseWait" style="color:rgba(1, 118, 211, 1);display:none;">Processing document. Please wait...</span>
+            </div>
+        </form>
+
+
+        <div id="salesforceContentDlg" style="display:none;" title="Select File">
+            <div id="sfAttachContent" style="overflow:hidden;">
+                <div id="salesforceContentDlgDocumentDiv" style="width:100%;display:none;">
+                    <div id="salesforceContentBreadcrumbDiv">
+                        Files
+                    </div>
+                    <div id="salesforceContentFolderContentsDiv"
+                         style="border-top:2px solid #54698d;padding-top:6px;margin-top:4px;">
+                        <table id="salesforceLibraryFileTable" style="width:98%;">
+                        </table>
+                    </div>
+                </div>
+                <div id="salesforceContentDlgAssociatedFileDiv" style="width:100%;display:none;">
+                    <div id="salesforceAssociatedFileContentsDiv"
+                         style="margin-top:4px;">
+                        <table id="salesforceAssociatedFileTable" style="width:98%;">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="salesforceAttachmentsDlg" style="display:none;" title="Attach Document"
+             class="slds-form-element slds-box slds-box_x-small slds-m-around--x-small">
+            <div id="sfAttachContent" style="width:98%;height:90%;padding:6px;overflow:hidden;">
+                <table id="sfAttachTbl" style="width:100%;" border="1">
+                    <tbody>
+                    <tr>
+                        <div style="width:100%;height:320px;">
+                            <iframe id="sfAttachmentIFrame" src="about:none"
+                                    style="width:100%;height:100%;"></iframe>
+                        </div>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script>
+            function handleFileChoice(ele, count) {
+                // alert("New file choice: " + $(ele).val());
+                let filename = $(ele).val();
+                let idx = filename.lastIndexOf('\\') > 0 ? filename.lastIndexOf('\\') : filename.lastIndexOf('/');
+                if (goodFile(filename)) { //ERS210728
+                    $('#upload-file-text-input-' + count).val(filename.substring(idx + 1));
+                }
+            }
+
+            <!--let curPageHost = "{!LEFT($CurrentPage.URL,FIND('/',$CurrentPage.URL,9))}";-->
+            function getSalesforceObjectData(successFunction, errorFunction) {
+                let url = curPageHost  + "/services/data/v52.0/sobjects/";
+                $.ajax({
+                    url: url,
+                    dataType: "json",
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                        "Accept": "application/json",
+                        "Authorization": "Bearer {!GETSESSIONID()}"
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        // alert("Error retrieving Folders: " + errorThrown + ", textStatus = " + textStatus+" from " + zUrl);
+                        if (errorFunction) {
+                            errorFunction(jqXHR, textStatus, errorThrown);
+                        }
+                    },
+                    success: function (data, textStatus, jqXHR) {
+                        console.log(data);
+                        if (successFunction) {
+                            successFunction(data, textStatus, jqXHR);
+                        }
+                    }
+                });
+            }
+            function getSObjectType(id, callback) {
+                try {
+                    getSalesforceObjectData(
+                        function (data, textStatus, jqXHR) {
+                            let prefix = id.substring(0, 3);
+                            let sObjectType = "unknown";
+                            for (const sobject of data.sobjects) {
+                                if (sobject.keyPrefix === prefix) {
+                                    sObjectType = sobject.name;
+                                    break;
+                                }
+                            }
+                            callback(sObjectType);
+                        },
+                        function (jqXHR, textStatus, errorThrown) {
+                            alert("Error retrieving SObject type: " + errorThrown);
+                            callback(null);
+                        }
+                    );
+                } catch (e) {
+                    alert("Error retrieving SObject type: " + errorThrown);
+                    callback(null);
+                }
+            }
+
+            let sfId = "{!$CurrentPage.parameters.id}";
+            let sfOrg = "{!$Organization.Id}";
+
+            function preventSubmission() {
+                return false;
+            }
+            function press(btn, form) {
+                // debugger;
+                if (!hasGoodFile) { alert("Select at least one document."); return false;} //ERS210728
+                if (!form) { form = $("#sendThem").get(0); }
+                if (btn == "send") {
+                    $('#zPaperSendBtn').toggle();
+                    $('#zPaperSendPleaseWait').toggle();
+                    getSObjectType(sfId,
+                        function(sfType) {
+                            if (!sfType) {
+                                $('#zPaperSendBtn').toggle();
+                                $('#zPaperSendPleaseWait').toggle();
+                                return;                // we must have the sfType for the backend
+                            }
+                            $("#SFtype").val(sfType);
+                            $("#SFids").val(sfId);
+                            $("#SForg").val(sfOrg);
+                            // Build up the list of recipients
+                            let sendToBuffer = "";
+                            $(".sendto-input-field").each(function(idx) {
+                                let value = this.value;
+                                //CRN210712 Don't default recipient to PDF since PDF doesn't really work when sending
+                                // via zippi (zippi always returns a new Snippet Id and I don't know what we're supposed
+                                // to do with that. I guess we can then do a view but the UI doesn't really support it).
+                                // For now, the user can send the document to their own email if they want to view the
+                                // resulting document.
+                                // if (!value && sendToBuffer.toLowerCase().indexOf("pdf") < 0) { value = "PDF"; }
+                                if (value && sendToBuffer.indexOf(value) < 0) {     // no duplicate recipients
+                                    if (sendToBuffer.length > 0) { sendToBuffer += ','; }
+                                    sendToBuffer += value;
+                                }
+                            });
+                            if (!sendToBuffer) {
+                                alert("Please enter a recipient.");
+                                $('#zPaperSendBtn').toggle();
+                                $('#zPaperSendPleaseWait').toggle();
+                                return;
+                            }
+                            $("#ContactFax").val(sendToBuffer);
+                            // Make sure we don't send hidden entry elements.
+                            $('.zippiTemplateFile').each(function() {
+                                let $this = $(this);
+                                if (!$this.is(':visible')) {
+                                    $this.prop('disabled', true);
+                                    let count = this.id.substring(this.id.lastIndexOf('-') + 1);
+                                    $('#harddrive-pages-text-input-id-' + count).prop('disabled', true);
+                                }
+                            });
+                            $('.zippiTemplateUrl').each(function() {
+                                let $this = $(this);
+                                if (!$this.is(':visible')) {
+                                    $this.prop('disabled', true);
+                                    let count = this.id.substring(this.id.lastIndexOf('-') + 1);
+                                    $('#salesforce-pages-text-input-id-' + count).prop('disabled', true);
+                                }
+                            });
+
+                            // submit the form
+                            let postUrl = form.action || "https://gw.zpaper.com/zippi/jobs"; //SHR210723 use the form action, fallback to gw
+                            postToZippi(postUrl, form,
+                                function(data, textStatus, jqXHR) {
+                                    $('#zPaperSendBtn').toggle();
+                                    $('#zPaperSendPleaseWait').toggle();
+                                    console.log(data);
+
+                                    let viewPdfUrl = data.metadata && data.metadata.X_reviewPDF;
+                                    if (!viewPdfUrl) {
+                                        alert("Request was submitted, but no file was generated!\nPlease contact zPaper support.");
+                                        return;
+                                    }
+                                    if (1==1 || confirm("Successfully submitted request.\nView the generated document?")) {
+                                        let w = window.open(viewPdfUrl, '_blank', 'width=760, height=900');
+                                        w.focus();
+                                    }
+                                },
+                                function(jqXHR, textStatus, errorThrown) {
+                                    $('#zPaperSendBtn').toggle();
+                                    $('#zPaperSendPleaseWait').toggle();
+                                    alert("Error submitting to zippi: " + errorThrown ? errorThrown : "Unknown error.");
+                                }
+                            );
+                        }
+                    );
+                }
+                return false; //don't do the normal submit
+            }
+
+            function enableSourceControls(sel, idx) {
+                // debugger;
+                // alert("Selected value = " + $(sel).val());
+                if (!idx) idx = "0";
+                let selVal = $(sel).val();
+                if ("harddrive" == selVal) {
+                    $("#webBrowseControls-" + idx).addClass('element-hidden');
+                    $('#startPageWeb-' + idx)[0].disabled = true;
+                    $("#fileBrowseControls-" + idx).removeClass('element-hidden');
+                    $('#startPageFile-' + idx)[0].disabled = false;
+                    $("#coverID" + idx).hide();
+                    $("#preview" + idx).hide();
+                    // $("#previewFile" + idx).hide(); //ERS210215 could not find a smooth way with only 1 button
+                } else if ("ZT" == selVal) {
+                    $("#coverID" + idx).show();
+                    //manual control for notes and checkboxes //$("#coverDIV").show();
+                    $("#webBrowseControls-" + idx).removeClass('element-hidden');
+                    $('#startPageWeb-' + idx)[0].disabled = true;
+                    $("#fileBrowseControls-" + idx).addClass('element-hidden');
+                    $('#startPageFile-' + idx)[0].disabled = true;
+                    $("#preview" + idx).show();
+                    // $("#previewFile" + idx).hide();
+                } else {
+                    $("#coverID" + idx).hide();
+                    $("#webBrowseControls-" + idx).removeClass('element-hidden');
+                    $('#startPageWeb-' + idx)[0].disabled = false;
+                    $("#fileBrowseControls-" + idx).addClass('element-hidden');
+                    $('#startPageFile-' + idx)[0].disabled = true;
+                    $("#preview" + idx).hide();
+                    // $("#previewFile" + idx).show();
+                    $('#webBrowseBtn-' + idx).unbind('click');   // clear the old click handler
+                    if ("GDR" === selVal) {
+                        $('#webBrowseBtn-' + idx).on("click", function () {
+                            exploreDriveFiles('templateURL' + idx);
+                            return false;
+                        });
+                    } else if ("SFR" === selVal) {
+                        $('#webBrowseBtn-' + idx).on("click", function () {
+                            exploreSalesforceFiles(this, true); //ERS210210 added idx to Source
+                            return false;
+                        });
+                    } else {
+                        $('#webBrowseBtn-' + idx).on("click", function () {
+                            exploreSalesforceFiles(this); //ERS210210 added idx to Source
+                            return false;
+                        });
+                    }
+                }
+            }
+
+            var hasGoodFile=false; //ERS210728
+            function goodFile(fn) {
+                if (fn.toLowerCase().indexOf(".png") > -1 || fn.toLowerCase().indexOf(".jpg") > -1) {
+                    alert("Only DOCX, PDF, and zPaper HTM files.");
+                    return false;
+                } //ERS210210 #81253 TODO better test
+                var dt=document.getElementById("doctitle-input-id-1");
+                var t=fn.substring(2+fn.lastIndexOf("/")+fn.lastIndexOf("\\"))
+                if (dt && (!dt.value || dt.value=="zMergeToPDF")) dt.value=t; //ERS210709 #83973
+                hasGoodFile=true;
+                return true;
+            }
+
+            function postToZippi(url, form, successFunction, errorFunction) {
+                let data = new FormData(form);
+                $.ajax({
+                    type: "POST",
+                    enctype: 'multipart/form-data',
+                    url: url,
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    timeout: 600000,
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                        "Accept": "application/json",
+                        "Authorization": "Bearer {!GETSESSIONID()}"
+                    },
+                    success: function (data, textStatus, jqXHR) {
+                        if (successFunction) {
+                            successFunction(data, textStatus, jqXHR);
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        if (errorFunction) {
+                            errorFunction(jqXHR, textStatus, errorThrown);
+                        }
+                    }
+                });
+            }
+
+            //SHR210722 apply help icons to this component
+            sldsHelpIcons("zMergeVfp", this.template);
+        </script>
+
+    </div>
+    </html>
+</apex:page>
