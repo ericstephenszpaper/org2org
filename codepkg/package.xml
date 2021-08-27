@@ -1,2 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>zPaper Components</fullName>    <types>        <members>Inbound</members>        <name>Queue</name>    </types>    <types>        <members>zPaperFlowsData</members>        <members>zzAction_Client_Library_js</members>        <members>zzAction_Create_zStack_js</members>        <members>zzAction_DELIVERY_COMPLETE_js</members>        <members>zzAction_DTPC_Library_js</members>        <members>zzAction_zStack_Library_js</members>        <members>zzOrg_Settings_js</members>        <name>StaticResource</name>    </types>    <types>        <members>ZPAPER__zStack__c.Inbound_with_no_QR_Codes</members>        <members>ZPAPER__zStack__c.zClear_New_Incoming</members>        <members>ZPAPER__zStack__c.zPopulate_Outbound_Template_field_Stack</members>        <members>ZPAPER__zStack__c.zStage_Update</members>        <name>WorkflowFieldUpdate</name>    </types>    <types>        <members>ZPAPER__zStack__c.SendStack</members>        <name>WorkflowOutboundMessage</name>    </types>    <types>        <members>ZPAPER__zStack__c.Forward to McKesson</members>        <members>ZPAPER__zStack__c.Inbound with no QR Codes</members>        <name>WorkflowRule</name>    </types>    <version>49.0</version></Package>
-<!-- Last updated Fri Aug 27 14:30:47 EDT 2021 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Inbound</members>
+        <name>Queue</name>
+    </types>
+    <types>
+        <members>zPaperFlowsData</members>
+        <members>zzAction_Client_Library_js</members>
+        <members>zzAction_Create_zStack_js</members>
+        <members>zzAction_DELIVERY_COMPLETE_js</members>
+        <members>zzAction_DTPC_Library_js</members>
+        <members>zzAction_zStack_Library_js</members>
+        <members>zzOrg_Settings_js</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.Inbound_with_no_QR_Codes</members>
+        <members>ZPAPER__zStack__c.zClear_New_Incoming</members>
+        <members>ZPAPER__zStack__c.zPopulate_Outbound_Template_field_Stack</members>
+        <members>ZPAPER__zStack__c.zStage_Update</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.SendStack</members>
+        <name>WorkflowOutboundMessage</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.Forward to McKesson</members>
+        <members>ZPAPER__zStack__c.Inbound with no QR Codes</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>49.0</version>
+</Package>
