@@ -1,0 +1,329 @@
+<apex:page showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+<html>
+<head><title>zPaper:Merge Field Explorer</title></head>
+<body>
+    <!-- Import the Design System style sheet -->
+    <apex:slds />
+
+    <!-- REQUIRED SLDS WRAPPER -->
+    <div class="slds-scope">
+<table><tr><th id="fieldsTD" style="vertical-align:top;">Fields<div class="infoIcon helpDoc" id="fieldsTDQ"></div></th>
+<td valign='top' style='display:none' why='TODO210708 next release'>
+<div id='outputsDIV'><select id='getTypes' onchange="getData(this,'types')">
+<option>Service Now (coming soon)</option>
+<option selected='1'>salesforce.com</option>
+</select>
+</div></td><td class="nonSFDCFieldsTD"><div id="outputFieldsDIV"></div></td>
+    <td class="nonSFDCFieldsTD" style="font-size:8pt" nowrap='1'><input class="nonSFDCFieldsTD" style="font-size:8pt" id="fieldExpr" value="" size='40'/> copy and paste</td>
+<td id="sfdcFieldsTD" style="width:100%;display:none;"></td>
+</tr>
+</table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/redmond/jquery-ui.min.css"></link>
+    <script src="https://static.zpaper.com/js/help2021.js" why="ERS210826 #85275"></script>
+    <style>
+        .infoIcon {
+            display: inline-block;
+            margin: 2px 5px;
+        }
+    </style>
+    
+    <script type="text/javascript">
+            function sldsHelpIcons(compName) {
+                let toolTips = helpStrings && helpStrings[compName];
+                console.log("ToolTips for: " + compName, toolTips);
+                if (!toolTips) {
+                    console.warn("Help is not available for this component!");
+                    //SHR210722 until we get the static help.js file updated, use these
+                    //TODO KPS210823 to create merge/transport content at https://zpaper.com/contact-us#merge-to-transport
+                    toolTips = {
+                        "helpDoc0": "zMerge Overview and Usage.pdf",
+                        "helpDoc1": "https://docs.google.com/document/d/1ln8iJiZo0NPKvMVbA_3rbFanIqfkRP-m1YZ_aEXBrQ8/preview",
+                        "helpDoc" : "https://docs.google.com/document/d/1MBIB12IB0uED0LFvyOiVcSbGoKwSV5f5UL2wq6LJiDw/preview",
+                        "fieldsTD": "Find the field you need starting from the record type you are on.",
+                        "fieldsTDQ": "window.open('https://docs.google.com/presentation/d/1YtJ_rML8VCmyzM_ed_FbrIKH2u_WdKFyLNS6m-_JQGw/view','zphelp','width=1024,height=800,resizable=1,menubar=1')",
+                        "buttonURLQ" : "window.open('!sfServer/p/setup/link/ActionButtonLinkList?pageName=Case&type=Case','sfhelp','resizable=1,menubar=1')",
+                        "mappedPathDIV" : "Click to learn how to merge Saleforce data",
+                        "end": "end"
+                    };
+                }
+
+                let $infoDivs = $('div.infoIcon');
+                console.log("Found " + $infoDivs.length + " help icons for: " + compName);
+                for (const div of $infoDivs) {
+                    let helpId = div.id && div.id.replace(/Q$/, ''); // the base help id
+                    let helpText = toolTips[helpId]; // title text for the base id
+                    //let helpLink = toolTips[helpId + 'Q'] || toolTips.helpDoc; // link to help doc
+                    var u=toolTips[helpId + 'Q'] || toolTips.helpDoc; //ERS210826 #85275
+                    if (u.indexOf("http")==0) { u="var w=window.open('"+u+"','zpHelp','resizable=1,menubar=1');w.focus();"; }
+                    let helpLink = u; // link to help doc
+                    $(div).html(`
+                        <button class="slds-button slds-button_icon" title="${helpText}" onclick="${helpLink}">
+                            <svg class="slds-button__icon" aria-hidden="true">
+                                <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/utility-sprite/svg/symbols.svg#info')}"></use>
+                            </svg>
+                            <span class="slds-assistive-text">${helpText}</span>
+                        </button>
+                    `);
+                }
+            }
+    
+        String.prototype.endsWith = function(str) {
+            if (str.length <= this.length) {
+                return this.indexOf(str, this.length - str.length) >= 0;
+            }
+            return false;
+        };
+        var fieldsTable = "<table style='width:100%' border='1'><tr><td>" +
+                            "<div id='sObjectsDiv' style='overflow-x:auto;width:100%;height0:60px;white-space:nowrap;'>" +
+                            "<select id='sObjects_0' onchange='getSObject(\"sObjects_0\");' style='width:300px;float:left;display:inline-block;white-space:normal;'>" +
+                            "</select>" +
+                            "</div>" +
+                          "</td></tr>" +
+            "<tr><td><input type='text' id='mappedPath' style='width:420px;'><div id='mappedPathDIV' class='infoIcon helpDoc'/>&nbsp; copy & paste</div></td></tr></table>";
+        var gCurLevel = 0;
+        let curPageUrl = "{!$CurrentPage.URL}";
+        let curPageHost = "{!LEFT($CurrentPage.URL,FIND('/',$CurrentPage.URL,9))}";
+        var SFserver0="{!$Api.Partner_Server_URL_310}"; //ERS210622
+        var SFsession0="{!GETSESSIONID()}"; //ERS210622
+    
+        function getAllSObjects(injectParentId) {
+            // first inject our table into the parent element
+            jQuery('#' + injectParentId).html(fieldsTable);
+            var restURL = curPageHost  + "services/data/v52.0/sobjects"; //ERS210708 and the headers too #83973
+            //if (query) url+="/"+query;
+            jQuery.ajax({
+                    url: restURL,
+                    dataType: "json",
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                        "Accept": "application/json",
+                        "Authorization": "Bearer "+SFsession0,
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert("Error retrieving questions. Status: " + textStatus + ", Error: " + errorThrown);
+                    },
+                    success: function(json, textStatus, XMLHttpRequest) {
+                        var buffer = "<option value='NONE'>Please select...</option>";
+                        json.sobjects.sort(function(a, b) {
+                            if (a.name < b.name) return -1;
+                            if (a.name > b.name) return 1;
+                            return 0;
+                        });
+                        for (var i in json.sobjects) {
+                            var descAction = "";
+                            var sobject = json.sobjects[i];
+                            var describeAction = sobject.urls.describe;
+                            if (!describeAction)    describeAction = "NONE";
+                            else {
+                                var idx = describeAction.indexOf("/sobjects/");
+                                if (idx > 0) {
+                                    descAction = describeAction.substring(idx + 1);
+                                }
+                            }
+                            if (sfTypes.indexOf(","+sobject.name +",")!=-1) { //ERS210626
+                            buffer += "<option " + (descAction?"style='font-weight:bold'":"") + " value='" + sobject.name + "' data-name='" + sobject.name + "' data-describe='" + descAction + "'>" + sobject.name + " (" + sobject.label + ") ></option>";
+                            }
+                        }
+                        jQuery('#sObjects_0').html(buffer);
+                    }
+                });
+        }
+        function getSObject(domId) {
+            var sel = document.getElementById(domId);
+            if (sel) {
+                var selOption = sel.options[sel.selectedIndex];
+                removeBacktrackedSelects(domId);
+                // tack on the current field to our string of objects for pasting
+                createMappedPath();
+                if (!jQuery(selOption).text().endsWith('>')) {
+                    return;
+                }
+                var action = jQuery(selOption).attr('data-describe');
+                var restURL = curPageHost  + "services/data/v52.0/"+action; //ERS210708 and the headers too #83973
+                jQuery.ajax({
+                        url: restURL,
+                        dataType: "json",
+                        headers: {
+                            "Access-Control-Allow-Origin": "*",
+                            "Accept": "application/json",
+                            "Authorization": "Bearer "+SFsession0,
+                        },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert("Error retrieving next sObject. Status: " + textStatus + ", Error: " + errorThrown);
+                    },
+                    success: function(data, textStatus, XMLHttpRequest) {
+                        //           alert("sObject json = " + data);
+                        //             buildNextSelect(domId, eval("(" + data + ")"));
+                        buildNextSelect(domId, data);
+                    }
+                });
+            }
+            else alert("WARNING: No element for " + domId + " was found.");
+        }
+        function createMappedPath() { //ERS140820
+            var elementAdded = false;
+            var buffer = "$";
+            if ("docx" == "docx") buffer="{"+"!";
+            for (var i = 0; i <= gCurLevel; i++) {
+                var curSel = document.getElementById('sObjects_' + i);
+                var selOption = curSel.options[curSel.selectedIndex];
+                if (elementAdded) buffer += '.';
+                elementAdded = true;
+                buffer += jQuery(selOption).attr('data-name');
+            }
+            if ("docx" == "docx") buffer+="}";
+            else buffer += "$";
+            jQuery('#mappedPath').val(buffer);
+        }
+
+        function removeBacktrackedSelects(parentId) {
+            // remove any old selects that are no longer used
+            var curLevel = parseInt(parentId.substring(parentId.indexOf('_') + 1));
+            if (gCurLevel > curLevel) {
+                // The user backtracked, get rid of forward selects
+                for (var count = curLevel + 1; count <= gCurLevel; count++) {
+                    jQuery('#sObjects_' + count).remove();
+                }
+                gCurLevel = curLevel;
+            }
+        }
+        function buildNextSelect(parentId, json) {
+            // todo: remove any old selects that might be required
+            var curLevel = parseInt(parentId.substring(parentId.indexOf('_') + 1));
+            gCurLevel = curLevel + 1;
+            var buffer = "<select id='sObjects_" + gCurLevel + "' onchange='getSObject(\"sObjects_" + gCurLevel +
+                         "\");' style='width:300px;display:block;white-space:normal;margin-left:6px;'>" +
+                         "<option value='NONE' data-name=''>Please select...</option>";
+            json.fields.sort(function(a, b) {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+            });
+            for (var i in json.fields) {
+                var fld = json.fields[i];
+                var descAction = "";
+                var dataName = fld.name;
+                if ('reference' == fld.type) {
+                    dataName = fld.relationshipName;
+                    var refType = fld.referenceTo[0];
+                    if (refType) {
+                        descAction = " data-describe='sobjects/" + refType + "/describe' ";
+                    }
+                }
+                buffer += "<option " + (descAction?"style='font-weight:bold'":"") + " value='" + fld.name + "' data-name='" + dataName + "' " + descAction + ">" + fld.name + " (" + fld.label + ") " + (descAction ? ">" : "") + "</option>";
+            }
+            buffer += "</select>";
+            jQuery('#sObjectsDiv').append(buffer);
+            jQuery('#sObjectsDiv').scrollLeft(jQuery('#sObjectsDiv').width());
+        }
+
+</script>
+<script>
+var moreURL="";
+var partner="";
+//ERS090318 changed frame load and callBack 2nd arg
+function getData(ele,what) {
+    //top.status="loading " + what + " data";
+    url="";
+    if (what == "types") { 
+        where=ele.options[ele.selectedIndex].text;
+        if (where.indexOf("orce.com") == -1 && where != "PaperHost" && where != "MediStreams" && where.indexOf("NetSuite")==-1) {
+            alert(where + " support is coming Soon!");
+            return;
+        }
+        if (where == "salesforce.com") {
+            var tds = document.getElementsByClassName('nonSFDCFieldsTD');
+//            alert("Number of tds = " + tds.length);
+            for (var i=0; i<tds.length; i++) {
+                tds[i].style.display = 'none'
+            }
+            document.getElementById('sfdcFieldsTD').style.display = '';
+            if ('undefined' != typeof getAllSObjects) {
+                getAllSObjects('sfdcFieldsTD');
+            }
+            return;
+        }
+        moreURL="";
+        if (moreURL=="") {alert("Please complete the pre-pop setup for this form."); return false;}
+    }
+    if (what == "fields") { 
+        type=ele.options[ele.selectedIndex].text;
+        if (ele.options[ele.selectedIndex].value == "null") return;
+    }
+    if (1==1 || !confirm(where + " gets " + what + " using\n" +url)) {
+        w=window.open(url,"LIST");  
+        w.focus();
+        return;
+    }
+    if (1 == 1 || confirm("Getting: " + what + ", using: " +url)) {
+    //document.frames['dataFrame2'].location=url;
+    window.open(url,"dataFrame2");
+    }
+    //alert("Loaded " + url);
+}
+function callBack(what,eleText) {
+   //alert("got the " + what +" data back.");
+   data=eleText; //ele.innerText;
+   //alert(what + " parsing " + data);
+   values=data.split(",");
+   values.sort();
+   if (what == "types") {
+      o=document.getElementById("outputsDIV");
+      results="<select id=typesSELECT style=\"font-size:8pt\" onchange=\"getData(this,'fields')\">";
+      results+="<option value=null>select one";
+      for (i=0; i<values.length; i++) {
+        if (values[i] != "") results+="<option>" + values[i];
+      }
+      results+="</select>";
+      if (o) o.innerHTML=results;
+   }
+   if (what == "fields") {
+      o=document.getElementById("outputFieldsDIV");
+      results="<select style=\"font-size:8pt\" onchange=\"addIt(this)\" id=fieldsSELECT>";
+      results+="<option selected>select a field";
+      for (i=0; i<values.length; i++) {
+        var pieces = values[i].split(':');
+        if (pieces.length == 3)  { if (values[i] != "") results+="<option>" + pieces[1]; }
+        else if (values[i] != "") results+="<option>"+values[i]; //ERS110818 better XML support
+      }
+      results+="</select>";
+      if (o) o.innerHTML=results;
+   }
+}
+function addIt(fromSEL) {
+  if (fromSEL.id == "fieldsSELECT") {
+   e4=document.getElementById("fieldExpr");
+   e2=document.getElementById("typesSELECT")
+   e2v=e2.options[e2.selectedIndex].text;
+   e3=document.getElementById("fieldsSELECT")
+   e3v=e3.options[e3.selectedIndex].text;
+  } 
+   v=e4.value;
+   if (v != "") v=v+"+";
+   v="";
+   if (e2v != "") v+=e2v+"."+e3v; else v+=e3v;
+   e4.value="$"+v+"$";
+   if ("docx" == "docx") e4.value="{!"+v+"}"; //ERS140820 simple lookup
+}
+</script>
+<!-- <iframe style0="display:none;" id='dataFrame2' name='dataFrame2' src=""></iframe> -->
+<!-- <div class="infoIcon helpDoc" id="sendToPdfQ" why="ERS210826">put some help</div> -->
+<b><a href="https://drive.google.com/drive/folders/1eUe407ht-cqC1u9wjzibht_JlQweZH01?usp=sharing" target="gdrive">Example DOCX files</a></b>
+<script>
+    var sfTypes=",Case,Account,Contact,Opportunity,Lead,Contact,"; //ERS210626 get relevant ones
+    sfTypes+="Order,"; //ERS210826
+    //alert("sfOrg="+sfOrg);
+    var ele=document.getElementById("getTypes");
+    //TODO ERS210826 choose the right sfType to start with
+    if (1==1) { //ERS210626 #83973
+        getData(ele,'types');
+    }
+    //SHR210826 apply help icons to this component
+    sldsHelpIcons("zFieldsVfp", this.template); //ERS210826
+</script>
+</div>    
+</body>
+</html>    
+</apex:page>
