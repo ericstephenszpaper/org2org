@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <listViews>
+        <fullName>Inbound_List</fullName>
+        <columns>NAME</columns>
+        <columns>ZPAPER__faxType__c</columns>
+        <columns>ZPAPER__From__c</columns>
+        <columns>ZPAPER__Pages__c</columns>
+        <columns>ZPAPER__latestFax__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>ZPAPER__sentFaxStatus__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ZPAPER__faxType__c</field>
+            <operation>equals</operation>
+            <value>ENRL,ENRL2,ENJIAP,ENJENR</value>
+        </filters>
+        <label>Inbound List</label>
+    </listViews>
+    <listViews>
+        <fullName>NO_QR_Code</fullName>
+        <columns>NAME</columns>
+        <columns>ZPAPER__faxType__c</columns>
+        <columns>ZPAPER__From__c</columns>
+        <columns>ZPAPER__Pages__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ZPAPER__faxType__c</field>
+            <operation>notEqual</operation>
+            <value>ENRL,ENRL2</value>
+        </filters>
+        <filters>
+            <field>OWNER.ALIAS</field>
+            <operation>equals</operation>
+            <value>inbound</value>
+        </filters>
+        <label>NO QR Code</label>
+    </listViews>
+</CustomObject>
