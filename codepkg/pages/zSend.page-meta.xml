@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Intuitive UX
+//ERS210920 fused from all other sources with CRN finishing</description>
+    <label>zSend</label>
+    <packageVersions>
+        <majorNumber>232</majorNumber>
+        <minorNumber>2</minorNumber>
+        <namespace>HealthCloudGA</namespace>
+    </packageVersions>
+</ApexPage>
