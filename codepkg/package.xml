@@ -1,2 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>zPaper Components</fullName>    <types>        <members>PatientConnect__PC_Document__c.zStack__c</members>        <name>CustomField</name>    </types>    <types>        <members>ZPAPER__zStack__c.Inbound_List</members>        <members>ZPAPER__zStack__c.NO_QR_Code</members>        <name>ListView</name>    </types>    <types>        <members>Inbound</members>        <name>Queue</name>    </types>    <types>        <members>zPaperFlowsData</members>        <members>zzAction_Client_Library_js</members>        <members>zzAction_Create_zStack_js</members>        <members>zzAction_DELIVERY_COMPLETE_js</members>        <members>zzAction_DTPC_Library_js</members>        <members>zzAction_zStack_Library_js</members>        <members>zzOrg_Settings_js</members>        <name>StaticResource</name>    </types>    <version>49.0</version></Package>
-<!-- Last updated Thu Sep 23 10:56:57 EDT 2021 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>PatientConnect__PC_Document__c.zStack__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>ZPAPER__zStack__c.Inbound_List</members>
+        <members>ZPAPER__zStack__c.NO_QR_Code</members>
+        <name>ListView</name>
+    </types>
+    <types>
+        <members>Inbound</members>
+        <name>Queue</name>
+    </types>
+    <types>
+        <members>zPaperFlowsData</members>
+        <members>zzAction_Client_Library_js</members>
+        <members>zzAction_Create_zStack_js</members>
+        <members>zzAction_DELIVERY_COMPLETE_js</members>
+        <members>zzAction_DTPC_Library_js</members>
+        <members>zzAction_zStack_Library_js</members>
+        <members>zzOrg_Settings_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>49.0</version>
+</Package>
