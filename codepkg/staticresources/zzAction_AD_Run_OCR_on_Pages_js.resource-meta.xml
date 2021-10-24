@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
-    <cacheControl>Public</cacheControl>
-    <contentType>text/javascript</contentType>
-    <description>20400_KB (Sales Edge HC Demo)/20400In (Main Inbox)/AD Run OCR on Pages</description>
-</StaticResource>
