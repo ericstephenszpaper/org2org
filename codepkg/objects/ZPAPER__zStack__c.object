@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Attestation_Included__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Created 12/16/2021 by CC for CCSI-2544</description>
+        <externalId>false</externalId>
+        <label>Attestation Included</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+</CustomObject>
