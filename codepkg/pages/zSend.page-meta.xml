@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>//APS220121 updated jquery from 3.4.1 to 3.6.0 and added escapeHTML to avoid XSS
+//ERS210927 fix to Files browse and extra extensions</description>
+    <label>zSend</label>
+    <packageVersions>
+        <majorNumber>3</majorNumber>
+        <minorNumber>32</minorNumber>
+        <namespace>ZPAPER</namespace>
+    </packageVersions>
+</ApexPage>
