@@ -1,10 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>zzAction_DELIVERY_COMPLETE_js</members>
-        <members>zzAction_Invite_to_sign_document_js</members>
-        <members>zzAction_SSLFax_Library_js</members>
-        <name>StaticResource</name>
-    </types>
-    <version>46.0</version>
-</Package>
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">    <fullName>o2o</fullName>    <description>ERS211023 1st kit</description>    <types>    <members>zzAction_SSLFax_Library_js</members>    <members>zzAction_DELIVERY_COMPLETE_js</members>    <members>zzAction_Invite_to_sign_document_js</members>    <name>StaticResource</name>    </types>  <version>46.0</version></Package>
+<!-- Last updated Fri May 27 16:21:22 EDT 2022 -->
