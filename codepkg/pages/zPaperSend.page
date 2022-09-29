@@ -1,0 +1,14 @@
+<!--
+*  Page Name: zPaperSend
+*  Description: zPaperSend custom vf page
+*  Author: Wilco
+-->
+<apex:page docType="html-5.0" standardController="LEAP_Outbound_Correspondence_Request__c" extensions="zPaperSendcontrollerExtension" showHeader="false" renderAs="html">
+   <div id= "zsend"> </div>
+   <script>
+     var zserver= '{!JSENCODE($Setup.ZPAPER__zpaper__c.ZPAPER__server__c)}',sendto2='{!JSENCODE(LEAP_Outbound_Correspondence_Request__c.LEAP_Contact_Point_Phone__c)}',
+         SFserver2= '{!JSENCODE($Api.Partner_Server_URL_160)}',sessionId2= '{!JSENCODE(sId)}';
+   </script>
+   <apex:includeScript value="{! $Resource.zPapersend2 }" loadOnReady="true"/>
+    
+</apex:page>
