@@ -1,2 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata"><!-- Quick Action zSend --><!-- //ERS220808 TODO another QA <types><name>QuickAction</name><members>zSend</members></types> --><!-- Visual Force Pages zSend360, zMerge --><types><name>ApexPage</name>    <members>zPaperFields</members>    <members>zSend360</members></types><version>52.0</version></Package>
-<!-- Last updated Mon Oct 03 19:03:31 EDT 2022 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>zPaperFields</members>
+        <members>zSend360</members>
+        <name>ApexPage</name>
+    </types>
+    <version>52.0</version>
+</Package>
