@@ -1,0 +1,39 @@
+<apex:page >
+    <script src="/soap/ajax/38.0/connection.js" type="text/javascript"></script>
+    
+    <script>
+        try{
+            //get the salesforce id
+            var aURL = document.location.href;
+            var i = aURL.indexOf("&id=");
+            var j = aURL.indexOf("&",i+1);
+            var sfId=aURL.substring(i+3+1,j);
+        
+            //get the case record 
+            sforce.connection.sessionId="{!GETSESSIONID()}";
+            var query = "SELECT Id, IsClosed from Case where Id = '" + sfId + "'"; 
+            var result = sforce.connection.query(query); 
+            var records = result.getArray('records'); 
+            console.log(records);
+            if(records && records[0]) {
+                console.log("1");
+                if(records[0].IsClosed == 'true') {
+                    console.log("2");
+                    document.write("Cannot send a document from a closed case");
+                } else {
+                    console.log("3");
+                    //sforce.one.navigateToURL("/apex/ZPAPER__zpFormsAll")
+                    //window.location = "/apex/ZPAPER__zpFormsAll";
+                    debugger;
+                    window.location.href = window.location.href.replace("zpFormsWrapperForCase", "ZPAPER__zpFormsAll");
+                    console.log("reached at redirection")
+                }
+            } else {
+                console.log("4");
+                throw "";
+            }
+        } catch(err) {
+            document.write("An error occured while opening the page")
+        }
+    </script>
+</apex:page>

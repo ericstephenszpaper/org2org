@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>zChannel1__c</fullName>
+        <description>define the basic fields for receiving a new file</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>{&apos;path&apos;:&apos;Orphan Rare Diseases/ACTIMMUNE/16789489774&apos;,&apos;db-readers&apos;:&apos;:-20100.1:&apos;,&apos;db-users&apos;:&apos;:-20100.1:&apos;}</inlineHelpText>
+        <label>zChannel1</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+</CustomObject>
