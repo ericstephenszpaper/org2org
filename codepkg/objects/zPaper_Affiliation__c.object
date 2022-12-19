@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Clinic__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Clinic</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>zPaper Affilitation (Clinic)</relationshipLabel>
+        <relationshipName>zPaper_Fax_Aff_Clinic</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fax__c</fullName>
+        <externalId>false</externalId>
+        <formula>Clinic__r.Fax</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Fax</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SentFax__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Checked whenever a document is sent</description>
+        <externalId>false</externalId>
+        <label>Sent Document</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>VAC__c</fullName>
+        <description>Vascular Access Center</description>
+        <externalId>false</externalId>
+        <label>Vascular Access Center</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>zPaper_VAC_Aff</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>faxType__c</fullName>
+        <description>Updated with the Doc Type of the last document received, if the doc type is indicated</description>
+        <externalId>false</externalId>
+        <label>Document Type</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>latestFax__c</fullName>
+        <description>Updated with the transaction Date/Time any time a document is sent or received</description>
+        <externalId>false</externalId>
+        <label>Latest Document</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>newFax__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Checked any time a new document is received</description>
+        <externalId>false</externalId>
+        <label>New Document</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>outboundFaxTemplate__c</fullName>
+        <description>Used for sending XML information to the zPaper Outbound Message Agent as part of a Salesforce Flow</description>
+        <externalId>false</externalId>
+        <label>Outbound Fax Template</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>producedID__c</fullName>
+        <description>Updated with the zPaper database ID of the received document when a document is received and associated with the record in question</description>
+        <externalId>false</externalId>
+        <label>Produced ID</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>receivedID__c</fullName>
+        <description>Updated with the zPaper database ID of the sent document when a document is sent from the record in question</description>
+        <externalId>false</externalId>
+        <label>Received ID</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>sendAgain__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used for time triggered faxing</description>
+        <externalId>false</externalId>
+        <label>Send Again</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>sentFaxAt__c</fullName>
+        <description>Updated with the transaction Date/Time any time a document is sent</description>
+        <externalId>false</externalId>
+        <label>Sent Document At</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>sentFaxStatus__c</fullName>
+        <description>Updated when the status of an outbound delivery attempt is know. Value is either &quot;Sent&quot; or &quot;Failed&quot; plus the failure reason</description>
+        <externalId>false</externalId>
+        <label>Sent Document Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>sentFaxTo__c</fullName>
+        <description>Updated with the destination of the sent document when an outbound fax is attempted</description>
+        <externalId>false</externalId>
+        <label>Sent Document To</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>zPaper Affiliation</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Clinic__c</columns>
+        <columns>VAC__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>American_Access_Care_of_Bellmore_LLC</fullName>
+        <columns>Clinic__c</columns>
+        <columns>NAME</columns>
+        <columns>VAC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>contains</operation>
+            <value>American Access Care of Bellmore</value>
+        </filters>
+        <label>American Access Care of Bellmore</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>American_Access_Care_of_Brooklyn_LLC</fullName>
+        <columns>Clinic__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>contains</operation>
+            <value>American Access Care of Brooklyn</value>
+        </filters>
+        <label>American Access Care of Brooklyn</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>American_Access_Care_of_New_Jersey_LLC</fullName>
+        <columns>Clinic__c</columns>
+        <columns>NAME</columns>
+        <columns>VAC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>contains</operation>
+            <value>American Access Care of New Jersey</value>
+        </filters>
+        <label>American Access Care of New Jersey</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>American_Access_Care_of_New_York_LLC</fullName>
+        <columns>Clinic__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>contains</operation>
+            <value>American Access Care of New York</value>
+        </filters>
+        <label>American Access Care of New York</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>American_Access_Care_of_Queens_LLC</fullName>
+        <columns>Clinic__c</columns>
+        <columns>VAC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>equals</operation>
+            <value>&quot;American Access Care of Queens, LLC&quot;</value>
+        </filters>
+        <label>American Access Care of Queens, LLC</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>American_Access_Care_of_Suffolk_County</fullName>
+        <columns>Clinic__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>contains</operation>
+            <value>American Access Care of Suffolk County</value>
+        </filters>
+        <label>American Access Care of Suffolk County</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>American_Access_Care_of_The_Bronx_LLC</fullName>
+        <columns>Clinic__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>contains</operation>
+            <value>American Access Care of The Bronx</value>
+        </filters>
+        <label>American Access Care of The Bronx</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Image_Guided_Surgery_Aesthetics</fullName>
+        <columns>Clinic__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>equals</operation>
+            <value>Image Guided Surgery &amp; Aesthetics</value>
+        </filters>
+        <label>Image Guided Surgery &amp; Aesthetics</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Interventional_Ambulatory_Center_of_Puer</fullName>
+        <columns>Clinic__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>contains</operation>
+            <value>Interventional Ambulatory Center of Puer</value>
+        </filters>
+        <label>Interventional Ambulatory Center of Puer</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Philadelphia_Vein_Vascular_South_PA</fullName>
+        <columns>Clinic__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>equals</operation>
+            <value>Philadelphia Vein &amp; Vascular at American Access Care of S. PA</value>
+        </filters>
+        <label>Philadelphia Vein &amp; Vascular - South PA</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Philadelphia_Vein_Vascular_at_American</fullName>
+        <columns>Clinic__c</columns>
+        <columns>VAC__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>equals</operation>
+            <value>Philadelphia Vein &amp; Vascular at American Access Care of PA</value>
+        </filters>
+        <label>Philadelphia Vein &amp; Vascular at American</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Test</fullName>
+        <columns>NAME</columns>
+        <columns>VAC__c</columns>
+        <columns>Clinic__c</columns>
+        <columns>Fax__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>contains</operation>
+            <value>Test</value>
+        </filters>
+        <label>Test</label>
+        <language>en_US</language>
+        <sharedTo/>
+    </listViews>
+    <listViews>
+        <fullName>Verona_Veins_at_Access_Care_Physicians</fullName>
+        <columns>Clinic__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>contains</operation>
+            <value>Verona Veins at Access Care Physicians of New Jersey</value>
+        </filters>
+        <label>Verona Veins at Access Care Physicians</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Verrazano_Vascular_Associates_SI</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>VAC__c</field>
+            <operation>equals</operation>
+            <value>Verrazano Vascular Associates</value>
+        </filters>
+        <label>Verrazano Vascular Associates - SI</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>zPaper_Fax Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>zPaper Affilitation</pluralLabel>
+    <searchLayouts>
+        <listViewButtons>massSend</listViewButtons>
+        <listViewButtons>Mass_Send_Zippi</listViewButtons>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Mass_Send_Zippi</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Mass Send Zippi</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>var records = {!GETRECORDIDS($ObjectType.zPaper_Affiliation__c)};
+if (records[0] == null) {
+alert(&quot;Please select at least one row&quot;)
+} else {
+var myForm = document.createElement(&quot;form&quot;);
+myForm.setAttribute(&quot;method&quot;, &quot;GET&quot;);
+myForm.setAttribute(&quot;action&quot;, &quot;/apex/Mass_Send_Zippi&quot;); 
+
+var sfIds = records[0].trim();
+for(var i = 1; i &lt; records.length; i++) {
+sfIds += &quot;,&quot; + records[i].trim();
+}
+
+myInput = document.createElement(&quot;input&quot;) ;
+myInput.setAttribute(&quot;name&quot;, &quot;sfIds&quot;);
+myInput.setAttribute(&quot;value&quot;, sfIds);
+myForm.appendChild(myInput);
+document.body.appendChild(myForm);
+
+if (
+confirm(&quot;Send &quot; + records.length + &quot; faxes?&quot;)) 
+myForm.submit() ;
+document.body.removeChild(myForm) ;
+}
+
+/*
+var records = {!GETRECORDIDS($ObjectType.zPaper_Affiliation__c)};
+if (records[0] == null) {
+alert(&quot;Please select at least one row&quot;)
+} else {
+var url = &quot;/apex/Mass_Send_Zippi&quot;;
+var sfIds = records[0].trim();
+for(var i = 1; i &lt; records.length; i++) {
+sfIds += &quot;,&quot; + records[i].trim();
+}
+url += &quot;?sfIds=&quot; + sfIds
+window.location.href = url;
+}
+*/</url>
+    </webLinks>
+    <webLinks>
+        <fullName>massSend</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Mass Send</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>var records = {!GETRECORDIDS($ObjectType.zPaper_Affiliation__c)}; 
+if (records[0] == null) { 
+alert(&quot;Please select at least one row&quot;) 
+} else { 
+var myForm = document.createElement(&quot;form&quot;) 
+myForm.setAttribute(&quot;method&quot;, &quot;POST&quot;); 
+myForm.setAttribute(&quot;action&quot;, &quot;https://{!$Setup.ZPAPER__zpaper__c.ZPAPER__server__c}/kb/jsp/massFaxBin.jsp&quot;); 
+
+var myInput = document.createElement(&quot;input&quot;) ; 
+myInput.setAttribute(&quot;name&quot;, &quot;sfUser&quot;) ; 
+myInput.setAttribute(&quot;value&quot;,&quot;{!$User.Username}&quot;); 
+myForm.appendChild(myInput); 
+
+myInput = document.createElement(&quot;input&quot;) ; 
+myInput.setAttribute(&quot;name&quot;, &quot;broadcast&quot;) ; 
+myInput.setAttribute(&quot;value&quot;,&quot;1&quot;); 
+myForm.appendChild(myInput); 
+
+myInput = document.createElement(&quot;input&quot;) ; 
+myInput.setAttribute(&quot;name&quot;, &quot;SFserver&quot;) ; 
+myInput.setAttribute(&quot;value&quot;,&quot;{!$Api.Partner_Server_URL_160}&quot;); 
+myForm.appendChild(myInput); 
+
+myInput = document.createElement(&quot;input&quot;) ; 
+myInput.setAttribute(&quot;name&quot;, &quot;SFsession&quot;) ; 
+myInput.setAttribute(&quot;value&quot;,&quot;{!$Api.Session_ID}&quot;); 
+myForm.appendChild(myInput); 
+
+myInput = document.createElement(&quot;input&quot;) ; 
+myInput.setAttribute(&quot;name&quot;, &quot;sfOrg&quot;) ; 
+myInput.setAttribute(&quot;value&quot;,&quot;{!$Organization.Id}&quot;); 
+myForm.appendChild(myInput); 
+
+myInput = document.createElement(&quot;input&quot;) ; 
+myInput.setAttribute(&quot;name&quot;, &quot;SFtype&quot;) ; 
+myInput.setAttribute(&quot;value&quot;,&quot;zPaper_Affiliation__c&quot;); 
+myForm.appendChild(myInput); 
+
+myInput = document.createElement(&quot;input&quot;) ; 
+myInput.setAttribute(&quot;name&quot;, &quot;sfIDs&quot;) ; 
+myInput.setAttribute(&quot;value&quot;,records.toString()); 
+//alert(records.toString()); 
+myForm.appendChild(myInput); 
+
+myInput = document.createElement(&quot;input&quot;) ; 
+myInput.setAttribute(&quot;name&quot;, &quot;sendToFax&quot;) ; 
+myInput.setAttribute(&quot;value&quot;,&quot;{!zPaper_Affiliation__c.Fax__c}&quot;); 
+myForm.appendChild(myInput); 
+
+document.body.appendChild(myForm) ; 
+if (confirm(&quot;Send &quot; + records.length + &quot; faxes?&quot;)) myForm.submit() ; 
+document.body.removeChild(myForm) ; 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>zMass_Send</fullName>
+        <availability>online</availability>
+        <description>based the VFP on the zSend from the zSend accelerator</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>zMass Send</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>//get this from the package one and use the SFids hash to pass to VFP based on zSend
+alert(&quot;Please do not delete! Contact bryan.roth@zpaper.com&quot;);</url>
+    </webLinks>
+</CustomObject>
