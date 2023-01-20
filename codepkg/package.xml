@@ -1,2 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>zConfig Actions</fullName><types><members>zzAction_Copper_Edition_Library_js</members><members>zzAction_Received_Documents_Library_js</members><members>zzAction_Copper_Client_Library_js</members><members>zzAction_Copper_Delivery_js</members><members>zzAction_Copper_ReceivedDocument_js</members><!-- ERS220719 <members>zzAction_Custom_Barcode_Received_js</members> --><members>zzAction_Standard_Barcode_Received_js</members><name>StaticResource</name></types><!-- Quick Action zSend--><types><name>QuickAction</name><members>zSend</members></types><!-- Activity Reports --><!-- Visual Force PagezSendZippi, zSend, zMerge --><types><name>ApexPage</name><!-- ERS210920 <members>zSendZippi</members> --><members>zPaperFields</members><!-- ERS220719 #92716 <members>zSend</members> --><members>zSend360</members><members>zSend366</members></types><!-- APS210922 Commented out channels are in MP for TransportCustom Settings for zChannel1, zChannel2, zChannel3, zChannel4<types><name>CustomField</name><members>ZPAPER6__zpaper__c.zChannel1__c</members><members>ZPAPER6__zpaper__c.zChannel2__c</members><members>ZPAPER6__zpaper__c.zChannel3__c</members><members>ZPAPER6__zpaper__c.zChannel4__c</members></types>--><!--{"path":"Specialty Drugs/zCharta","fax":"16789483077","email":"16789483077@mfb.zpaper.com","action":"clientReceivedDocument()","create":"Case:Admission","owner":"00G4T000001Hx4eUAC","db-users":":-20400.1:","db-readers":":-20400.1:"} --><!-- ClickDeploy ExportQuickAction/zSendApexPage/zSendZippiApexPage/zMergeApexPage/zSendStaticResource/zzAction_Received_Documents_Library_jsStaticResource/zzAction_Copper_Delivery_jsStaticResource/zzAction_Copper_ReceivedDocument_jsStaticResource/zzAction_Copper_Edition_Library_jsStaticResource/zzAction_Copper_Client_Library_jsStaticResource/zzAction_Standard_Barcode_Received_jsStaticResource/zzAction_Custom_Barcode_Received_jsCustomField/ZPAPER__zpaper__c.zChannel1__c--><version>50.0</version></Package>
-<!-- Last updated Fri Jan 20 12:37:59 EST 2023 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>zPaperFields</members>
+        <members>zSend360</members>
+        <members>zSend366</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>zSend</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
+        <members>zzAction_Copper_Client_Library_js</members>
+        <members>zzAction_Copper_Delivery_js</members>
+        <members>zzAction_Copper_Edition_Library_js</members>
+        <members>zzAction_Copper_ReceivedDocument_js</members>
+        <members>zzAction_Received_Documents_Library_js</members>
+        <members>zzAction_Standard_Barcode_Received_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>50.0</version>
+</Package>
