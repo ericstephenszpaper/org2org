@@ -1,8 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>zSend360</members>
-        <name>ApexPage</name>
-    </types>
-    <version>52.0</version>
-</Package>
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>zConfig Actions</fullName><description>zConfig Actions</description><types><name>QuickAction</name><members>zSend</members></types><types><name>ApexPage</name><members>zSend360</members><members>zPaperFields</members></types><version>52.0</version></Package>
+<!-- Last updated Thu Mar 02 09:19:58 EST 2023 -->
