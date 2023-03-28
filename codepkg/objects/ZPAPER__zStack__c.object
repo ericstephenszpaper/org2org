@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Completed__c</fullName>
+        <description>Updated upon selecting the Stack Complete button when Triaging a zStack (US 15368)</description>
+        <externalId>false</externalId>
+        <label>Completed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>In_Progress__c</fullName>
+        <description>Updated upon opening the zStack (US 15368)</description>
+        <externalId>false</externalId>
+        <label>In Progress</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Pending__c</fullName>
+        <description>Updated upon adding a Pending Reason to a zStack (US 15368)</description>
+        <externalId>false</externalId>
+        <label>Pending</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+</CustomObject>
