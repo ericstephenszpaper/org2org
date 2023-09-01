@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>TRF Signature</fullName>
+                    <default>false</default>
+                    <label>TRF Signature</label>
+                </value>
+                <value>
+                    <fullName>Single Identifiers</fullName>
+                    <default>false</default>
+                    <label>Single Identifiers</label>
+                </value>
+                <value>
+                    <fullName>Consent</fullName>
+                    <default>false</default>
+                    <label>Consent</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>TRF Order</fullName>
+                    <default>false</default>
+                    <label>TRF Order</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+</CustomObject>
