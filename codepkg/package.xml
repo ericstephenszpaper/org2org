@@ -1,2 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>zPaper Components</fullName><types><members>ZPAPER__zStack__c.Category__c</members><members>Case.Pages__c</members><name>CustomField</name></types><types><name>ApexPage</name><members>zSend361</members> </types><types><members>Incoming_Fax</members><name>Queue</name></types><types><members>zzAction_Client_Library_js</members><members>zzAction_DELIVERY_COMPLETE_js</members><members>zzAction_Index_Page_js</members><members>zzAction_Create_zStack_js</members><name>StaticResource</name></types><version>50.0</version></Package>
-<!-- Last updated Thu Sep 14 15:04:44 EDT 2023 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>zSend361</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>Case.Pages__c</members>
+        <members>ZPAPER__zStack__c.Category__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Incoming_Fax</members>
+        <name>Queue</name>
+    </types>
+    <types>
+        <members>zzAction_Client_Library_js</members>
+        <members>zzAction_Create_zStack_js</members>
+        <members>zzAction_DELIVERY_COMPLETE_js</members>
+        <members>zzAction_Index_Page_js</members>
+        <name>StaticResource</name>
+    </types>
+    <version>50.0</version>
+</Package>
