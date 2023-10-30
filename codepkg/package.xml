@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata"><fullName>zPaper Components</fullName><types><members>zzAction_Client_Library_js</members><members>zzAction_Create_zStack_js</members><members>zzAction_Standard_Barcode_Received_js</members><members>zzAction_zStack_Library_js</members><name>StaticResource</name></types><version>50.0</version></Package>
+<!-- Last updated Mon Oct 30 14:36:24 EDT 2023 -->
